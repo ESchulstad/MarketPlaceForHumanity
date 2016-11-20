@@ -85,7 +85,7 @@
                     <div class="col-xs-12 col-md-8 col-md-offset-2 chat" id="ProvPost">
                         @*<span class="ProviderName">@item.ProviderPost.Provider.OrgName</span>*@
                         <div class="container" id="post">
-                            <h2>@item.Provider.OrgName</h2>
+                            <h2>@item.ProviderID</h2>
                             <!-- Trigger the modal with a button -->
                             <a href="" class="open" data-toggle="modal" data-target="#providerModal"><i class="ionicons ion-ios-information"></i></a>
                             <!-- Modal -->
@@ -95,13 +95,13 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            <h4 class="modal-title">@item.Provider.OrgName</h4>
+                                            <h4 class="modal-title">@item.ProviderID</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <p><strong>@Html.DisplayNameFor(modelitem => item.Provider.ContactName):</strong> @item.Provider.ContactName</p>
+                                           @* <p><strong>@Html.DisplayNameFor(modelitem => item.Provider.ContactName):</strong> @item.Provider.ContactName</p>
                                             <p><strong>@Html.DisplayNameFor(modelitem => item.Provider.ContactPhone):</strong> @item.Provider.ContactPhone</p>
                                             <p><strong>@Html.DisplayNameFor(modelitem => item.Provider.ContactEmail):</strong><a href="mailto:@item.Provider.ContactEmail" target="_blank">@item.Provider.ContactEmail</a></p>
-                                            <p><strong>@Html.DisplayNameFor(modelitem => item.Provider.Website):</strong><a href="http://@item.Provider.Website" target="_blank">@item.Provider.Website</a></p>
+                                            <p><strong>@Html.DisplayNameFor(modelitem => item.Provider.Website):</strong><a href="http://@item.Provider.Website" target="_blank">@item.Provider.Website</a></p>*@
                                             @* More text could go here in a similar format *@
                                         </div>
                                         <div class="modal-footer">
@@ -241,12 +241,12 @@
         <div class="row">
             @foreach (TransportPost item in Model.TransportPosts)
             {
-                if (item != null)
+                if (item != null /*&& item.Transport != null*/)
                 {
                     <div class="col-xs-12 col-md-8 col-md-offset-2 chat">
                         @*<span class="ProviderName">@item.ProviderPost.Provider.OrgName</span>*@
                         <div class="container" id="post">
-                            <h2>@item.Transport.OrganizationName<i class="fa fa-truck" aria-hidden="true"></i></h2>
+                            <h2>@item.TransportID<i class="fa fa-truck" aria-hidden="true"></i></h2>
                             <!-- Trigger the modal with a button -->
                             <a href="" class="open" data-toggle="modal" data-target="#transModal"><i class="ionicons ion-ios-information"></i></a>
                             <!-- Modal -->
@@ -256,10 +256,10 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            <h4 class="modal-title">@item.Transport.OrganizationName</h4>
+                                            <h4 class="modal-title">@item.TransportID</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <p><a href="mailto:@item.Transport.ContactEmail" target="_blank">@item.Transport.ContactEmail</a></p>
+                                            @*<p><a href="mailto:@item.Transport.ContactEmail" target="_blank">@item.Transport.ContactEmail</a></p>*@
                                             @* More text could go here in a similar format *@
                                         </div>
                                         <div class="modal-footer">

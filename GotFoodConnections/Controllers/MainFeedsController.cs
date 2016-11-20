@@ -22,8 +22,11 @@ namespace GotFoodConnections.Controllers
             //return View(mainFeeds.ToList());
             dynamic mymodel = new ExpandoObject();
             mymodel.ProviderPosts = db.ProviderPosts;
+            mymodel.Providers = db.Providers;
             mymodel.CharityPosts = db.CharityPosts;
+            mymodel.ChharityProfiles = db.CharityProfiles;
             mymodel.TransportPosts = db.TransportPosts;
+            mymodel.Transports = db.Transports;
             return View(mymodel);
         }
 
