@@ -1,0 +1,293 @@
+﻿@*@model IEnumerable<GotFoodConnections.Models.MainFeed>*@
+@using GotFoodConnections.Models;
+@model dynamic
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CharityPost.FoodRequested)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProviderPost.FoodType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TransportPost.Message)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CharityPost.FoodRequested)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProviderPost.FoodType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransportPost.Message)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.MainFeedID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.MainFeedID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.MainFeedID })
+            </td>
+        </tr>
+    }
+
+    </table>*@
+
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#home">Food Available</a></li>
+    <li><a data-toggle="tab" href="#menu1">Food Needed</a></li>
+    <li><a data-toggle="tab" href="#menu2">Food Transportation</a></li>
+</ul>
+
+<div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+        <h3>Food Available</h3>
+
+        <div class="row">
+            @foreach (ProviderPost item in Model.ProviderPosts)
+            {
+                if (item != null)
+                {
+                    <div class="col-xs-12 col-md-8 col-md-offset-2 chat" id="ProvPost">
+                        @*<span class="ProviderName">@item.ProviderPost.Provider.OrgName</span>*@
+                        <div class="container" id="post">
+                            <h2>@item.Provider.OrgName</h2>
+                            <!-- Trigger the modal with a button -->
+                            <a href="" class="open" data-toggle="modal" data-target="#providerModal"><i class="ionicons ion-ios-information"></i></a>
+                            <!-- Modal -->
+                            <div class="modal fade" id="providerModal" role="dialog">
+                                <div class="modal-dialog">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">@item.Provider.OrgName</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p><strong>@Html.DisplayNameFor(modelitem => item.Provider.ContactName):</strong> @item.Provider.ContactName</p>
+                                            <p><strong>@Html.DisplayNameFor(modelitem => item.Provider.ContactPhone):</strong> @item.Provider.ContactPhone</p>
+                                            <p><strong>@Html.DisplayNameFor(modelitem => item.Provider.ContactEmail):</strong><a href="mailto:@item.Provider.ContactEmail" target="_blank">@item.Provider.ContactEmail</a></p>
+                                            <p><strong>@Html.DisplayNameFor(modelitem => item.Provider.Website):</strong><a href="http://@item.Provider.Website" target="_blank">@item.Provider.Website</a></p>
+                                            @* More text could go here in a similar format *@
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 id="FoodType">@Html.DisplayNameFor(modelitem => item.FoodType)</h5>
+                        <span id="FoodType">@item.FoodType</span>
+                        <h5 id="PeopleFedLabel">@Html.DisplayNameFor(modelitem => item.PeopleFed)</h5>
+                        <span id="PeopleFed">@item.PeopleFed</span>
+                        <h5 id="AllergensLabel">@Html.DisplayNameFor(modelitem => item.PotentialAllergens)</h5>
+                        <span id="Allergens">@item.PotentialAllergens</span>
+                        <h5 id="ExpirationDateLabel">@Html.DisplayNameFor(modelitem => item.ExpirationDate)</h5>
+                        <span id="ExpirationDate">@item.ExpirationDate</span>
+                        <h5 id="SpecialTransportLabel">@Html.DisplayNameFor(modelitem => item.SpecialTransport)</h5>
+                        <span id="SpecialTransport">@item.SpecialTransport</span>
+                        <h5 id="CommentsLabel">@Html.DisplayNameFor(modelitem => item.Comments)</h5>
+                        <span id="Comments">@item.Comments</span>
+                        <h5 id="TimeStampLabel">@Html.DisplayNameFor(modelitem => item.TimeStamp)</h5>
+                        <span class="TimeStamp">@item.TimeStamp</span><br />
+                    </div>
+                }
+                else
+                {
+                    <p>"There currently are no posts."</p>;
+                }
+            }
+
+        </div>
+
+
+
+
+        @*<table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.ProviderPost.FoodType)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProviderPost.FoodType)
+                    </td>
+                </tr>
+            }*@
+
+
+    </div>
+    <div id="menu1" class="tab-pane fade">
+        <h3>Food Needed</h3>
+
+        <div class="row">
+            @foreach (CharityPost item in Model.CharityPosts)
+            {
+                if (item != null)
+                {
+                    <div class="col-xs-12 col-md-8 col-md-offset-2 chat">
+                        <div class="container" id="post">
+                            <h2>@item.CharityProfile.CharityName</h2>
+                            <!-- Trigger the modal with a button -->
+                            <a href="" class="open" data-toggle="modal" data-target="#charityModal"><i class="ionicons ion-ios-information"></i></a>
+                            <!-- Modal -->
+                            <div class="modal fade" id="charityModal" role="dialog">
+                                <div class="modal-dialog">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">@item.CharityProfile.CharityName</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p><a href="mailto:@item.CharityProfile.ContactEmail" target="_blank">@item.CharityProfile.ContactEmail</a></p>
+                                            @* More text could go here in a similar format *@
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 id="FoodRequestedLabel">@Html.DisplayNameFor(modelitem => item.FoodRequested)</h5>
+                        <span id="FoodRequested">@item.FoodRequested</span>
+                        <h5 id="WeightRequestedLabel">@Html.DisplayNameFor(modelitem => item.WeightRequested)</h5>
+                        <span id="WeightRequested">@item.WeightRequested</span>
+                        <h5 id="PeopleToFeedLabel">@Html.DisplayNameFor(modelitem => item.PeopleToFeed)</h5>
+                        <span id="PeopleToFeed">@item.PeopleToFeed</span>
+                        <h5 id="ExpirationDateLabel">@Html.DisplayNameFor(modelitem => item.DateRequested)</h5>
+                        <span id="ExpirationDate">@item.DateRequested</span>
+                        <h5 id="CommentsLabel">@Html.DisplayNameFor(modelitem => item.Comments)</h5>
+                        <span id="Comments">@item.Comments</span>
+                        <h5 id="TimeStampLabel">@Html.DisplayNameFor(modelitem => item.TimeStamp)</h5>
+                        <span class="TimeStamp">@item.TimeStamp</span><br />
+                    </div>
+                }
+                else
+                {
+                    <p>"There currently are no posts."</p>;
+                }
+            }
+
+        </div>
+
+
+        @*<table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CharityPost.FoodRequested)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CharityPost.FoodRequested)
+                        </td>
+                    </tr>
+                }
+
+            </table>*@
+
+    </div>
+    <div id="menu2" class="tab-pane fade">
+        <h3>Food Transportation</h3>
+
+        <div class="row">
+            @foreach (TransportPost item in Model.TransportPosts)
+            {
+                if (item != null)
+                {
+                    <div class="col-xs-12 col-md-8 col-md-offset-2 chat">
+                        @*<span class="ProviderName">@item.ProviderPost.Provider.OrgName</span>*@
+                        <div class="container" id="post">
+                            <h2>@item.Transport.OrganizationName<i class="fa fa-truck" aria-hidden="true"></i></h2>
+                            <!-- Trigger the modal with a button -->
+                            <a href="" class="open" data-toggle="modal" data-target="#transModal"><i class="ionicons ion-ios-information"></i></a>
+                            <!-- Modal -->
+                            <div class="modal fade" id="transModal" role="dialog">
+                                <div class="modal-dialog">
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">@item.Transport.OrganizationName</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p><a href="mailto:@item.Transport.ContactEmail" target="_blank">@item.Transport.ContactEmail</a></p>
+                                            @* More text could go here in a similar format *@
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h5 id="MessageLabel">@Html.DisplayNameFor(modelitem => item.Message)</h5>
+                        <span id="Message">@item.Message</span>
+                        <h5 id="CommentsLabel">@Html.DisplayNameFor(modelitem => item.Comments)</h5>
+                        <span id="PeopleFed">@item.StartTimeAvailable</span>
+                        <h5 id="CommentsLabel">@Html.DisplayNameFor(modelitem => item.Comments)</h5>
+                        <span id="Allergens">@item.EndTimeAvailable</span>
+                        <h5 id="CommentsLabel">@Html.DisplayNameFor(modelitem => item.Comments)</h5>
+                        <span id="Comments">@item.Comments</span>
+                        <h5 id="TimeStampLabel">@Html.DisplayNameFor(modelitem => item.TimeStamp)</h5>
+                        <span class="TimeStamp">@item.TimeStamp</span><br />
+                    </div>
+                }
+                else
+                {
+                    <p>"There currently are no posts."</p>;
+                }
+            }
+
+        </div>
+
+
+        @*<table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TransportPost.Message)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TransportPost.Message)
+                        </td>
+                    </tr>
+                }
+
+            </table>*@
+
+    </div>
+</div>
