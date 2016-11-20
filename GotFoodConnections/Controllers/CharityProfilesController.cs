@@ -8,12 +8,23 @@ using System.Web;
 using System.Web.Mvc;
 using GotFoodConnections.Models;
 using System.IO;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace GotFoodConnections.Controllers
 {
+    [Authorize(Roles ="Charity")]
+
     public class CharityProfilesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+
+        // GET: CharityProfilesName
+        [AllowAnonymous]
+        public ActionResult CharityList()
+        {
+            return View(db.CharityProfiles.ToList());
+        }
 
         // GET: CharityProfiles
         public ActionResult Index()
@@ -40,6 +51,7 @@ namespace GotFoodConnections.Controllers
         }
 
         // GET: CharityProfiles/Details/5
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -65,8 +77,13 @@ namespace GotFoodConnections.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CharityID,CharityName,StreetNumber,StreetName,City,State,Zip,MissionStatement,ContactName,ContactPosition,ContactPhone,ContactEmail,AdditionalContactInfo,GenFoodRequest,ProvideTransport,CharityNum,Website")] CharityProfile charityProfile)
+        public ActionResult Create([Bind(Include = "CharityID,CharityName,StreetNumber,StreetName,City,State,Zip,MissionStatement,ContactName,ContactPosition,ContactPhone,ContactEmail,AdditionalContactInfo,GenFoodRequest,ProvideTransport,CharityNum,Website,User_Id")] CharityProfile charityProfile)
         {
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+
+            charityProfile.User = currentUser;
+
             if (ModelState.IsValid)
             {
                 db.CharityProfiles.Add(charityProfile);

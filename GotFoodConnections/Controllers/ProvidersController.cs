@@ -7,15 +7,27 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using GotFoodConnections.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace GotFoodConnections.Controllers
 {
+    [Authorize(Roles ="Food Donor")]
+
     public class ProvidersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        // GET: Providers List
+        [AllowAnonymous]
+        public ActionResult ProviderList()
+        {
+            var providers = db.Providers.Include(p => p.ProviderType);
+            return View(providers.ToList());
+        }
 
         // GET: ScoreBoard
+        [AllowAnonymous]
         public ActionResult ScoreBoard()
         {
 
@@ -61,6 +73,7 @@ namespace GotFoodConnections.Controllers
         }
 
         // GET: Providers/Details/5
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -87,8 +100,13 @@ namespace GotFoodConnections.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProviderID,OrgName,ContactName,ContactEmail,ContactPhone,StreetNumber,StreetName,City,State,ZipCode,Website,Foods,ProvideTransport,NumOfDonation,StarRating,TypeID")] Provider provider)
+        public ActionResult Create([Bind(Include = "ProviderID,OrgName,ContactName,ContactEmail,ContactPhone,StreetNumber,StreetName,City,State,ZipCode,Website,Foods,ProvideTransport,NumOfDonation,StarRating,TypeID,User_Id")] Provider provider)
         {
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+
+            provider.User = currentUser;
+
             if (ModelState.IsValid)
             {
                 db.Providers.Add(provider);

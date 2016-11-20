@@ -7,12 +7,23 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using GotFoodConnections.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace GotFoodConnections.Controllers
 {
+    [Authorize(Roles ="Transportation Assistance")]
+
     public class TransportsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
+
+        // GET: Transports
+        [AllowAnonymous]
+        public ActionResult TransportList()
+        {
+            return View(db.Transports.ToList());
+        }
 
         // GET: Transports
         public ActionResult Index()
@@ -21,6 +32,7 @@ namespace GotFoodConnections.Controllers
         }
 
         // GET: Transports/Details/5
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -46,8 +58,13 @@ namespace GotFoodConnections.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TransportID,OrganizationName,ContactName,ContactPosition,ContactPhone,ContactEmail,AdditionalContactInfo,StreetNumber,StreetName,City,State,Zip,TransportationTypes,FoodTypes,GeneralAvailability,Website")] Transport transport)
+        public ActionResult Create([Bind(Include = "TransportID,OrganizationName,ContactName,ContactPosition,ContactPhone,ContactEmail,AdditionalContactInfo,StreetNumber,StreetName,City,State,Zip,TransportationTypes,FoodTypes,GeneralAvailability,Website,User_Id")] Transport transport)
         {
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+
+            transport.User = currentUser;
+
             if (ModelState.IsValid)
             {
                 db.Transports.Add(transport);

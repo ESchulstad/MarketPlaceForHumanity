@@ -1,0 +1,29 @@
+﻿@model IEnumerable<GotFoodConnections.Models.Provider>
+
+
+@{
+    ViewBag.Title = "ProviderList";
+}
+
+<h2>ProviderList</h2>
+<table class="table">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.OrgName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @*@Html.DisplayFor(modelItem => item.OrgName)*@
+                @Html.ActionLink(item.OrgName, "Details", new { id = item.ProviderID })
+            </td>
+        </tr>
+    }
+
+</table>

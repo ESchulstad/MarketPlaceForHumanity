@@ -10,6 +10,8 @@ using GotFoodConnections.Models;
 
 namespace GotFoodConnections.Controllers
 {
+    [Authorize(Roles ="Transportation Assistance")]
+
     public class TransportPostsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

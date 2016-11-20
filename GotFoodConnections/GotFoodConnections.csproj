@@ -346,6 +346,9 @@
     <Content Include="Views\TransportPosts\Edit.cshtml" />
     <Content Include="Views\TransportPosts\Index.cshtml" />
     <Content Include="Views\Providers\ScoreBoard.cshtml" />
+    <Content Include="Views\CharityProfiles\CharityList.cshtml" />
+    <Content Include="Views\Providers\ProviderList.cshtml" />
+    <Content Include="Views\Transports\TransportList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

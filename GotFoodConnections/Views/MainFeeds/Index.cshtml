@@ -8,6 +8,27 @@
 
 <h2>Index</h2>
 
+
+    
+        @if (Request.IsAuthenticated)
+        {
+            
+                if(User.IsInRole("Food Donor"))
+                {
+                    @Html.ActionLink("Create Post", "Index", "ProviderPosts");
+                }
+                else if (User.IsInRole("Charity"))
+                {
+                    @Html.ActionLink("Create Post", "Index", "CharityPosts");
+                }
+                else if (User.IsInRole("Transportation Assistance"))
+                {
+                    @Html.ActionLink("Create Post", "Index", "TransportPosts");
+                }
+           
+        }
+
+
 @*<p>
         @Html.ActionLink("Create New", "Create")
     </p>
