@@ -140,7 +140,7 @@
     @Html.ActionLink("Back to List", "Index") |
     @if (User.IsInRole("Food Donor"))
     {
-    @Html.ActionLink("Donate", "Donate", new { id = Model.ProviderID }) 
+        @Html.ActionLink("Donate", "Donate", new { id = Model.ProviderID }) 
     }
     |
     @Html.ActionLink("Create A Post", "Index","ProviderPosts")  |

@@ -106,7 +106,7 @@ namespace GotFoodConnections.Controllers
 
             db.SaveChanges();
             //var providers = db.Providers.Include(p => p.ProviderType);
-            return View(providers.ToList());
+            return View(providers);
         }
 
         // GET: Providers/Details/5

@@ -34,7 +34,7 @@ namespace GotFoodConnections.Controllers
             List<Transport> transports = db.Transports.Where(c => c.User.Id.Equals(currentUser.Id)).ToList();
 
             db.SaveChanges();
-            return View(db.Transports.ToList());
+            return View(transports);
         }
 
         // GET: Transports/Details/5

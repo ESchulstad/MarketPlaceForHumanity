@@ -36,7 +36,7 @@ namespace GotFoodConnections.Controllers
             List<CharityProfile> charityProfiles = db.CharityProfiles.Where(c => c.User.Id.Equals(currentUser.Id)).ToList();  
             
             db.SaveChanges();
-            return View(db.CharityProfiles.ToList());
+            return View(charityProfiles);
             
     
         }
