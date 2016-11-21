@@ -52,5 +52,7 @@ namespace GotFoodConnections.Models
 
         public virtual ApplicationUser User { get; set; }
 
+        public virtual ICollection<CharityProfile> CharityProfiles { get; set; }
+        
     }
 }

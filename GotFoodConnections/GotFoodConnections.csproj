@@ -218,6 +218,14 @@
     <Compile Include="Migrations\201611200009133_AddAppUserProfile.Designer.cs">
       <DependentUpon>201611200009133_AddAppUserProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611210351498_ICollection.cs" />
+    <Compile Include="Migrations\201611210351498_ICollection.Designer.cs">
+      <DependentUpon>201611210351498_ICollection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611210418203_CharityModeUpdate.cs" />
+    <Compile Include="Migrations\201611210418203_CharityModeUpdate.Designer.cs">
+      <DependentUpon>201611210418203_CharityModeUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CharityPost.cs" />
@@ -365,6 +373,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611200009133_AddAppUserProfile.resx">
       <DependentUpon>201611200009133_AddAppUserProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611210351498_ICollection.resx">
+      <DependentUpon>201611210351498_ICollection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611210418203_CharityModeUpdate.resx">
+      <DependentUpon>201611210418203_CharityModeUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

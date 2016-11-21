@@ -52,5 +52,7 @@ namespace GotFoodConnections.Models
         public virtual ProviderType ProviderType { get; set; }
 
         public virtual ApplicationUser User { get; set; }
+
+        public virtual ICollection<ProviderPost> ProviderPosts { get; set; }
     }
 }

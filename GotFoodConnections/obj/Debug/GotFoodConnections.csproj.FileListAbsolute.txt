@@ -97,3 +97,5 @@ c:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\GotFoodConnections\Go
 c:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\GotFoodConnections\GotFoodConnections\obj\Debug\GotFoodConnections.Migrations.InitialCreate.resources
 c:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\GotFoodConnections\GotFoodConnections\obj\Debug\GotFoodConnections.csproj.GenerateResource.Cache
 c:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\GotFoodConnections\GotFoodConnections\obj\Debug\GotFoodConnections.Migrations.AddAppUserProfile.resources
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\GotFoodConnections\GotFoodConnections\obj\Debug\GotFoodConnections.Migrations.ICollection.resources
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\GotFoodConnections\GotFoodConnections\obj\Debug\GotFoodConnections.Migrations.CharityModeUpdate.resources

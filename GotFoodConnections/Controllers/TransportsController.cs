@@ -146,7 +146,7 @@ namespace GotFoodConnections.Controllers
             {
                 return RedirectToAction("Index");
             }
-            return View(transport);
+            //return View(transport);
         }
 
         // POST: Transports/Delete/5
