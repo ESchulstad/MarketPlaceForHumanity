@@ -39,7 +39,10 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.ContactEmail)
+
+            <a href="http://@Model.ContactEmail" target="_blank">@Model.ContactEmail</a>
+
+            @*@Html.DisplayFor(model => model.ContactEmail)*@
         </dd>
 
         <dt>
