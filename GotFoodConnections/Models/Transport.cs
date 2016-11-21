@@ -52,6 +52,6 @@ namespace GotFoodConnections.Models
 
         public virtual ApplicationUser User { get; set; }
 
-        public virtual ICollection<TransportPost> TransportPosts { get; set; }
+        //public virtual ICollection<TransportPost> TransportPosts { get; set; }
     }
 }

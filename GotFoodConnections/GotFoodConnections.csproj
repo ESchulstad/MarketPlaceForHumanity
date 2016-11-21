@@ -226,6 +226,10 @@
     <Compile Include="Migrations\201611210418203_CharityModeUpdate.Designer.cs">
       <DependentUpon>201611210418203_CharityModeUpdate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611211629508_AuthorizationAdded.cs" />
+    <Compile Include="Migrations\201611211629508_AuthorizationAdded.Designer.cs">
+      <DependentUpon>201611211629508_AuthorizationAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CharityPost.cs" />
@@ -379,6 +383,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611210418203_CharityModeUpdate.resx">
       <DependentUpon>201611210418203_CharityModeUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611211629508_AuthorizationAdded.resx">
+      <DependentUpon>201611211629508_AuthorizationAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
