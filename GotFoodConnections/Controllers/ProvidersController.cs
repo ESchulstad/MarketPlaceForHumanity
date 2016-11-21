@@ -66,6 +66,36 @@ namespace GotFoodConnections.Controllers
             return RedirectToAction("ScoreBoard");
         }
 
+        //GET: Increase Reccomendations
+        [AllowAnonymous]
+        public ActionResult Recommend(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Provider provider = db.Providers.Find(id);
+
+            if (provider == null)
+            {
+                return HttpNotFound();
+            }
+
+            provider.StarRating++;
+
+
+            if (ModelState.IsValid)
+            {
+                db.Entry(provider).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("ScoreBoard");
+            }
+
+
+            return RedirectToAction("ScoreBoard");
+        }
+
         // GET: Providers
         public ActionResult Index()
         {

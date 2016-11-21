@@ -138,6 +138,14 @@
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ProviderID }) |
     @Html.ActionLink("Back to List", "Index") |
-    @Html.ActionLink("Donate", "Donate", new { id = Model.ProviderID }) |
-    @Html.ActionLink("Create A Post", "Index","ProviderPosts")
+    @if (User.IsInRole("Food Donor"))
+    {
+    @Html.ActionLink("Donate", "Donate", new { id = Model.ProviderID }) 
+    }
+    |
+    @Html.ActionLink("Create A Post", "Index","ProviderPosts")  |
+    @if (User.IsInRole("Charity") || User.IsInRole("Transportation Assistance")) 
+    {
+        @Html.ActionLink("Recommend this Provider", "Recommend", new { id = Model.ProviderID })
+    }
 </p>

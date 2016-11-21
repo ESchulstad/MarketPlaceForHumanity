@@ -78,8 +78,17 @@
 
 
             <td>
-                @Html.ActionLink("Donate", "Donate", new { id = item.ProviderID }) 
-              
+            @if (User.IsInRole("Food Donor"))
+            {
+                @Html.ActionLink("Donate", "Donate", new { id = item.ProviderID })
+                
+            }
+            </td>
+            <td>
+                @if (User.IsInRole("Charity") || User.IsInRole("Transportation Assistance"))
+                {
+                    @Html.ActionLink("Recommend this Provider", "Recommend", new { id = item.ProviderID })
+                }
             </td>
         </tr>
                     }
