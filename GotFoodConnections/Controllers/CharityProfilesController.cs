@@ -29,7 +29,15 @@ namespace GotFoodConnections.Controllers
         // GET: CharityProfiles
         public ActionResult Index()
         {
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+
+            List<CharityProfile> charityProfiles = db.CharityProfiles.Where(c => c.User.Id.Equals(currentUser.Id)).ToList();  
+            
+            db.SaveChanges();
             return View(db.CharityProfiles.ToList());
+            
+    
         }
 
         [HttpPost]
@@ -106,7 +114,18 @@ namespace GotFoodConnections.Controllers
             {
                 return HttpNotFound();
             }
-            return View(charityProfile);
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+            if (currentUser == charityProfile.User)
+            {
+                return View(charityProfile);
+                
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+            //return View(charityProfile);
         }
 
         // POST: CharityProfiles/Edit/5
@@ -137,7 +156,18 @@ namespace GotFoodConnections.Controllers
             {
                 return HttpNotFound();
             }
-            return View(charityProfile);
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+            if (currentUser == charityProfile.User)
+            {
+                return View(charityProfile);
+                
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+            
         }
 
         // POST: CharityProfiles/Delete/5
