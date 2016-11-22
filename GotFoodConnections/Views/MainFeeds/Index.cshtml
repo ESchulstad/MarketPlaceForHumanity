@@ -85,9 +85,7 @@
                     <div class="col-xs-12 col-md-8 col-md-offset-2 chat" id="ProvPost">
                         @*<span class="ProviderName">@item.Provider.OrgName</span>*@
                         <div class="container" id="post">
-                            <h2>@item.Provider.OrgName</h2>
-                            <!-- Trigger the modal with a button -->
-                            <a href="" class="open" data-toggle="modal" data-target="#providerModal"><i class="ionicons ion-ios-information"></i></a>
+                            <h2>@item.Provider.OrgName<a href="" class="open" data-toggle="modal" data-target="#providerModal"><!-- Trigger the modal with a button --><i class="ionicons ion-ios-information"></i></a></h2>
                             <!-- Modal -->
                             <div class="modal fade" id="providerModal" role="dialog">
                                 <div class="modal-dialog">
@@ -100,8 +98,9 @@
                                         <div class="modal-body">
                                             <p><strong>@Html.DisplayNameFor(modelitem => item.Provider.ContactName):</strong> @item.Provider.ContactName</p>
                                             <p><strong>@Html.DisplayNameFor(modelitem => item.Provider.ContactPhone):</strong> @item.Provider.ContactPhone</p>
-                                            <p><strong>@Html.DisplayNameFor(modelitem => item.Provider.ContactEmail):</strong><a href="mailto:@item.Provider.ContactEmail" target="_blank">@item.Provider.ContactEmail</a></p>
-                                            <p><strong>@Html.DisplayNameFor(modelitem => item.Provider.Website):</strong><a href="http://@item.Provider.Website" target="_blank">@item.Provider.Website</a></p>
+                                            <p><strong>@Html.DisplayNameFor(modelitem => item.Provider.ContactEmail): </strong><a href="mailto:@item.Provider.ContactEmail" target="_blank">@item.Provider.ContactEmail</a></p>
+                                            <p><strong>@Html.DisplayNameFor(modelitem => item.Provider.Website): </strong><a href="http://@item.Provider.Website" target="_blank">@item.Provider.Website</a></p>
+                                            <p><strong>Full Profile for: </strong>@Html.ActionLink(item.Provider.OrgName, "Details", "Providers", new { id = item.ProviderID }, new { target = "_blank" })</p>
                                             @* More text could go here in a similar format *@
                                         </div>
                                         <div class="modal-footer">
@@ -111,21 +110,39 @@
                                 </div>
                             </div>
                         </div>
-
-                        <h5 id="FoodType">@Html.DisplayNameFor(modelitem => item.FoodType)</h5>
-                        <span id="FoodType">@item.FoodType</span>
-                        <h5 id="PeopleFedLabel">@Html.DisplayNameFor(modelitem => item.PeopleFed)</h5>
-                        <span id="PeopleFed">@item.PeopleFed</span>
-                        <h5 id="AllergensLabel">@Html.DisplayNameFor(modelitem => item.PotentialAllergens)</h5>
-                        <span id="Allergens">@item.PotentialAllergens</span>
-                        <h5 id="ExpirationDateLabel">@Html.DisplayNameFor(modelitem => item.ExpirationDate)</h5>
-                        <span id="ExpirationDate">@item.ExpirationDate</span>
-                        <h5 id="SpecialTransportLabel">@Html.DisplayNameFor(modelitem => item.SpecialTransport)</h5>
-                        <span id="SpecialTransport">@item.SpecialTransport</span>
-                        <h5 id="CommentsLabel">@Html.DisplayNameFor(modelitem => item.Comments)</h5>
-                        <span id="Comments">@item.Comments</span>
-                        <h5 id="TimeStampLabel">@Html.DisplayNameFor(modelitem => item.TimeStamp)</h5>
-                        <span class="TimeStamp">@item.TimeStamp</span><br />
+                        <div id="ProviderPost">
+                            <div id="FoodType">
+                                <h4 id="FoodTypeLabel">@Html.DisplayNameFor(modelitem => item.FoodType)</h4>
+                                <p id="FoodTypeText">@item.FoodType</p>
+                            </div>
+                            <div id="row-3">
+                                <div id="PeopleFed">
+                                    <h5 id="PeopleFedLabel">@Html.DisplayNameFor(modelitem => item.PeopleFed)</h5>
+                                    <p id="PeopleFedText">@item.PeopleFed</p>
+                                </div>
+                                <div id="Allergens">
+                                    <h5 id="AllergensLabel">@Html.DisplayNameFor(modelitem => item.PotentialAllergens)</h5>
+                                    <p id="AllergensText">@item.PotentialAllergens</p>
+                                </div>
+                                <div id="ExpirationDate">
+                                    <h5 id="ExpirationLabel">@Html.DisplayNameFor(modelitem => item.ExpirationDate)</h5>
+                                    <p id="ExpirationText">@item.ExpirationDate</p>
+                                </div>
+                            </div>
+                            <div id="Comments">
+                                <h5 id="CommentsLabel">@Html.DisplayNameFor(modelitem => item.Comments)</h5>
+                                <p id="CommentsText">@item.Comments</p>
+                            </div>
+                            <div id="SpecialTransport">
+                                <h5 id="SpecialTransportLabel">@Html.DisplayNameFor(modelitem => item.SpecialTransport)</h5>
+                                <p id="SpecialTransportText">@item.SpecialTransport</p>
+                                <p id="ProviderPostLabel"><strong>@Html.DisplayNameFor(modelitem => item.TimeStamp)</strong><span class="ProviderPostText">@item.TimeStamp</span></p>
+                            </div>
+                            
+                            @*<div id="Timestamp">
+                                <p id="ProviderPostLabel">@Html.DisplayNameFor(modelitem => item.TimeStamp)<span class="ProviderPostText">@item.TimeStamp</span></p>
+                            </div>*@
+                        </div>
                     </div>
                 }
                 else

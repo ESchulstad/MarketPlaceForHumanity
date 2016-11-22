@@ -52,6 +52,66 @@ textarea {
         color: #454444;
     }
 
+.container{
+    margin:0;
+    padding:0;
+    width:100%;
+}
+
+div#ProvPost{
+    margin:0;
+    float:right;
+    padding:0;
+}
+
+div#post{
+    width:100%;
+    padding:0;
+}
+
+i#post{
+    text-align:right;
+}
+
 h5{
     font-weight:700; 
+}
+
+div#FoodType{
+    width:100%;
+}
+
+#FoodTypeText{
+    display:grid;
+}
+
+div#row-3{
+    width:100%;
+    display:inline-block;
+}
+
+div#PeopleFed, div#Allergens, div#ExpirationDate{
+    width:32%;
+    display:inline-block;
+}
+
+div#SpecialTransport, div#Comments{
+    width:49%;
+    display:inline-block;
+}
+
+div#Timestamp{
+    display:inline;
+    width:50%;
+}
+
+#ProviderPostLabel{
+    margin:0;
+    height:20px;
+    display:inline;
+}
+
+#ProviderPostText{
+    margin:0;
+    display:inline;
 }
