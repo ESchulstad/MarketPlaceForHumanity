@@ -52,6 +52,89 @@ textarea {
         color: #454444;
     }
 
+.container{
+    margin:0;
+    padding:0;
+    width:100%;
+}
+
+div#ProvPost{
+    margin:0;
+    float:right;
+    padding:0;
+}
+
+div#post{
+    width:100%;
+    padding:0 10px 0 10px;
+}
+
+i#post{
+    text-align:right;
+}
+
 h5{
     font-weight:700; 
+}
+
+div#FoodType{
+    width:100%;
+}
+
+#FoodTypeText{
+    display:grid;
+    font-size:16px;
+}
+
+div#row{
+    width:100%;
+}
+
+#post, #ProviderPost{
+    border:2px solid gray;
+    padding:0 10px 0 10px;
+}
+
+div#PeopleFed, div#Allergens, div#ExpirationDate{
+    width:32%;
+    display:inline-block;
+}
+
+h5#PeopleFedLabel, h5#AllergensLabel, h5#ExpirationLabel{
+    margin:0;
+    display:inline-block;
+    top: 0;
+    height:30px;
+    font-size:13px;
+}
+
+p#PeopleFedText, p#AllergensText, p#ExpirationText{
+    margin-bottom:5px;
+}
+
+div#SpecialTransport, div#Comments{
+    width:49%;
+    display:inline-block;
+}
+
+div#Comments{
+    float:left;
+}
+
+h5#CommentsLabel, h5#SpecialTransportLabel{
+    margin:0;
+    display:inline-block;
+    top:0;
+    font-size:13px;
+}
+
+div#Timestamp{
+    display:inline;
+    width:50%;
+}
+
+#ProviderPostLabel{
+    text-align:right;
+    margin-right:30px;
+    font-size:12px;
 }

@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using GotFoodConnections.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace GotFoodConnections.Controllers
 {
@@ -14,6 +16,17 @@ namespace GotFoodConnections.Controllers
 
     public class CharityPostsController : Controller
     {
+        private ApplicationUser CurrentUser
+        {
+            get
+            {
+                UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+                ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+
+                return currentUser;
+            }
+        }
+
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: CharityPosts
@@ -41,6 +54,7 @@ namespace GotFoodConnections.Controllers
         // GET: CharityPosts/Create
         public ActionResult Create()
         {
+            
             ViewBag.CharityID = new SelectList(db.CharityProfiles, "CharityID", "CharityName");
             return View();
         }
