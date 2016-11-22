@@ -28,7 +28,13 @@ namespace GotFoodConnections.Controllers
         // GET: Transports
         public ActionResult Index()
         {
-            return View(db.Transports.ToList());
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+
+            List<Transport> transports = db.Transports.Where(c => c.User.Id.Equals(currentUser.Id)).ToList();
+
+            db.SaveChanges();
+            return View(transports);
         }
 
         // GET: Transports/Details/5
@@ -87,7 +93,18 @@ namespace GotFoodConnections.Controllers
             {
                 return HttpNotFound();
             }
-            return View(transport);
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+            if (currentUser == transport.User)
+            {
+                return View(transport);
+
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+            //return View(transport);
         }
 
         // POST: Transports/Edit/5
@@ -118,7 +135,18 @@ namespace GotFoodConnections.Controllers
             {
                 return HttpNotFound();
             }
-            return View(transport);
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+            if (currentUser == transport.User)
+            {
+                return View(transport);
+
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+            //return View(transport);
         }
 
         // POST: Transports/Delete/5

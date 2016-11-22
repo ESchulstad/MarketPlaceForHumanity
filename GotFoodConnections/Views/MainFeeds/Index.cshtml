@@ -28,7 +28,7 @@
            
         }
 
-
+        <br />
 @*<p>
         @Html.ActionLink("Create New", "Create")
     </p>
@@ -241,7 +241,7 @@
         <div class="row">
             @foreach (TransportPost item in Model.TransportPosts)
             {
-                if (item != null)
+                if (item != null /*&& item.Transport != null*/)
                 {
                     <div class="col-xs-12 col-md-8 col-md-offset-2 chat">
                         @*<span class="ProviderName">@item.ProviderPost.Provider.OrgName</span>*@

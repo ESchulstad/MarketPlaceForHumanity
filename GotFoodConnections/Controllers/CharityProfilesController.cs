@@ -10,6 +10,7 @@ using GotFoodConnections.Models;
 using System.IO;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Web.UI.WebControls;
 
 namespace GotFoodConnections.Controllers
 {
@@ -29,7 +30,15 @@ namespace GotFoodConnections.Controllers
         // GET: CharityProfiles
         public ActionResult Index()
         {
-            return View(db.CharityProfiles.ToList());
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+
+            List<CharityProfile> charityProfiles = db.CharityProfiles.Where(c => c.User.Id.Equals(currentUser.Id)).ToList();  
+            
+            db.SaveChanges();
+            return View(charityProfiles);
+            
+    
         }
 
         [HttpPost]
@@ -91,7 +100,7 @@ namespace GotFoodConnections.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(charityProfile);
+            return View();
         }
 
         // GET: CharityProfiles/Edit/5
@@ -106,7 +115,18 @@ namespace GotFoodConnections.Controllers
             {
                 return HttpNotFound();
             }
-            return View(charityProfile);
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+            if (currentUser == charityProfile.User)
+            {
+                return View(charityProfile);
+                
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+            //return View(charityProfile);
         }
 
         // POST: CharityProfiles/Edit/5
@@ -137,7 +157,18 @@ namespace GotFoodConnections.Controllers
             {
                 return HttpNotFound();
             }
-            return View(charityProfile);
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+            if (currentUser == charityProfile.User)
+            {
+                return View(charityProfile);
+                
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+            
         }
 
         // POST: CharityProfiles/Delete/5

@@ -24,6 +24,7 @@ namespace GotFoodConnections.Controllers
             mymodel.ProviderPosts = db.ProviderPosts;
             mymodel.CharityPosts = db.CharityPosts;
             mymodel.TransportPosts = db.TransportPosts;
+        
             return View(mymodel);
         }
 

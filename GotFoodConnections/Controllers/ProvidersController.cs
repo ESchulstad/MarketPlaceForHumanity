@@ -22,6 +22,7 @@ namespace GotFoodConnections.Controllers
         [AllowAnonymous]
         public ActionResult ProviderList()
         {
+            
             var providers = db.Providers.Include(p => p.ProviderType);
             return View(providers.ToList());
         }
@@ -65,11 +66,47 @@ namespace GotFoodConnections.Controllers
             return RedirectToAction("ScoreBoard");
         }
 
+        //GET: Increase Reccomendations
+        [AllowAnonymous]
+        public ActionResult Recommend(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Provider provider = db.Providers.Find(id);
+
+            if (provider == null)
+            {
+                return HttpNotFound();
+            }
+
+            provider.StarRating++;
+
+
+            if (ModelState.IsValid)
+            {
+                db.Entry(provider).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("ScoreBoard");
+            }
+
+
+            return RedirectToAction("ScoreBoard");
+        }
+
         // GET: Providers
         public ActionResult Index()
         {
-            var providers = db.Providers.Include(p => p.ProviderType);
-            return View(providers.ToList());
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+
+            List<Provider> providers = db.Providers.Where(c => c.User.Id.Equals(currentUser.Id)).ToList();
+
+            db.SaveChanges();
+            //var providers = db.Providers.Include(p => p.ProviderType);
+            return View(providers);
         }
 
         // GET: Providers/Details/5
@@ -130,8 +167,20 @@ namespace GotFoodConnections.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.TypeID = new SelectList(db.ProviderTypes, "ID", "Type", provider.TypeID);
-            return View(provider);
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+            if (currentUser == provider.User)
+            {
+                ViewBag.TypeID = new SelectList(db.ProviderTypes, "ID", "Type", provider.TypeID);
+                return View(provider);
+
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+            
+            //return View(provider);
         }
 
         // POST: Providers/Edit/5
@@ -163,7 +212,18 @@ namespace GotFoodConnections.Controllers
             {
                 return HttpNotFound();
             }
-            return View(provider);
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+            if (currentUser == provider.User)
+            {
+                return View(provider);
+
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+            //return View(provider);
         }
 
         // POST: Providers/Delete/5
