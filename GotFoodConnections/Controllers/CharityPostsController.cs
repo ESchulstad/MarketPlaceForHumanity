@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using GotFoodConnections.Models;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure;
 
 namespace GotFoodConnections.Controllers
 {
@@ -97,38 +99,47 @@ namespace GotFoodConnections.Controllers
         }
 
         // GET: CharityPosts/Delete/5
+        [AcceptVerbs(HttpVerbs.Delete)]
         public ActionResult Delete(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            CharityPost charityPost = db.CharityPosts.Find(id);
-            if (charityPost == null)
-            {
-                return HttpNotFound();
-            }
-            return View(charityPost);
+            var charityPostToDelete = (from c in db.CharityPosts
+                                       where c.CharityID == id
+                                       select c).FirstOrDefault();
+            ObjectContext oc = ((IObjectContextAdapter)ctx).ObjectContext;
+            db.DeleteObject(charityPostToDelete);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+            //CharityPost charityPost = db.CharityPosts.Find(id);
+            //if (charityPost == null)
+            //{
+            //    return HttpNotFound();
+            //}
+            //return View(charityPost);
         }
 
         // POST: CharityPosts/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            CharityPost charityPost = db.CharityPosts.Find(id);
-            db.CharityPosts.Remove(charityPost);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(int id)
+        //{
+        //    CharityPost charityPost = db.CharityPosts.Find(id);
+        //    db.CharityPosts.Remove(charityPost);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
     }
 }
