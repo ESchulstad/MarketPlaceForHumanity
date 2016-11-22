@@ -205,6 +205,7 @@
     <Compile Include="Controllers\ProviderPostsController.cs" />
     <Compile Include="Controllers\ProvidersController.cs" />
     <Compile Include="Controllers\ProviderTypesController.cs" />
+    <Compile Include="Controllers\RateLogsController.cs" />
     <Compile Include="Controllers\TransportPostsController.cs" />
     <Compile Include="Controllers\TransportsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -230,6 +231,18 @@
     <Compile Include="Migrations\201611211629508_AuthorizationAdded.Designer.cs">
       <DependentUpon>201611211629508_AuthorizationAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611220213099_AddRatingAndRateLog.cs" />
+    <Compile Include="Migrations\201611220213099_AddRatingAndRateLog.Designer.cs">
+      <DependentUpon>201611220213099_AddRatingAndRateLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611220339559_UpdateRateLog.cs" />
+    <Compile Include="Migrations\201611220339559_UpdateRateLog.Designer.cs">
+      <DependentUpon>201611220339559_UpdateRateLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611221412272_AddRateLogsController.cs" />
+    <Compile Include="Migrations\201611221412272_AddRateLogsController.Designer.cs">
+      <DependentUpon>201611221412272_AddRateLogsController.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CharityPost.cs" />
@@ -240,6 +253,7 @@
     <Compile Include="Models\Provider.cs" />
     <Compile Include="Models\ProviderPost.cs" />
     <Compile Include="Models\ProviderType.cs" />
+    <Compile Include="Models\RateLog.cs" />
     <Compile Include="Models\Transport.cs" />
     <Compile Include="Models\TransportPost.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -270,6 +284,8 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Images\EmptyHeart.png" />
+    <Content Include="Images\FilledHeart.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
@@ -361,9 +377,11 @@
     <Content Include="Views\CharityProfiles\CharityList.cshtml" />
     <Content Include="Views\Providers\ProviderList.cshtml" />
     <Content Include="Views\Transports\TransportList.cshtml" />
+    <Content Include="Views\Shared\_VoteNow.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\RateLogs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -386,6 +404,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611211629508_AuthorizationAdded.resx">
       <DependentUpon>201611211629508_AuthorizationAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611220213099_AddRatingAndRateLog.resx">
+      <DependentUpon>201611220213099_AddRatingAndRateLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611220339559_UpdateRateLog.resx">
+      <DependentUpon>201611220339559_UpdateRateLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611221412272_AddRateLogsController.resx">
+      <DependentUpon>201611221412272_AddRateLogsController.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

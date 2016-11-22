@@ -46,6 +46,8 @@ namespace GotFoodConnections.Models
         public int NumOfDonation { get; set; }
         public int StarRating { get; set; }
 
+        public string Rating { get; set; }
+
         [ForeignKey("ProviderType")]
         [Display(Name = "Provider Type")]
         public int TypeID { get; set; }

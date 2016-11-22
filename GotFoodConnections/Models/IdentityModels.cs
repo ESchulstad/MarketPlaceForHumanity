@@ -45,5 +45,7 @@ namespace GotFoodConnections.Models
         public System.Data.Entity.DbSet<GotFoodConnections.Models.ProviderType> ProviderTypes { get; set; }
 
         public System.Data.Entity.DbSet<GotFoodConnections.Models.Transport> Transports { get; set; }
+
+        public System.Data.Entity.DbSet<GotFoodConnections.Models.RateLog> RateLogs { get; set; }
     }
 }
