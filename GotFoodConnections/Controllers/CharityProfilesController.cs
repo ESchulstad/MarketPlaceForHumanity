@@ -33,8 +33,8 @@ namespace GotFoodConnections.Controllers
             UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
             ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
 
-            List<CharityProfile> charityProfiles = db.CharityProfiles.Where(c => c.User.Id.Equals(currentUser.Id)).ToList();  
-            
+            List<CharityProfile> charityProfiles = db.CharityProfiles.Where(c => c.User.Id.Equals(currentUser.Id)).ToList();
+
             db.SaveChanges();
             return View(charityProfiles);
             

@@ -42,8 +42,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.WeightRequested, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextAreaFor(model => model.FoodRequested, 8, 100, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FoodRequested, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.WeightRequested, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.WeightRequested, "", new { @class = "text-danger" })
             </div>
         </div>
 

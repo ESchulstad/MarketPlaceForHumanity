@@ -21,7 +21,7 @@ namespace GotFoodConnections.Models
         [Display(Name = "What type of food is needed?")]
         public string FoodRequested { get; set; }
         [Display(Name = "Minimum Weight Required?")]
-        public double WeightRequested { get; set; }
+        public string WeightRequested { get; set; }
         [Display(Name = "How many people will be fed?")]
         public int PeopleToFeed { get; set; }
         [Required]
@@ -31,5 +31,7 @@ namespace GotFoodConnections.Models
         public string Comments { get; set; }
 
         public ICollection<MainFeed> CharityPosts { get; set; }
+
+        public virtual ApplicationUser User { get; set; }
     }
 }

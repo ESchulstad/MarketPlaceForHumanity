@@ -102,7 +102,7 @@ namespace GotFoodConnections.Controllers
             UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
             ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
 
-            List<Provider> providers = db.Providers.Where(c => c.User.Id.Equals(currentUser.Id)).ToList();
+            List<Provider> providers = db.Providers.Where(p => p.User.Id.Equals(currentUser.Id)).ToList();
 
             db.SaveChanges();
             //var providers = db.Providers.Include(p => p.ProviderType);
