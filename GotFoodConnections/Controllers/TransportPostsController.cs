@@ -96,31 +96,41 @@ namespace GotFoodConnections.Controllers
             return View(transportPost);
         }
 
-        // GET: TransportPosts/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            TransportPost transportPost = db.TransportPosts.Find(id);
-            if (transportPost == null)
-            {
-                return HttpNotFound();
-            }
-            return View(transportPost);
-        }
-
-        // POST: TransportPosts/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        [HttpPost]
+        public ActionResult Delete(int id)
         {
             TransportPost transportPost = db.TransportPosts.Find(id);
             db.TransportPosts.Remove(transportPost);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
+
+        // GET: TransportPosts/Delete/5
+        //public ActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    TransportPost transportPost = db.TransportPosts.Find(id);
+        //    if (transportPost == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(transportPost);
+        //}
+
+        //// POST: TransportPosts/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(int id)
+        //{
+        //    TransportPost transportPost = db.TransportPosts.Find(id);
+        //    db.TransportPosts.Remove(transportPost);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
         protected override void Dispose(bool disposing)
         {
