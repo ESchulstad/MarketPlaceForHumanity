@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<GotFoodConnections.Models.ProviderPost>
- 
 
 @{
     ViewBag.Title = "Index";
@@ -39,42 +38,41 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Provider.OrgName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TimeStamp)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FoodType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PeopleFed)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PotentialAllergens)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ExpirationDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.SpecialTransport)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Comments)
-        </td>
-        <td>
-            @Html.ActionLink("Details", "Details", new { id = item.ProviderPostID })
-                @Html.ActionLink("Edit", "Edit", new { id = item.ProviderPostID })
-                @Html.ActionLink("Delete", "Delete", new { id = item.ProviderPostID })
-            
-            
-            
-            
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        using (Html.BeginForm("Delete", "CharityPosts", new { id = item.ProviderPostID }))
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Provider.OrgName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeStamp)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FoodType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PeopleFed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PotentialAllergens)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExpirationDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SpecialTransport)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Comments)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ProviderPostID }) |
+                    <input type="submit" value="Delete" onclick="return confirm('Are sure you want to delete this post?')" />
+                </td>
+            </tr>
+        }
+    }
 
 </table>

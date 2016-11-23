@@ -56,7 +56,7 @@ namespace GotFoodConnections.Controllers
             {
                 db.ProviderPosts.Add(providerPost);
                 db.SaveChanges();
-                return RedirectToAction("Details");
+                return RedirectToAction("Index");
             }
 
             ViewBag.ProviderID = new SelectList(db.Providers, "ProviderID", "OrgName", providerPost.ProviderID);
@@ -96,34 +96,41 @@ namespace GotFoodConnections.Controllers
             return View(providerPost);
         }
 
-        // GET: ProviderPosts/Delete/5
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            ProviderPost providerPost = db.ProviderPosts.Find(id);
-            if (providerPost == null)
-            {
-                return HttpNotFound();
-            }
-            return View(providerPost);
-        }
-
-        // POST: ProviderPosts/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Delete(int id)
         {
             ProviderPost providerPost = db.ProviderPosts.Find(id);
             db.ProviderPosts.Remove(providerPost);
-
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
+
+        // GET: ProviderPosts/Delete/5
+        //public ActionResult Delete(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    ProviderPost providerPost = db.ProviderPosts.Find(id);
+        //    if (providerPost == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(providerPost);
+        //}
+
+        //// POST: ProviderPosts/Delete/5
+        //[HttpPost, ActionName("Delete")]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult DeleteConfirmed(int id)
+        //{
+        //    ProviderPost providerPost = db.ProviderPosts.Find(id);
+        //    db.ProviderPosts.Remove(providerPost);
+        //    db.SaveChanges();
+        //    return RedirectToAction("Index");
+        //}
 
         protected override void Dispose(bool disposing)
         {
