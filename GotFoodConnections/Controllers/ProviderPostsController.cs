@@ -84,7 +84,7 @@ namespace GotFoodConnections.Controllers
             {
                 db.ProviderPosts.Add(providerPost);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details");
             }
 
             ViewBag.ProviderID = new SelectList(db.Providers, "ProviderID", "OrgName", providerPost.ProviderID);
@@ -139,6 +139,8 @@ namespace GotFoodConnections.Controllers
         }
 
         // GET: ProviderPosts/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -171,6 +173,7 @@ namespace GotFoodConnections.Controllers
         {
             ProviderPost providerPost = db.ProviderPosts.Find(id);
             db.ProviderPosts.Remove(providerPost);
+
             db.SaveChanges();
             return RedirectToAction("Index");
         }

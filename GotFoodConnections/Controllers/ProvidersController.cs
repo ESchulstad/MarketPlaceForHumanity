@@ -227,6 +227,7 @@ namespace GotFoodConnections.Controllers
         }
 
         // POST: Providers/Delete/5
+       
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

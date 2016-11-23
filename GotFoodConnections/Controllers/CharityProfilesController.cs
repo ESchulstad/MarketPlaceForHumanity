@@ -100,7 +100,7 @@ namespace GotFoodConnections.Controllers
                 return RedirectToAction("Index");
             }
 
-            return View(charityProfile);
+            return View();
         }
 
         // GET: CharityProfiles/Edit/5

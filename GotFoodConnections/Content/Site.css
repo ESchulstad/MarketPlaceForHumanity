@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color:#DA6321;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -52,6 +53,172 @@ textarea {
         color: #454444;
     }
 
+.container{
+    margin:0;
+    padding:0;
+    width:100%;
+}
+
+div#ProvPost{
+    margin:0;
+    float:right;
+    padding:0;
+}
+
+div#post{
+    width:100%;
+    padding:0 10px 0 10px;
+}
+
+i#post{
+    text-align:right;
+}
+
 h5{
     font-weight:700; 
+}
+
+div#FoodType{
+    width:100%;
+}
+
+#FoodTypeText{
+    display:grid;
+    font-size:16px;
+}
+
+div#row{
+    width:100%;
+}
+
+#post, #ProviderPost{
+    border:2px solid gray;
+    padding:0 10px 0 10px;
+}
+
+div#PeopleFed, div#Allergens, div#ExpirationDate{
+    width:32%;
+    display:inline-block;
+}
+
+h5#PeopleFedLabel, h5#AllergensLabel, h5#ExpirationLabel{
+    margin:0;
+    display:inline-block;
+    top: 0;
+    height:30px;
+    font-size:13px;
+}
+
+p#PeopleFedText, p#AllergensText, p#ExpirationText{
+    margin-bottom:5px;
+}
+
+div#SpecialTransport, div#Comments{
+    width:49%;
+    display:inline-block;
+}
+
+div#Comments{
+    float:left;
+}
+
+h5#CommentsLabel, h5#SpecialTransportLabel{
+    margin:0;
+    display:inline-block;
+    top:0;
+    font-size:13px;
+}
+
+div#Timestamp{
+    display:inline;
+    width:50%;
+}
+
+#ProviderPostLabel{
+    text-align:right;
+    margin-right:30px;
+    font-size:12px;
+}
+
+/* The Overlay (background) */
+.sidenav {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */    
+    height: 100%;
+    width: 0;
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: #38353D; /* Black fallback color */
+    background-color: #38353D;
+    opacity:0.9; /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.sidenav-content {
+    position: relative;
+    top: 35%; /* 25% from the top */
+    width: 25%; /* 25% width */
+    text-align: center; /* Centered text/links */
+    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* The navigation links inside the overlay */
+.sidenav a {
+    padding: 8px;
+    font-family: 'Chelsea Market', cursive;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block; /* Display block instead of inline */
+    transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover, .sidenav a:focus {
+    color: #f1f1f1;
+}
+
+/* Position the close button (top right corner) */
+.sidenav .closebtn {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    font-size: 50px;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+    .sidenav a {font-size: 20px}
+    .sidenav .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+#slide{
+    transform:translateZ(1px);
+    position:relative;
+    left: 2%;
+    top: 25px;
+}
+
+#slide p{
+    /*background-color:rgba(255, 255, 255, 0.7);*/
+    transition:all .3s;
+}
+
+.navbar-brand {
+    font-family:'Chelsea Market', cursive;
+    display: inline-block; /* change the default display type to inline-block */
+    overflow: hidden;      /* hide the overflow */
+}
+
+#slide p:hover{
+    transform:scale(1.1);
+    background-color:rgba(255, 255, 255, .95);
+    cursor:pointer;
 }

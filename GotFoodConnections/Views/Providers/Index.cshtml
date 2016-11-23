@@ -108,8 +108,9 @@
         </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ProviderID }) |
+             @Html.ActionLink("Delete", "Delete", new { id = item.ProviderID })
+        
             @Html.ActionLink("Details", "Details", new { id=item.ProviderID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProviderID })
         </td>
     </tr>
 }
