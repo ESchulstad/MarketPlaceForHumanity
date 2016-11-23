@@ -230,6 +230,14 @@
     <Compile Include="Migrations\201611211629508_AuthorizationAdded.Designer.cs">
       <DependentUpon>201611211629508_AuthorizationAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611221533223_AppUserToPost.cs" />
+    <Compile Include="Migrations\201611221533223_AppUserToPost.Designer.cs">
+      <DependentUpon>201611221533223_AppUserToPost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611221615305_string.cs" />
+    <Compile Include="Migrations\201611221615305_string.Designer.cs">
+      <DependentUpon>201611221615305_string.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CharityPost.cs" />
@@ -386,6 +394,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611211629508_AuthorizationAdded.resx">
       <DependentUpon>201611211629508_AuthorizationAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611221533223_AppUserToPost.resx">
+      <DependentUpon>201611221533223_AppUserToPost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611221615305_string.resx">
+      <DependentUpon>201611221615305_string.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

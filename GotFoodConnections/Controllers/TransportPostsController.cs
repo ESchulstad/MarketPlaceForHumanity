@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using GotFoodConnections.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace GotFoodConnections.Controllers
 {
@@ -19,8 +21,14 @@ namespace GotFoodConnections.Controllers
         // GET: TransportPosts
         public ActionResult Index()
         {
-            var transportPosts = db.TransportPosts.Include(t => t.Transport);
-            return View(transportPosts.ToList());
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+
+            List<TransportPost> transportPosts = db.TransportPosts.Where(c => c.User.Id.Equals(currentUser.Id)).ToList();
+
+            db.SaveChanges();
+            //var transportPosts = db.TransportPosts.Include(t => t.Transport);
+            return View(transportPosts);
         }
 
         // GET: TransportPosts/Details/5
@@ -35,13 +43,28 @@ namespace GotFoodConnections.Controllers
             {
                 return HttpNotFound();
             }
-            return View(transportPost);
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+            if (currentUser == transportPost.User)
+            {
+                return View(transportPost);
+
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+            //return View(transportPost);
         }
 
         // GET: TransportPosts/Create
         public ActionResult Create()
         {
-            ViewBag.TransportID = new SelectList(db.Transports, "TransportID", "OrganizationName");
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+
+            List<Transport> transportList = db.Transports.Where(c => c.User.Id == currentUser.Id).ToList();
+            ViewBag.TransportID = new SelectList(transportList, "TransportID", "OrganizationName");
             return View();
         }
 
@@ -50,8 +73,13 @@ namespace GotFoodConnections.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "TransportPostID,TransportID,TimeStamp,Message,StartTimeAvailable,EndTimeAvailable,Comments")] TransportPost transportPost)
+        public ActionResult Create([Bind(Include = "TransportPostID,TransportID,TimeStamp,Message,StartTimeAvailable,EndTimeAvailable,Comments,User_Id")] TransportPost transportPost)
         {
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+
+            transportPost.User = currentUser;
+
             if (ModelState.IsValid)
             {
                 db.TransportPosts.Add(transportPost);
@@ -75,8 +103,24 @@ namespace GotFoodConnections.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.TransportID = new SelectList(db.Transports, "TransportID", "OrganizationName", transportPost.TransportID);
-            return View(transportPost);
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+
+            List<Transport> transportList = db.Transports.Where(c => c.User.Id == currentUser.Id).ToList();
+            if (currentUser == transportPost.User)
+            {
+                ViewBag.TransportID = new SelectList(transportList, "TransportID", "OrganizationName", transportPost.TransportID);
+                
+                return View(transportPost);
+
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+
+            
+            //return View(transportPost);
         }
 
         // POST: TransportPosts/Edit/5
@@ -108,7 +152,18 @@ namespace GotFoodConnections.Controllers
             {
                 return HttpNotFound();
             }
-            return View(transportPost);
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+            if (currentUser == transportPost.User)
+            {
+                return View(transportPost);
+
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+            //return View(transportPost);
         }
 
         // POST: TransportPosts/Delete/5

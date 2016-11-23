@@ -30,5 +30,8 @@ namespace GotFoodConnections.Models
         public string Comments { get; set; }
 
         public ICollection<MainFeed> TransportPosts { get; set; }
+
+        public virtual ApplicationUser User { get; set; }
+
     }
 }
