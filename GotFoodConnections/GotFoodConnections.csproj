@@ -378,6 +378,7 @@
     <Content Include="Views\Providers\ProviderList.cshtml" />
     <Content Include="Views\Transports\TransportList.cshtml" />
     <Content Include="Views\Shared\_VoteNow.cshtml" />
+    <Content Include="Views\Shared\_VoteShow.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

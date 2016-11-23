@@ -22,7 +22,13 @@
             <td>
                 @*@Html.DisplayFor(modelItem => item.OrgName)*@
                 @Html.ActionLink(item.OrgName, "Details", new { id = item.ProviderID })
+                <div class="tr" style="background-color:#f1f1f1;">
+                    <div class="td0">Please rate this school</div>
+                    <div class="td">@Html.Partial("_VoteNow", item.ProviderID.ToString())</div>
+                    <div class="td">@Html.Partial("_VoteShow", item.Rating)</div>
+                </div>
             </td>
+
         </tr>
     }
 
