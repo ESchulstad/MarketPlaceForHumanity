@@ -1,7 +1,8 @@
 ﻿body {
-    padding-top: 50px;
+    /*padding-top: 50px;*/
     padding-bottom: 20px;
-    background-color:#DA6321;
+    /*background-color:#DA6321;*/
+    width:100vw;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -202,8 +203,8 @@ div#Timestamp{
 #slide{
     transform:translateZ(1px);
     position:relative;
-    left: 2%;
-    top: 25px;
+    left: 7px%;
+    top: 3px;
 }
 
 #slide p{
@@ -221,4 +222,15 @@ div#Timestamp{
     transform:scale(1.1);
     background-color:rgba(255, 255, 255, .95);
     cursor:pointer;
+}
+
+.nav.navbar-nav.navbar-right>li>a{
+    padding-top:0;
+    padding-left:0;
+    padding-right:20px;
+}
+
+form#logoutForm.navbar-right{
+    margin-right:10px;
+    margin-top:10px;
 }
