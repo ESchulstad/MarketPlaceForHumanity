@@ -115,25 +115,29 @@
                                 <h4 id="FoodTypeLabel">@Html.DisplayNameFor(modelitem => item.FoodType)</h4>
                                 <p id="FoodTypeText">@item.FoodType</p>
                             </div>
-                            <div id="PeopleFed">
-                                <h5 id="PeopleFedLabel">@Html.DisplayNameFor(modelitem => item.PeopleFed)</h5>
-                                <p id="PeopleFedText">@item.PeopleFed</p>
+                            <div id="row3">
+                                <div id="PeopleFed">
+                                    <h5 id="PeopleFedLabel">@Html.DisplayNameFor(modelitem => item.PeopleFed)</h5>
+                                    <p id="PeopleFedText">@item.PeopleFed</p>
+                                </div>
+                                <div id="Allergens">
+                                    <h5 id="AllergensLabel">@Html.DisplayNameFor(modelitem => item.PotentialAllergens)</h5>
+                                    <p id="AllergensText">@item.PotentialAllergens</p>
+                                </div>
+                                <div id="ExpirationDate">
+                                    <h5 id="ExpirationLabel">@Html.DisplayNameFor(modelitem => item.ExpirationDate)</h5>
+                                    <p id="ExpirationText">@item.ExpirationDate</p>
+                                </div>
                             </div>
-                            <div id="Allergens">
-                                <h5 id="AllergensLabel">@Html.DisplayNameFor(modelitem => item.PotentialAllergens)</h5>
-                                <p id="AllergensText">@item.PotentialAllergens</p>
-                            </div>
-                            <div id="ExpirationDate">
-                                <h5 id="ExpirationLabel">@Html.DisplayNameFor(modelitem => item.ExpirationDate)</h5>
-                                <p id="ExpirationText">@item.ExpirationDate</p>
-                            </div>
-                            <div id="Comments">
-                                <h5 id="CommentsLabel">@Html.DisplayNameFor(modelitem => item.Comments)</h5>
-                                <p id="CommentsText">@item.Comments</p>
-                            </div>
-                            <div id="SpecialTransport">
-                                <h5 id="SpecialTransportLabel">@Html.DisplayNameFor(modelitem => item.SpecialTransport)</h5>
-                                <p id="SpecialTransportText">@item.SpecialTransport</p>
+                            <div id="row4">
+                                <div id="Comments">
+                                    <h5 id="CommentsLabel">@Html.DisplayNameFor(modelitem => item.Comments)</h5>
+                                    <p id="CommentsText">@item.Comments</p>
+                                </div>
+                                <div id="SpecialTransport">
+                                    <h5 id="SpecialTransportLabel">@Html.DisplayNameFor(modelitem => item.SpecialTransport)</h5>
+                                    <p id="SpecialTransportText">@item.SpecialTransport</p>
+                                </div>
                             </div>
                             <div id="Timestamp">
                                 <p id="ProviderPostLabel"><strong>@Html.DisplayNameFor(modelitem => item.TimeStamp)</strong><span class="ProviderPostText">@item.TimeStamp</span></p>

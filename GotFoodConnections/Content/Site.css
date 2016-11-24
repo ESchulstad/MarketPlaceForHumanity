@@ -57,22 +57,35 @@ textarea {
 .container{
     margin:0;
     padding:0;
+    width:100vw;
+}
+
+div#home.tab-pane.active.in{
     width:100%;
+    padding:0 50px 0 30px;
 }
 
 div#ProvPost{
     margin:0;
     float:right;
     padding:0;
+    border:1px solid rgba(56, 53, 61, 0.85);
+    border-radius:15px;
 }
 
 div#post{
     width:100%;
     padding:0 10px 0 10px;
+    border-bottom:1px solid rgba(56, 53, 61, 0.85);
 }
 
-i#post{
-    text-align:right;
+#post.container > h2{
+    margin-top:10px;
+}
+
+i.ionicons.ion-ios-information{
+    padding-left:30px;
+    color:black;
 }
 
 h5{
@@ -81,53 +94,101 @@ h5{
 
 div#FoodType{
     width:100%;
-}
-
-#FoodTypeText{
-    display:grid;
-    font-size:16px;
-}
-
-div#row{
-    width:100%;
-}
-
-#post, #ProviderPost{
-    border:2px solid gray;
+    border-bottom:1px solid rgba(56, 53, 61, 0.85);
     padding:0 10px 0 10px;
 }
 
+#FoodTypeLabel{
+    padding:10px 0 10px 0;
+    margin:0;
+}
+
+#FoodTypeText{
+    font-size:16px;
+    margin:0;
+    padding-bottom:10px;
+    line-height:16px;
+}
+
+div.row{
+    width:100%;
+    margin:0;
+}
+
+#row3{
+    border-bottom:1px solid rgba(56, 53, 61, 0.85);
+    min-height:50px;
+    overflow:auto;
+    position:relative;
+}
+
+
 div#PeopleFed, div#Allergens, div#ExpirationDate{
-    width:32%;
+    width:33.3333%;
     display:inline-block;
+    min-height:60px;
+}
+
+div#PeopleFed{
+    padding:5px 5px 5px 10px;
+    border-right:1px solid rgba(56, 53, 61, 0.85);
+    float:left;
+}
+
+div#Allergens{
+    padding:5px 5px 5px 5px;
+    border-right:1px solid rgba(56, 53, 61, 0.85);
+}
+
+div#ExpirationDate{
+    padding:5px 10px 5px 5px;
+    float:right;
 }
 
 h5#PeopleFedLabel, h5#AllergensLabel, h5#ExpirationLabel{
     margin:0;
     display:inline-block;
-    top: 0;
-    height:30px;
+    height:auto;
+    width:auto;
     font-size:13px;
 }
 
 p#PeopleFedText, p#AllergensText, p#ExpirationText{
-    margin-bottom:5px;
+    margin-bottom:0;
+}
+
+#row4{
+    border-bottom:1px solid rgba(56, 53, 61, 0.85);
+    height:100%;
+    position:relative;
 }
 
 div#SpecialTransport, div#Comments{
-    width:49%;
+    width:50%;
     display:inline-block;
+    min-height:60px;
 }
 
 div#Comments{
     float:left;
+    padding:5px 5px 5px 10px;
+    border-right:1px solid rgba(56, 53, 61, 0.85);
+    height:100%;
+}
+
+div#SpecialTransport{
+    padding:5px 10px 5px 10px;
+    height:100%;
 }
 
 h5#CommentsLabel, h5#SpecialTransportLabel{
     margin:0;
     display:inline-block;
-    top:0;
     font-size:13px;
+}
+
+p#CommentsText, p#SpecialTransportText{
+    margin:0;
 }
 
 div#Timestamp{
@@ -137,7 +198,9 @@ div#Timestamp{
 
 #ProviderPostLabel{
     text-align:right;
-    margin-right:30px;
+    margin-right:15px;
+    margin-bottom:5px;
+    margin-top:5px;
     font-size:12px;
 }
 
@@ -222,15 +285,4 @@ div#Timestamp{
     transform:scale(1.1);
     background-color:rgba(255, 255, 255, .95);
     cursor:pointer;
-}
-
-.nav.navbar-nav.navbar-right>li>a{
-    padding-top:0;
-    padding-left:0;
-    padding-right:20px;
-}
-
-form#logoutForm.navbar-right{
-    margin-right:10px;
-    margin-top:10px;
 }

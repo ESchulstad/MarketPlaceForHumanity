@@ -97,6 +97,7 @@ namespace GotFoodConnections.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
             ProviderPost providerPost = db.ProviderPosts.Find(id);
@@ -105,32 +106,6 @@ namespace GotFoodConnections.Controllers
 
             return RedirectToAction("Index");
         }
-
-        // GET: ProviderPosts/Delete/5
-        //public ActionResult Delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    ProviderPost providerPost = db.ProviderPosts.Find(id);
-        //    if (providerPost == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(providerPost);
-        //}
-
-        //// POST: ProviderPosts/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    ProviderPost providerPost = db.ProviderPosts.Find(id);
-        //    db.ProviderPosts.Remove(providerPost);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
 
         protected override void Dispose(bool disposing)
         {

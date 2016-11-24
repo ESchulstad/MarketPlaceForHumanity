@@ -111,6 +111,7 @@ namespace GotFoodConnections.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
             CharityPost charityPost = db.CharityPosts.Find(id);
@@ -119,31 +120,6 @@ namespace GotFoodConnections.Controllers
 
             return RedirectToAction("Index");
         }
-        ////GET: CharityPosts/Delete/5
-        //public ActionResult Delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    CharityPost charityPost = db.CharityPosts.Find(id);
-        //    if (charityPost == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(charityPost);
-        //}
-
-        ////POST: CharityPosts/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    CharityPost charityPost = db.CharityPosts.FirstOrDefault(c => c.CharityPostID.Equals(id));
-        //    db.CharityPosts.Remove(charityPost);
-        //    db.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
 
         protected override void Dispose(bool disposing)
         {
