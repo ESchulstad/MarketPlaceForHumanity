@@ -5,8 +5,8 @@
 @{
     ViewBag.Title = "Index";
 }
-    
-        
+
+
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#home">Food Available</a></li>
     <li><a data-toggle="tab" href="#menu1">Food Needed</a></li>
@@ -101,10 +101,10 @@
                             <div id="Timestamp">
                                 <p id="TimestampLabel"><strong>@Html.DisplayNameFor(modelitem => item.TimeStamp)</strong><span class="ProviderPostText">@item.TimeStamp</span></p>
                             </div>
-                            
+
                             @*<div id="Timestamp">
-                                <p id="ProviderPostLabel">@Html.DisplayNameFor(modelitem => item.TimeStamp)<span class="ProviderPostText">@item.TimeStamp</span></p>
-                            </div>*@
+                                    <p id="ProviderPostLabel">@Html.DisplayNameFor(modelitem => item.TimeStamp)<span class="ProviderPostText">@item.TimeStamp</span></p>
+                                </div>*@
                         </div>
                     </div>
                 }
