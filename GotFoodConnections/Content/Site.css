@@ -73,6 +73,7 @@ h3#tabTitle {
     font-size:30px;
 }
 
+/*Start of Create Post button*/
 #CreatePost {
     padding: 10px;
     position: fixed;
@@ -90,6 +91,7 @@ h3#tabTitle {
         background-color: #FF9B3B;
         text-decoration: none;
     }
+/*End of Create Post button*/
 
 div#home.tab-pane.active.in {
     width: 100%;
@@ -98,6 +100,7 @@ div#home.tab-pane.active.in {
     border-top: 1px solid #ddd;
 }
 
+/*Start of Main Feed Tabs styling*/
 .nav-tabs {
     position:fixed;
     padding-left:235px;
@@ -147,8 +150,9 @@ div#home.tab-pane.active.in {
         color: #E7F2F2;
         text-shadow: 1px 1px #38353D;
     }
+/*End of Main Feed Tabs styling*/
 
-
+/*Start of Provider Posts on Main Feed*/
 div#ProviderImage {
     height: 100vh;
     padding: 0;
@@ -183,11 +187,6 @@ div#post {
     color: #38353D;
     font-family: 'Sriracha', cursive;
     font-size:35px;
-}
-
-i.ionicons.ion-ios-information {
-    padding-left: 15px;
-    color: #38353D;
 }
 
 h5 {
@@ -310,7 +309,7 @@ div#Timestamp {
     width: 50%;
 }
 
-#ProviderPostLabel {
+#TimestampLabel {
     text-align: right;
     margin-right: 15px;
     margin-bottom: 5px;
@@ -318,6 +317,69 @@ div#Timestamp {
     font-size: 12px;
     font-family: 'Scada', sans-serif;
 }
+/*End of Provider Posts on Main Feed*/
+
+/*Start of Modal Menu Styling*/
+i.ion-ios-information{
+    padding-left: 15px;
+    color: #38353D;
+    font-weight:700;
+}
+
+div.modal-content{
+    border-radius:15px;
+    border:2px solid #38353D;
+}
+
+div.modal-header{
+    background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    font-family: 'Sriracha', cursive;
+    border-radius:13px 13px 0 0;
+    border-bottom:1px solid rgba(56, 53, 61, 0.5);
+}
+
+.modal-title{
+    font-size:24px;
+}
+
+.modal-header .close{
+    margin-top:7px;
+}
+
+.modal-body{
+    background-color:rgba(231, 242, 242, .85);
+    padding:0;
+}
+
+.modal-body > p{
+    font-family: 'Scada', sans-serif;
+    font-size:14px;
+    margin:0;
+    padding:5px 15px;
+    border-bottom:1px solid rgba(56, 53, 61, 0.5);
+}
+
+.modal-body > p > a{
+    color:rgba(218,98,33,1);
+}
+
+.modal-body > p > a:hover{
+    color:#FF9B3B;
+    text-decoration:none;
+}
+
+.modal-footer{
+    background-color:rgba(231, 242, 242, .85);
+    border-radius:0 0 13px 13px;
+}
+
+.modal-footer > .btn-default{
+    background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    font-family: 'Scada', sans-serif;
+    border-radius:6px;
+    border:1px solid #38353D;
+}
+/*End of Modal Menu Styling*/
 
 /* The Overlay (background) */
 .sidenav {
