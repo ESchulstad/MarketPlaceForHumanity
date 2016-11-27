@@ -111,6 +111,10 @@
              @Html.ActionLink("Delete", "Delete", new { id = item.ProviderID })
         
             @Html.ActionLink("Details", "Details", new { id=item.ProviderID }) |
+            @if (item.User.UserName == User.Identity.Name)
+            {
+                @Html.ActionLink("Donate", "Donate", new { id = item.ProviderID })
+            }
         </td>
     </tr>
 }

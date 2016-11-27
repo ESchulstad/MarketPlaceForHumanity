@@ -260,6 +260,12 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Images\berries-1022839_640.jpg" />
+    <Content Include="Content\Images\cabbage-1498842_640.jpg" />
+    <Content Include="Content\Images\cucumbers-1588945_640.jpg" />
+    <Content Include="Content\Images\food-salad-dinner-eating.jpg" />
+    <Content Include="Content\Images\hands-1838658_640 %281%29.jpg" />
+    <Content Include="Content\Images\people-1285348_640.jpg" />
     <Content Include="Content\ionicons.css" />
     <Content Include="Content\ionicons.min.css" />
     <Content Include="favicon.ico" />

@@ -32,7 +32,7 @@ namespace GotFoodConnections.Controllers
         public ActionResult ScoreBoard()
         {
 
-            var providers = db.Providers.Include(p => p.ProviderType);
+            var providers = db.Providers.Include(p => p.ProviderType).OrderByDescending(p => p.NumOfDonation);
             return View(providers.ToList());
 
         }
@@ -51,17 +51,20 @@ namespace GotFoodConnections.Controllers
             {
                 return HttpNotFound();
             }
-
-            provider.NumOfDonation++;
-
-
-            if (ModelState.IsValid)
+            UserManager<ApplicationUser> UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
+            ApplicationUser currentUser = UserManager.FindById(User.Identity.GetUserId());
+            if (currentUser == provider.User)
             {
-                db.Entry(provider).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("ScoreBoard");
-            }
+                provider.NumOfDonation++;
 
+
+                if (ModelState.IsValid)
+                {
+                    db.Entry(provider).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("ScoreBoard");
+                }
+            }
 
             return RedirectToAction("ScoreBoard");
         }

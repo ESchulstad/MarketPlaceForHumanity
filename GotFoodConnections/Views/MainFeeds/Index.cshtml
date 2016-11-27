@@ -15,15 +15,15 @@
             
                 if(User.IsInRole("Food Donor"))
                 {
-                    @Html.ActionLink("Create Post", "Index", "ProviderPosts");
+                    @Html.ActionLink("Create Post", "Create", "ProviderPosts");
                 }
                 else if (User.IsInRole("Charity"))
                 {
-                    @Html.ActionLink("Create Post", "Index", "CharityPosts");
+                    @Html.ActionLink("Create Post", "Create", "CharityPosts");
                 }
                 else if (User.IsInRole("Transportation Assistance"))
                 {
-                    @Html.ActionLink("Create Post", "Index", "TransportPosts");
+                    @Html.ActionLink("Create Post", "Create", "TransportPosts");
                 }
            
         }
