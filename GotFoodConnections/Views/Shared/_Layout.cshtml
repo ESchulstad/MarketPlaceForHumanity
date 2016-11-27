@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -10,6 +11,7 @@
     @Scripts.Render("~/bundles/modernizr")
     <script src="~/Scripts/navigation.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Chelsea+Market" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Scada:400|Sriracha" rel="stylesheet">
 
 </head>
 <body>
@@ -22,10 +24,24 @@
             <li>@Html.ActionLink("Home", "Index", "Home")</li>
             <li>@Html.ActionLink("About", "About", "Home")</li>
             <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+            <li>@Html.ActionLink("Main Feed", "Index", "MainFeeds")</li>
             <li>@Html.ActionLink("Score Board", "ScoreBoard", "Providers")</li>
             <li>@Html.ActionLink("Food Donors", "ProviderList", "Providers")</li>
             <li>@Html.ActionLink("Charities", "CharityList", "CharityProfiles")</li>
             <li>@Html.ActionLink("Transport Assistance", "TransportList", "Transports")</li>
+            @if (Request.IsAuthenticated)
+            {
+                using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                }
+            }
+            else
+            {
+                <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+            }
         </ul>
     </div>
     <!-- Use any element to open/show the overlay navigation menu -->
@@ -33,30 +49,15 @@
         <p>Got Food Connections</p>
         @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
     </div>
-
-    <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-
-            <li>@Html.ActionLink("Home", "Index", "Home")</li>
-            <li>@Html.ActionLink("About", "About", "Home")</li>
-            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-
-            @if (User.IsInRole("Food Donor"))
-            {
-                <li>@Html.ActionLink("Scoreboard", "ScoreBoard", "Providers")</li>
-            }
-            <li>@Html.ActionLink("Food Donors", "ProviderList", "Providers")</li>
-            <li>@Html.ActionLink("Charities", "CharityList", "CharityProfiles")</li>
-            <li>@Html.ActionLink("Transport Assistance", "TransportList", "Transports")</li>
-
-        </ul>
-        @Html.Partial("_LoginPartial")
-    </div>
+    @*<div>
+            @Html.Partial("_LoginPartial")
+        </div>*@
 
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
+            <p>@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })</p>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
         </footer>
     </div>
