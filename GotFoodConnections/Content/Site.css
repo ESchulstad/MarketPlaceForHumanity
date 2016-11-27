@@ -1,6 +1,6 @@
 ﻿body {
     /*padding-top: 50px;*/
-    padding-bottom: 20px;
+    /*padding-bottom: 20px;*/
     /*background-color:#DA6321;*/
     width: 100%;
 }
@@ -85,6 +85,7 @@ h3#tabTitle {
     color: #38353D;
     font-family: 'Scada', sans-serif;
     font-weight:700;
+    z-index:5;
 }
 
     #CreatePost:hover {
@@ -98,6 +99,28 @@ div#home.tab-pane.active.in {
     margin: 0 50px 0 0px;
     background-color: transparent;
     border-top: 1px solid #ddd;
+}
+
+hr{
+    display:none;
+}
+
+footer{
+    position:fixed;
+    width:50%;
+    bottom:0;
+    padding-left:10px;
+    font-family: 'Scada', sans-serif;
+    color:#E7F2F2;
+}
+
+footer > p > a{
+    color:rgba(218,98,33,1);
+}
+
+footer > p > a:hover{
+    color:#FF9B3B;
+    text-decoration:none;
 }
 
 /*Start of Main Feed Tabs styling*/
@@ -154,7 +177,7 @@ div#home.tab-pane.active.in {
 
 /*Start of Provider Posts on Main Feed*/
 div#ProviderImage {
-    height: 100vh;
+    height: 1057px;
     padding: 0;
     background: linear-gradient(to right, rgba(56,53,61,0) 0%, rgba(56,53,61,0) 33%, rgba(56,53,61,.6) 50%,rgba(56,53,61,.9) 100%), url('../Images/Food-Table-Image.jpeg');
     background-attachment: fixed;
@@ -164,7 +187,7 @@ div#ProviderImage {
 }
 
 div#ProvPost {
-    margin: 0;
+    margin: 10px 0;
     float: right;
     padding: 0;
     border: 2px solid rgba(56, 53, 61, 0.85);
@@ -268,7 +291,7 @@ p#PeopleFedText, p#AllergensText, p#ExpirationText {
     font-size:14px;
 }
 
-#row4 {
+#row2 {
     border-bottom: 1px solid rgba(56, 53, 61, 0.5);
     height: 100%;
     position: relative;
@@ -351,7 +374,7 @@ div.modal-header{
     padding:0;
 }
 
-.modal-body > p{
+.modal-body > p{  
     font-family: 'Scada', sans-serif;
     font-size:14px;
     margin:0;
