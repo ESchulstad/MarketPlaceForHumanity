@@ -1,7 +1,8 @@
 ﻿body {
-    padding-top: 50px;
+    /*padding-top: 50px;*/
     padding-bottom: 20px;
-    background-color:#DA6321;
+    /*background-color:#DA6321;*/
+    width: 100%;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -23,135 +24,375 @@ select,
 textarea {
     max-width: 280px;
 }
+
 .faqHeader {
-        font-size: 27px;
-        margin: 20px;
+    font-size: 27px;
+    margin: 20px;
+}
+
+.panel-heading [data-toggle="collapse"]:after {
+    font-family: 'FontAwesome';
+    content: "\f138"; /* "play" icon */
+    float: right;
+    color: #F58723;
+    font-size: 18px;
+    line-height: 22px;
+    /* rotate "play" icon from > (right arrow) to down arrow */
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.panel-heading [data-toggle="collapse"].collapsed:after {
+    /* rotate "play" icon from > (right arrow) to ^ (up arrow) */
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    color: #454444;
+}
+
+.container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+h3#tabTitle {
+    position: absolute;
+    top: 75px;
+    left: 33.5%;
+    margin: 0;
+    padding: 10px 0;
+    color: #E7F2F2;
+    text-shadow:1px 1px #38353D;
+    font-family: 'Sriracha', cursive;
+    font-size:30px;
+}
+
+/*Start of Create Post button*/
+#CreatePost {
+    padding: 10px;
+    position: fixed;
+    top: 93px;
+    left: 25px;
+    background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    border: 1px solid #38353D;
+    border-radius: 8px;
+    color: #38353D;
+    font-family: 'Scada', sans-serif;
+    font-weight:700;
+}
+
+    #CreatePost:hover {
+        background-color: #FF9B3B;
+        text-decoration: none;
+    }
+/*End of Create Post button*/
+
+div#home.tab-pane.active.in {
+    width: 100%;
+    margin: 0 50px 0 0px;
+    background-color: transparent;
+    border-top: 1px solid #ddd;
+}
+
+/*Start of Main Feed Tabs styling*/
+.nav-tabs {
+    position:fixed;
+    padding-left:235px;
+    width:100%;
+    border-bottom: none;
+    margin-bottom: -1px;
+    background-color:#E7F2F2;
+    z-index:1;
+}
+
+    .nav-tabs > li > a {
+        border-radius: 8px 8px 0 0;
+        margin-top: 19px;
+        margin-left:12px;
+        border: 1px solid #ddd;
+        border-bottom-color: transparent;
+        color: #E7F2F2;
+        font-family: 'Sriracha', cursive;
+        font-size:18px;
+        text-shadow: 1px 1px #38353D;
+        background: linear-gradient(to right, rgba(56,53,61,.9) 0% ,rgba(56,53,61,.9) 100%), url('../Images/Food-Table-Image.jpeg');
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
 
-    .panel-heading [data-toggle="collapse"]:after {
-        font-family: 'FontAwesome';
-        content: "\f138"; /* "play" icon */
-        float: right;
-        color: #F58723;
-        font-size: 18px;
-        line-height: 22px;
-        /* rotate "play" icon from > (right arrow) to down arrow */
-        -webkit-transform: rotate(-90deg);
-        -moz-transform: rotate(-90deg);
-        -ms-transform: rotate(-90deg);
-        -o-transform: rotate(-90deg);
-        transform: rotate(-90deg);
+        .nav-tabs > li > a:hover {
+        border-bottom-color:transparent;
+        color:#FF9B3B;
     }
 
-    .panel-heading [data-toggle="collapse"].collapsed:after {
-        /* rotate "play" icon from > (right arrow) to ^ (up arrow) */
-        -webkit-transform: rotate(90deg);
-        -moz-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-        -o-transform: rotate(90deg);
-        transform: rotate(90deg);
-        color: #454444;
-    }
 
-.container{
-    margin:0;
+.nav > li.active > a {
+    background: linear-gradient(to right, rgba(56,53,61,0) 0%, rgba(56,53,61,0) 33%, rgba(56,53,61,.6) 50%,rgba(56,53,61,.9) 100%), url('../Images/Food-Table-Image.jpeg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-bottom: none;
+    color: #E7F2F2;
+    text-shadow: 1px 1px #38353D;
+}
+
+    .nav-tabs > li.active > a:hover {
+        background-color: #E7F2F2;
+        color: #E7F2F2;
+        text-shadow: 1px 1px #38353D;
+    }
+/*End of Main Feed Tabs styling*/
+
+/*Start of Provider Posts on Main Feed*/
+div#ProviderImage {
+    height: 100vh;
+    padding: 0;
+    background: linear-gradient(to right, rgba(56,53,61,0) 0%, rgba(56,53,61,0) 33%, rgba(56,53,61,.6) 50%,rgba(56,53,61,.9) 100%), url('../Images/Food-Table-Image.jpeg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div#ProvPost {
+    margin: 0;
+    float: right;
+    padding: 0;
+    border: 2px solid rgba(56, 53, 61, 0.85);
+    border-radius: 18px;
+    background-color: rgba(231, 242, 242, .85);
+    box-shadow: 15px 10px 20px rgba(23, 21, 25, 0.90);
+}
+
+div#post {
+    width: 100%;
+    padding: 0 10px 0 10px;
+    border-bottom: 1px solid rgba(56, 53, 61, 0.5);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+}
+
+#post.container > h2 {
+    margin-top: 10px;
+    color: #38353D;
+    font-family: 'Sriracha', cursive;
+    font-size:35px;
+}
+
+h5 {
+    font-weight: 700;
+    color: #38353D;
+    font-family: 'Scada', sans-serif;
+}
+
+div#FoodType {
+    width: 100%;
+    border-bottom: 1px solid rgba(56, 53, 61, 0.5);
+    padding: 0 10px 0 10px;
+}
+
+#FoodTypeLabel {
+    padding: 10px 0 10px 0;
+    margin: 0;
+    font-family: 'Scada', sans-serif;
+    font-weight:700;
+}
+
+#FoodTypeText {
+    font-size: 20px;
+    margin: 0;
+    padding-bottom: 10px;
+    line-height: 20px;
+    font-family: 'Scada', sans-serif;
+}
+
+div.row {
+    position: absolute;
+    top: 130px;
+    width: 98%;
+    margin: 0;
+}
+
+#row3 {
+    border-bottom: 1px solid rgba(56, 53, 61, 0.5);
+    min-height: 50px;
+    overflow: auto;
+    position: relative;
+}
+
+
+div#PeopleFed, div#Allergens, div#ExpirationDate {
+    width: 33.3333%;
+    display: inline-block;
+    min-height: 60px;
+}
+
+div#PeopleFed {
+    padding: 5px 5px 5px 10px;
+    border-right: 1px solid rgba(56, 53, 61, 0.5);
+    float: left;
+}
+
+div#Allergens {
+    padding: 5px 5px 5px 5px;
+    border-right: 1px solid rgba(56, 53, 61, 0.5);
+}
+
+div#ExpirationDate {
+    padding: 5px 10px 5px 5px;
+    float: right;
+}
+
+h5#PeopleFedLabel, h5#AllergensLabel, h5#ExpirationLabel {
+    margin: 0;
+    display: inline-block;
+    height: auto;
+    width: auto;
+    font-size: 14px;
+}
+
+p#PeopleFedText, p#AllergensText, p#ExpirationText {
+    margin-bottom: 0;
+    vertical-align: bottom;
+    font-family: 'Scada', sans-serif;
+    font-size:14px;
+}
+
+#row4 {
+    border-bottom: 1px solid rgba(56, 53, 61, 0.5);
+    height: 100%;
+    position: relative;
+}
+
+div#SpecialTransport, div#Comments {
+    width: 50%;
+    display: inline-block;
+    min-height: 60px;
+}
+
+div#Comments {
+    float: left;
+    padding: 5px 5px 5px 10px;
+    border-right: 1px solid rgba(56, 53, 61, 0.5);
+    height: 100%;
+}
+
+div#SpecialTransport {
+    padding: 5px 10px 5px 10px;
+    height: 100%;
+}
+
+h5#CommentsLabel, h5#SpecialTransportLabel {
+    margin: 0;
+    display: inline-block;
+    font-size: 14px;
+}
+
+p#CommentsText, p#SpecialTransportText {
+    margin: 0;
+    font-family: 'Scada', sans-serif;
+    font-size:14px;
+}
+
+div#Timestamp {
+    display: inline;
+    width: 50%;
+}
+
+#TimestampLabel {
+    text-align: right;
+    margin-right: 15px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    font-size: 12px;
+    font-family: 'Scada', sans-serif;
+}
+/*End of Provider Posts on Main Feed*/
+
+/*Start of Modal Menu Styling*/
+i.ion-ios-information{
+    padding-left: 15px;
+    color: #38353D;
+    font-weight:700;
+}
+
+div.modal-content{
+    border-radius:15px;
+    border:2px solid #38353D;
+}
+
+div.modal-header{
+    background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    font-family: 'Sriracha', cursive;
+    border-radius:13px 13px 0 0;
+    border-bottom:1px solid rgba(56, 53, 61, 0.5);
+}
+
+.modal-title{
+    font-size:24px;
+}
+
+.modal-header .close{
+    margin-top:7px;
+}
+
+.modal-body{
+    background-color:rgba(231, 242, 242, .85);
     padding:0;
-    width:100%;
 }
 
-div#ProvPost{
+.modal-body > p{
+    font-family: 'Scada', sans-serif;
+    font-size:14px;
     margin:0;
-    float:right;
-    padding:0;
+    padding:5px 15px;
+    border-bottom:1px solid rgba(56, 53, 61, 0.5);
 }
 
-div#post{
-    width:100%;
-    padding:0 10px 0 10px;
+.modal-body > p > a{
+    color:rgba(218,98,33,1);
 }
 
-i#post{
-    text-align:right;
+.modal-body > p > a:hover{
+    color:#FF9B3B;
+    text-decoration:none;
 }
 
-h5{
-    font-weight:700; 
+.modal-footer{
+    background-color:rgba(231, 242, 242, .85);
+    border-radius:0 0 13px 13px;
 }
 
-div#FoodType{
-    width:100%;
+.modal-footer > .btn-default{
+    background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    font-family: 'Scada', sans-serif;
+    border-radius:6px;
+    border:1px solid #38353D;
 }
-
-#FoodTypeText{
-    display:grid;
-    font-size:16px;
-}
-
-div#row{
-    width:100%;
-}
-
-#post, #ProviderPost{
-    border:2px solid gray;
-    padding:0 10px 0 10px;
-}
-
-div#PeopleFed, div#Allergens, div#ExpirationDate{
-    width:32%;
-    display:inline-block;
-}
-
-h5#PeopleFedLabel, h5#AllergensLabel, h5#ExpirationLabel{
-    margin:0;
-    display:inline-block;
-    top: 0;
-    height:30px;
-    font-size:13px;
-}
-
-p#PeopleFedText, p#AllergensText, p#ExpirationText{
-    margin-bottom:5px;
-}
-
-div#SpecialTransport, div#Comments{
-    width:49%;
-    display:inline-block;
-}
-
-div#Comments{
-    float:left;
-}
-
-h5#CommentsLabel, h5#SpecialTransportLabel{
-    margin:0;
-    display:inline-block;
-    top:0;
-    font-size:13px;
-}
-
-div#Timestamp{
-    display:inline;
-    width:50%;
-}
-
-#ProviderPostLabel{
-    text-align:right;
-    margin-right:30px;
-    font-size:12px;
-}
+/*End of Modal Menu Styling*/
 
 /* The Overlay (background) */
 .sidenav {
-    /* Height & width depends on how you want to reveal the overlay (see JS below) */    
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */
     height: 100%;
     width: 0;
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 3; /* Sit on top */
     left: 0;
     top: 0;
-    background-color: #38353D; /* Black fallback color */
-    background-color: #38353D;
-    opacity:0.9; /* Black w/opacity */
+    background-color: #B9675B; /* Black fallback color */
+    background-color: #B9675B;
+    opacity: .95;
     overflow-x: hidden; /* Disable horizontal scroll */
     transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }
@@ -171,9 +412,18 @@ div#Timestamp{
     font-family: 'Chelsea Market', cursive;
     text-decoration: none;
     font-size: 25px;
-    color: #818181;
+    color: #38353D;
     display: block; /* Display block instead of inline */
     transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+ul.overlay-content > li {
+    list-style-type: none;
+}
+
+#logoutForm {
+    float: left !important;
+    list-style-type: none;
 }
 
 /* When you mouse over the navigation links, change their color */
@@ -191,7 +441,10 @@ div#Timestamp{
 
 /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
 @media screen and (max-height: 450px) {
-    .sidenav a {font-size: 20px}
+    .sidenav a {
+        font-size: 20px;
+    }
+
     .sidenav .closebtn {
         font-size: 40px;
         top: 15px;
@@ -199,26 +452,24 @@ div#Timestamp{
     }
 }
 
-#slide{
-    transform:translateZ(1px);
-    position:relative;
-    left: 2%;
-    top: 25px;
+#slide {
+    z-index:2;
+    position: fixed;
+    left: 5px;
+    top: 7px;
 }
 
-#slide p{
-    /*background-color:rgba(255, 255, 255, 0.7);*/
-    transition:all .3s;
-}
+    #slide p {
+        transition: all .3s;
+    }
 
 .navbar-brand {
-    font-family:'Chelsea Market', cursive;
+    font-family: 'Chelsea Market', cursive;
     display: inline-block; /* change the default display type to inline-block */
-    overflow: hidden;      /* hide the overflow */
+    overflow: hidden; /* hide the overflow */
 }
 
-#slide p:hover{
-    transform:scale(1.1);
-    background-color:rgba(255, 255, 255, .95);
-    cursor:pointer;
+#slide p:hover {
+    transform: scale(1.05);
+    cursor: pointer;
 }

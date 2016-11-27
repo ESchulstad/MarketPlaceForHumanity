@@ -5,68 +5,8 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Index</h2>
-
-
     
-        @if (Request.IsAuthenticated)
-        {
-            
-                if(User.IsInRole("Food Donor"))
-                {
-                    @Html.ActionLink("Create Post", "Index", "ProviderPosts");
-                }
-                else if (User.IsInRole("Charity"))
-                {
-                    @Html.ActionLink("Create Post", "Index", "CharityPosts");
-                }
-                else if (User.IsInRole("Transportation Assistance"))
-                {
-                    @Html.ActionLink("Create Post", "Index", "TransportPosts");
-                }
-           
-        }
-
-        <br />
-@*<p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CharityPost.FoodRequested)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProviderPost.FoodType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TransportPost.Message)
-            </th>
-            <th></th>
-        </tr>
-
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CharityPost.FoodRequested)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProviderPost.FoodType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TransportPost.Message)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.MainFeedID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.MainFeedID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.MainFeedID })
-            </td>
-        </tr>
-    }
-
-    </table>*@
-
+        
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#home">Food Available</a></li>
     <li><a data-toggle="tab" href="#menu1">Food Needed</a></li>
@@ -75,7 +15,26 @@
 
 <div class="tab-content">
     <div id="home" class="tab-pane fade in active">
-        <h3>Food Available</h3>
+        <div id="ProviderImage">
+            @if (Request.IsAuthenticated)
+            {
+
+                if (User.IsInRole("Food Donor"))
+                {
+                    @Html.ActionLink("Create Post", "Create", "ProviderPosts", null, new { id = "CreatePost" });
+                }
+                else if (User.IsInRole("Charity"))
+                {
+                    @Html.ActionLink("Create Post", "Create", "CharityPosts", null, new { id = "CreatePost" });
+                }
+                else if (User.IsInRole("Transportation Assistance"))
+                {
+                    @Html.ActionLink("Create Post", "Create", "TransportPosts", null, new { id = "CreatePost" });
+                }
+
+            }
+        </div>
+        <h3 id="tabTitle">Food Available</h3>
 
         <div class="row">
             @foreach (ProviderPost item in Model.ProviderPosts)
@@ -85,7 +44,7 @@
                     <div class="col-xs-12 col-md-8 col-md-offset-2 chat" id="ProvPost">
                         @*<span class="ProviderName">@item.Provider.OrgName</span>*@
                         <div class="container" id="post">
-                            <h2>@item.Provider.OrgName<a href="" class="open" data-toggle="modal" data-target="#providerModal"><!-- Trigger the modal with a button --><i class="ionicons ion-ios-information"></i></a></h2>
+                            <h2>@item.Provider.OrgName<a href="" class="open" data-toggle="modal" data-target="#providerModal"><!-- Trigger the modal with a button --><i class="ion-ios-information"></i></a></h2>
                             <!-- Modal -->
                             <div class="modal fade" id="providerModal" role="dialog">
                                 <div class="modal-dialog">
@@ -115,28 +74,32 @@
                                 <h4 id="FoodTypeLabel">@Html.DisplayNameFor(modelitem => item.FoodType)</h4>
                                 <p id="FoodTypeText">@item.FoodType</p>
                             </div>
-                            <div id="PeopleFed">
-                                <h5 id="PeopleFedLabel">@Html.DisplayNameFor(modelitem => item.PeopleFed)</h5>
-                                <p id="PeopleFedText">@item.PeopleFed</p>
+                            <div id="row3">
+                                <div id="PeopleFed">
+                                    <h5 id="PeopleFedLabel">@Html.DisplayNameFor(modelitem => item.PeopleFed)</h5>
+                                    <p id="PeopleFedText">@item.PeopleFed</p>
+                                </div>
+                                <div id="Allergens">
+                                    <h5 id="AllergensLabel">@Html.DisplayNameFor(modelitem => item.PotentialAllergens)</h5>
+                                    <p id="AllergensText">@item.PotentialAllergens</p>
+                                </div>
+                                <div id="ExpirationDate">
+                                    <h5 id="ExpirationLabel">@Html.DisplayNameFor(modelitem => item.ExpirationDate)</h5>
+                                    <p id="ExpirationText">@item.ExpirationDate</p>
+                                </div>
                             </div>
-                            <div id="Allergens">
-                                <h5 id="AllergensLabel">@Html.DisplayNameFor(modelitem => item.PotentialAllergens)</h5>
-                                <p id="AllergensText">@item.PotentialAllergens</p>
-                            </div>
-                            <div id="ExpirationDate">
-                                <h5 id="ExpirationLabel">@Html.DisplayNameFor(modelitem => item.ExpirationDate)</h5>
-                                <p id="ExpirationText">@item.ExpirationDate</p>
-                            </div>
-                            <div id="Comments">
-                                <h5 id="CommentsLabel">@Html.DisplayNameFor(modelitem => item.Comments)</h5>
-                                <p id="CommentsText">@item.Comments</p>
-                            </div>
-                            <div id="SpecialTransport">
-                                <h5 id="SpecialTransportLabel">@Html.DisplayNameFor(modelitem => item.SpecialTransport)</h5>
-                                <p id="SpecialTransportText">@item.SpecialTransport</p>
+                            <div id="row4">
+                                <div id="Comments">
+                                    <h5 id="CommentsLabel">@Html.DisplayNameFor(modelitem => item.Comments)</h5>
+                                    <p id="CommentsText">@item.Comments</p>
+                                </div>
+                                <div id="SpecialTransport">
+                                    <h5 id="SpecialTransportLabel">@Html.DisplayNameFor(modelitem => item.SpecialTransport)</h5>
+                                    <p id="SpecialTransportText">@item.SpecialTransport</p>
+                                </div>
                             </div>
                             <div id="Timestamp">
-                                <p id="ProviderPostLabel"><strong>@Html.DisplayNameFor(modelitem => item.TimeStamp)</strong><span class="ProviderPostText">@item.TimeStamp</span></p>
+                                <p id="TimestampLabel"><strong>@Html.DisplayNameFor(modelitem => item.TimeStamp)</strong><span class="ProviderPostText">@item.TimeStamp</span></p>
                             </div>
                             
                             @*<div id="Timestamp">

@@ -15,22 +15,22 @@ namespace GotFoodConnections.Models
         [ForeignKey("Provider")]
         public int ProviderID { get; set; }
         public virtual Provider Provider { get; set; }
-        [Display(Name = "Date Posted")]
+        [Display(Name = "Date Posted: ")]
         public DateTime TimeStamp { get; set; }
         [Required]
-        [Display(Name = "Please list the food to be donated:")]
+        [Display(Name = "What food is being donated:")]
         public string FoodType { get; set; }
         [Display(Name = "How many people will the Donation feed?")]
         public string PeopleFed { get; set; }
         [Display(Name = "Are there any potential Allergens?")]
         public string PotentialAllergens { get; set; }
         [Required]
-        [Display(Name = "Expiration Date")]
+        [Display(Name = "Expiration Date:")]
         public DateTime ExpirationDate { get; set; }
         [Required]
         [Display(Name = "Does the Donation require Special Transportation?")]
         public string SpecialTransport { get; set; }
-        [Display(Name = "Additional Comments")]
+        [Display(Name = "Additional Comments:")]
         public string Comments { get; set; }
 
         public ICollection<MainFeed> ProviderPosts { get; set; }
