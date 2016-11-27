@@ -5,68 +5,8 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>Index</h2>
-
-
     
-        @if (Request.IsAuthenticated)
-        {
-            
-                if(User.IsInRole("Food Donor"))
-                {
-                    @Html.ActionLink("Create Post", "Index", "ProviderPosts");
-                }
-                else if (User.IsInRole("Charity"))
-                {
-                    @Html.ActionLink("Create Post", "Index", "CharityPosts");
-                }
-                else if (User.IsInRole("Transportation Assistance"))
-                {
-                    @Html.ActionLink("Create Post", "Index", "TransportPosts");
-                }
-           
-        }
-
-        <br />
-@*<p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CharityPost.FoodRequested)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProviderPost.FoodType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TransportPost.Message)
-            </th>
-            <th></th>
-        </tr>
-
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CharityPost.FoodRequested)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProviderPost.FoodType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TransportPost.Message)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.MainFeedID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.MainFeedID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.MainFeedID })
-            </td>
-        </tr>
-    }
-
-    </table>*@
-
+        
 <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#home">Food Available</a></li>
     <li><a data-toggle="tab" href="#menu1">Food Needed</a></li>
@@ -75,7 +15,26 @@
 
 <div class="tab-content">
     <div id="home" class="tab-pane fade in active">
-        <h3>Food Available</h3>
+        <div id="ProviderImage">
+            @if (Request.IsAuthenticated)
+            {
+
+                if (User.IsInRole("Food Donor"))
+                {
+                    @Html.ActionLink("Create Post", "Create", "ProviderPosts", null, new { id = "CreatePost" });
+                }
+                else if (User.IsInRole("Charity"))
+                {
+                    @Html.ActionLink("Create Post", "Create", "CharityPosts", null, new { id = "CreatePost" });
+                }
+                else if (User.IsInRole("Transportation Assistance"))
+                {
+                    @Html.ActionLink("Create Post", "Create", "TransportPosts", null, new { id = "CreatePost" });
+                }
+
+            }
+        </div>
+        <h3 id="tabTitle">Food Available</h3>
 
         <div class="row">
             @foreach (ProviderPost item in Model.ProviderPosts)
