@@ -14,16 +14,15 @@
 {
     if (item != null)
     {
-        <div class="col-xs-12 col-md-8 col-md-offset-2 chat" id="ProvPost">
+        <div class="col-xs-12 col-md-8 col-md-offset-2 chat" id="ProvIndex">
             <div id="ProviderIndex">
                 <div id="proname">
-                    <h5 id="ProvName"> @Html.DisplayNameFor(model => model.Provider.OrgName)</h5>
-                    <p>@item.Provider.OrgName</p>
+                    <h5 id="ProvNameLabel"> @Html.DisplayNameFor(model => model.Provider.OrgName)</h5>
+                    <p id="ProvNameText">@item.Provider.OrgName</p>
                 </div>
-
-                <div id="protime">
-                    <h5 id="provetimestamp"> @Html.DisplayNameFor(model => model.TimeStamp)</h5>
-                    <p>@item.TimeStamp</p>
+                <div id="ProvTime">
+                    <h5> @Html.DisplayNameFor(model => model.TimeStamp)</h5>
+                    <p id="prov">@item.TimeStamp</p>
                 </div>
                 <div id="profood">
                     <h5 id="provfoodtype"> @Html.DisplayNameFor(model => model.FoodType)</h5>
