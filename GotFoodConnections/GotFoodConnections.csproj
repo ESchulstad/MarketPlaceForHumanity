@@ -294,8 +294,10 @@
     <Content Include="fonts\ionicons.ttf" />
     <Content Include="fonts\ionicons.woff" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Images\Charity-Food-Image.jpg" />
     <Content Include="Images\Food-Table-Image.jpeg" />
-    <Content Include="Images\Food_Donor_Image.png" />
+    <Content Include="Images\Food-Transport-Image.jpg" />
+    <Content Include="Images\Transport-Image.jpg" />
     <Content Include="Photos\Headshot.JPG" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

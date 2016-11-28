@@ -1,6 +1,6 @@
 ﻿body {
     /*padding-top: 50px;*/
-    padding-bottom: 20px;
+    /*padding-bottom: 20px;*/
     /*background-color:#DA6321;*/
     width: 100%;
 }
@@ -68,9 +68,9 @@ h3#tabTitle {
     margin: 0;
     padding: 10px 0;
     color: #E7F2F2;
-    text-shadow:1px 1px #38353D;
+    text-shadow: 1px 1px #38353D;
     font-family: 'Sriracha', cursive;
-    font-size:30px;
+    font-size: 30px;
 }
 
 /*Start of Create Post button*/
@@ -84,7 +84,8 @@ h3#tabTitle {
     border-radius: 8px;
     color: #38353D;
     font-family: 'Scada', sans-serif;
-    font-weight:700;
+    font-weight: 700;
+    z-index: 3;
 }
 
     #CreatePost:hover {
@@ -100,71 +101,153 @@ div#home.tab-pane.active.in {
     border-top: 1px solid #ddd;
 }
 
-/*Start of Main Feed Tabs styling*/
-.nav-tabs {
-    position:fixed;
-    padding-left:235px;
-    width:100%;
-    border-bottom: none;
-    margin-bottom: -1px;
-    background-color:#E7F2F2;
-    z-index:1;
+hr {
+    display: none;
 }
 
-    .nav-tabs > li > a {
-        border-radius: 8px 8px 0 0;
-        margin-top: 19px;
-        margin-left:12px;
-        border: 1px solid #ddd;
-        border-bottom-color: transparent;
-        color: #E7F2F2;
-        font-family: 'Sriracha', cursive;
-        font-size:18px;
-        text-shadow: 1px 1px #38353D;
-        background: linear-gradient(to right, rgba(56,53,61,.9) 0% ,rgba(56,53,61,.9) 100%), url('../Images/Food-Table-Image.jpeg');
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+footer {
+    position: fixed;
+    width: 50%;
+    bottom: 0;
+    padding-left: 10px;
+    font-family: 'Scada', sans-serif;
+    color: #E7F2F2;
+    text-shadow: 1px 0px 0px #000000, -1px 0px 0 #000000, 0 1px 0 #000000, 0 -1px 0 #38353D;
+}
+
+    footer > p > a {
+        color: rgba(218,98,33,1);
     }
 
-        .nav-tabs > li > a:hover {
-        border-bottom-color:transparent;
-        color:#FF9B3B;
+        footer > p > a:hover {
+            color: #FF9B3B;
+            text-decoration: none;
+        }
+
+/*Start of Main Feed Tabs styling*/
+.nav-tabs {
+    position: fixed;
+    padding-left: 235px;
+    width: 100%;
+    border-bottom: none;
+    margin-bottom: -1px;
+    background-color: #E7F2F2;
+    z-index: 1;
+}
+
+a#FoodAvailable {
+    background: linear-gradient(to right, rgba(56,53,61,.9) 0%,rgba(56,53,61,.9) 100%), url('../Images/Food-Table-Image.jpeg');
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+li.active > a#FoodAvailable {
+    background: linear-gradient(to right, rgba(56,53,61,0) 0%, rgba(56,53,61,0) 33%, rgba(56,53,61,.6) 50%,rgba(56,53,61,.9) 100%), url('../Images/Food-Table-Image.jpeg');
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+a#FoodNeeded {
+    background: linear-gradient(to right, rgba(56,53,61,.9) 0%, rgba(56,53,61,.9) 100%), url('../Images/Charity-Food-Image.jpg');
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+li.active > a#FoodNeeded {
+    background: linear-gradient(to right, rgba(56,53,61,0) 0%, rgba(56,53,61,0) 25%, rgba(56,53,61,.75) 40%,rgba(56,53,61,.9) 100%), url('../Images/Charity-Food-Image.jpg');
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+a#FoodTransport {
+    background: linear-gradient(to right, rgba(56,53,61,.9) 0%, rgba(56,53,61,.9) 100%), url('../Images/Food-Transport-Image.jpg');
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+li.active > a#FoodTransport {
+    background: linear-gradient(to right, rgba(56,53,61,0) 0%, rgba(56,53,61,0) 25%, rgba(56,53,61,.75) 40%,rgba(56,53,61,.9) 100%), url('../Images/Food-Transport-Image.jpg');
+    background-attachment: fixed;
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.nav-tabs > li > a {
+    border-radius: 8px 8px 0 0;
+    margin-top: 19px;
+    margin-left: 12px;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+    color: #E7F2F2;
+    font-family: 'Sriracha', cursive;
+    font-size: 18px;
+    text-shadow: 1px 1px #38353D;
+}
+
+    .nav-tabs > li > a:hover {
+        border-bottom-color: transparent;
+        color: #FF9B3B;
     }
 
 
 .nav > li.active > a {
-    background: linear-gradient(to right, rgba(56,53,61,0) 0%, rgba(56,53,61,0) 33%, rgba(56,53,61,.6) 50%,rgba(56,53,61,.9) 100%), url('../Images/Food-Table-Image.jpeg');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     border-bottom: none;
     color: #E7F2F2;
     text-shadow: 1px 1px #38353D;
 }
 
-    .nav-tabs > li.active > a:hover {
-        background-color: #E7F2F2;
-        color: #E7F2F2;
-        text-shadow: 1px 1px #38353D;
-    }
+.nav-tabs > li.active > a:hover {
+    background-color: #E7F2F2;
+    color: #E7F2F2;
+    text-shadow: 1px 1px #38353D;
+}
 /*End of Main Feed Tabs styling*/
 
-/*Start of Provider Posts on Main Feed*/
-div#ProviderImage {
-    height: 100vh;
-    padding: 0;
-    background: linear-gradient(to right, rgba(56,53,61,0) 0%, rgba(56,53,61,0) 33%, rgba(56,53,61,.6) 50%,rgba(56,53,61,.9) 100%), url('../Images/Food-Table-Image.jpeg');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+/*Start of Posts on Main Feed*/
+div#ProviderOverlay {
+    background: linear-gradient(to right, rgba(56,53,61,0) 0%, rgba(56,53,61,0) 33%, rgba(56,53,61,.6) 50%,rgba(56,53,61,.9) 100%);
+    position:fixed;
+    height:100%;
+    width:100%;
 }
 
-div#ProvPost {
-    margin: 0;
+div#CharityOverlay {
+    background: linear-gradient(to right, rgba(56,53,61,0) 0%, rgba(56,53,61,0) 25%, rgba(56,53,61,.75) 40%,rgba(56,53,61,.9) 100%);
+    position:fixed;
+    height:100%;
+    width:100%;
+}
+
+div#TransportOverlay {
+    background: linear-gradient(to right, rgba(56,53,61,0) 0%, rgba(56,53,61,0) 25%, rgba(56,53,61,.75) 40%,rgba(56,53,61,.9) 100%);
+    position:fixed;
+    height:100%;
+    width:100%;
+}
+
+div#ProviderImage > img, div#CharityImage > img, div#TransportImage > img {
+    width:100%;
+    height:auto;
+    padding: 0;
+    position: fixed;
+    top:0;
+    left:0;
+    z-index:-1;
+}
+
+div#ProvPost, div#CharPost, div#TransPost {
+    margin: 10px 0;
     float: right;
     padding: 0;
     border: 2px solid rgba(56, 53, 61, 0.85);
@@ -186,7 +269,7 @@ div#post {
     margin-top: 10px;
     color: #38353D;
     font-family: 'Sriracha', cursive;
-    font-size:35px;
+    font-size: 35px;
 }
 
 h5 {
@@ -195,20 +278,20 @@ h5 {
     font-family: 'Scada', sans-serif;
 }
 
-div#FoodType {
+div#FoodType, div#FoodRequested, div#Message {
     width: 100%;
     border-bottom: 1px solid rgba(56, 53, 61, 0.5);
     padding: 0 10px 0 10px;
 }
 
-#FoodTypeLabel {
+#FoodTypeLabel, #FoodRequestedLabel, #MessageLabel {
     padding: 10px 0 10px 0;
     margin: 0;
     font-family: 'Scada', sans-serif;
-    font-weight:700;
+    font-weight: 700;
 }
 
-#FoodTypeText {
+#FoodTypeText, #FoodRequestedText, #MessageText {
     font-size: 20px;
     margin: 0;
     padding-bottom: 10px;
@@ -265,43 +348,56 @@ p#PeopleFedText, p#AllergensText, p#ExpirationText {
     margin-bottom: 0;
     vertical-align: bottom;
     font-family: 'Scada', sans-serif;
-    font-size:14px;
+    font-size: 14px;
 }
 
-#row4 {
+#row2 {
     border-bottom: 1px solid rgba(56, 53, 61, 0.5);
     height: 100%;
     position: relative;
 }
 
-div#SpecialTransport, div#Comments {
+div#SpecialTransport, div#Comments, div#WeightRequested, div#PeopleToFeed, div#DateRequested, div#StartTime, div#EndTime {
     width: 50%;
     display: inline-block;
     min-height: 60px;
 }
 
-div#Comments {
+div#Comments, div#PeopleToFeed, div#StartTime {
     float: left;
     padding: 5px 5px 5px 10px;
     border-right: 1px solid rgba(56, 53, 61, 0.5);
     height: 100%;
 }
 
-div#SpecialTransport {
+div#SpecialTransport, div#DateRequested, div#WeightRequested, div#EndTime {
     padding: 5px 10px 5px 10px;
     height: 100%;
 }
 
-h5#CommentsLabel, h5#SpecialTransportLabel {
+h5#CommentsLabel, h5#SpecialTransportLabel, h5#WeightRequestedLabel, h5#PeopleToFeedLabel, h5#DateRequestedLabel, h5#StartTimeLabel, h5#EndTimeLabel {
     margin: 0;
     display: inline-block;
     font-size: 14px;
 }
 
-p#CommentsText, p#SpecialTransportText {
+p#CommentsText, p#SpecialTransportText, p#WeightRequestedText, p#PeopleToFeedText, p#DateRequestedText, p#StartTimeText, p#EndTimeText {
     margin: 0;
     font-family: 'Scada', sans-serif;
-    font-size:14px;
+    font-size: 14px;
+}
+
+#row1{
+    border-bottom: 1px solid rgba(56, 53, 61, 0.5);
+    height: 100%;
+    position: relative;
+}
+
+div#TransportComments{
+    width: 100%;
+    display: inline-block;
+    padding: 5px 5px 5px 10px;
+    min-height:50px;
 }
 
 div#Timestamp {
@@ -320,65 +416,65 @@ div#Timestamp {
 /*End of Provider Posts on Main Feed*/
 
 /*Start of Modal Menu Styling*/
-i.ion-ios-information{
+i.ion-ios-information {
     padding-left: 15px;
     color: #38353D;
-    font-weight:700;
+    font-weight: 700;
 }
 
-div.modal-content{
-    border-radius:15px;
-    border:2px solid #38353D;
+div.modal-content {
+    border-radius: 15px;
+    border: 2px solid #38353D;
 }
 
-div.modal-header{
+div.modal-header {
     background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
     font-family: 'Sriracha', cursive;
-    border-radius:13px 13px 0 0;
-    border-bottom:1px solid rgba(56, 53, 61, 0.5);
+    border-radius: 13px 13px 0 0;
+    border-bottom: 1px solid rgba(56, 53, 61, 0.5);
 }
 
-.modal-title{
-    font-size:24px;
+.modal-title {
+    font-size: 24px;
 }
 
-.modal-header .close{
-    margin-top:7px;
+.modal-header .close {
+    margin-top: 7px;
 }
 
-.modal-body{
-    background-color:rgba(231, 242, 242, .85);
-    padding:0;
+.modal-body {
+    background-color: rgba(231, 242, 242, .85);
+    padding: 0;
 }
 
-.modal-body > p{
-    font-family: 'Scada', sans-serif;
-    font-size:14px;
-    margin:0;
-    padding:5px 15px;
-    border-bottom:1px solid rgba(56, 53, 61, 0.5);
+    .modal-body > p {
+        font-family: 'Scada', sans-serif;
+        font-size: 14px;
+        margin: 0;
+        padding: 5px 15px;
+        border-bottom: 1px solid rgba(56, 53, 61, 0.5);
+    }
+
+        .modal-body > p > a {
+            color: rgba(218,98,33,1);
+        }
+
+            .modal-body > p > a:hover {
+                color: #FF9B3B;
+                text-decoration: none;
+            }
+
+.modal-footer {
+    background-color: rgba(231, 242, 242, .85);
+    border-radius: 0 0 13px 13px;
 }
 
-.modal-body > p > a{
-    color:rgba(218,98,33,1);
-}
-
-.modal-body > p > a:hover{
-    color:#FF9B3B;
-    text-decoration:none;
-}
-
-.modal-footer{
-    background-color:rgba(231, 242, 242, .85);
-    border-radius:0 0 13px 13px;
-}
-
-.modal-footer > .btn-default{
-    background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
-    font-family: 'Scada', sans-serif;
-    border-radius:6px;
-    border:1px solid #38353D;
-}
+    .modal-footer > .btn-default {
+        background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+        font-family: 'Scada', sans-serif;
+        border-radius: 6px;
+        border: 1px solid #38353D;
+    }
 /*End of Modal Menu Styling*/
 
 /* The Overlay (background) */
@@ -387,7 +483,7 @@ div.modal-header{
     height: 100%;
     width: 0;
     position: fixed; /* Stay in place */
-    z-index: 3; /* Sit on top */
+    z-index: 4; /* Sit on top */
     left: 0;
     top: 0;
     background-color: #B9675B; /* Black fallback color */
@@ -453,7 +549,7 @@ ul.overlay-content > li {
 }
 
 #slide {
-    z-index:2;
+    z-index: 2;
     position: fixed;
     left: 5px;
     top: 7px;
