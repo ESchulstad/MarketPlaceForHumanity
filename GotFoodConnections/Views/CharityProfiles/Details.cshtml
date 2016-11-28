@@ -5,12 +5,13 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2 id="title">Details</h2>
+<img src="~/Images/help-1300942_960_720.png" id="charity" />
 
 <div>
-    <h4>CharityProfile</h4>
+    <h4 id="secondTitle">CharityProfile</h4>
     <hr />
-    <dl class="dl-horizontal">
+    <dl class="dl-horizontal" id="charityProfile">
         <dt>
             @Html.DisplayNameFor(model => model.CharityName)
         </dt>

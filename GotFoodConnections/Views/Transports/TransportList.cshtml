@@ -5,18 +5,18 @@
     ViewBag.Title = "TransportList";
 }
 
-<h2>Transport List</h2>
-<table class="table">
+<h2 id="title">Transport List</h2>
+<img src="~/Images/bus-1448914.jpg" id="transport"/>
+<table class="table" id="transportList">
 <tr>
     <th>
         @Html.DisplayNameFor(model => model.OrganizationName)
     </th>
-    <th></th>
 </tr>
 @foreach (var item in Model)
 {
     <tr>
-        <td>
+        <td id="item">
             @*@Html.DisplayFor(modelItem => item.OrganizationName)*@
             @Html.ActionLink(item.OrganizationName, "Details", new { id = item.TransportID })
         </td>
