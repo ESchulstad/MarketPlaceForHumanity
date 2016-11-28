@@ -7,75 +7,101 @@
 @*<h2>Index</h2>*@
 
 <div id="ProviderImage">
-    @if (Request.IsAuthenticated)
+    <img src="~/Images/Food-Table-Image.jpeg" />
+</div>
+<div id="ProviderOverlay">
+</div>
+<h3 id="tabTitle">Your Posts</h3>
+
+@if (Request.IsAuthenticated)
             {
 
                 if (User.IsInRole("Food Donor"))
                 {
-            @Html.ActionLink("Create Post", "Create", "ProviderPosts", null, new { id = "CreatePost" });
+        @Html.ActionLink("Create Post", "Create", "ProviderPosts", null, new { id = "CreatePost" });
                 }
                 else if (User.IsInRole("Charity"))
                 {
-            @Html.ActionLink("Create Post", "Create", "CharityPosts", null, new { id = "CreatePost" });
+        @Html.ActionLink("Create Post", "Create", "CharityPosts", null, new { id = "CreatePost" });
                 }
                 else if (User.IsInRole("Transportation Assistance"))
                 {
-            @Html.ActionLink("Create Post", "Create", "TransportPosts", null, new { id = "CreatePost" });
+        @Html.ActionLink("Create Post", "Create", "TransportPosts", null, new { id = "CreatePost" });
                 }
 
             }
+
+<div class="row">
     @foreach (var item in Model)
-    {
-        if (item != null)
-        {
-            <div class="col-xs-12 col-md-8 col-md-offset-2 chat" id="ProvIndex">
-                <div id="ProviderIndex">
-                    <div id="proname">
-                        <h5 id="ProvNameLabel"> @Html.DisplayNameFor(model => model.Provider.OrgName)</h5>
-                        <p id="ProvNameText">@item.Provider.OrgName</p>
+            {
+                if (item != null)
+                {
+            <div class="col-xs-12 col-md-8 col-md-offset-2 chat" id="ProvPost">
+                <div class="container" id="post">
+                    <h2>@item.Provider.OrgName<a href="" class="open" data-toggle="modal" data-target="#providerModal"></a></h2>
+                </div>
+                <div id="ProviderPost">
+                    <div id="FoodType">
+                        <h4 id="FoodTypeLabel">@Html.DisplayNameFor(model => model.FoodType)</h4>
+                        <p id="FoodTypeText">@item.FoodType</p>
                     </div>
-                    <div id="ProvTime">
-                        <h5> @Html.DisplayNameFor(model => model.TimeStamp)</h5>
-                        <p id="prov">@item.TimeStamp</p>
+                    <div id="row3">
+                        <div id="PeopleFed">
+                            <h5 id="PeopleFedLabel">@Html.DisplayNameFor(model => model.PeopleFed)</h5>
+                            <p id="PeopleFedText">@item.PeopleFed</p>
+                        </div>
+                        <div id="Allergens">
+                            <h5 id="AllergensLabel">@Html.DisplayNameFor(model => model.PotentialAllergens)</h5>
+                            <p id="AllergensText">@item.PotentialAllergens</p>
+                        </div>
+                        <div id="ExpirationDate">
+                            <h5 id="ExpirationLabel">@Html.DisplayNameFor(model => model.ExpirationDate)</h5>
+                            <p id="ExpirationText">@item.ExpirationDate</p>
+                        </div>
                     </div>
-                    <div id="profood">
-                        <h5 id="provfoodtype"> @Html.DisplayNameFor(model => model.FoodType)</h5>
-                        <p>@item.FoodType</p>
+                    <div id="row2">
+                        <div id="Comments">
+                            <h5 id="CommentsLabel">@Html.DisplayNameFor(model => model.Comments)</h5>
+                            <p id="CommentsText">@item.Comments</p>
+                        </div>
+                        <div id="SpecialTransport">
+                            <h5 id="SpecialTransportLabel">@Html.DisplayNameFor(model => model.SpecialTransport)</h5>
+                            <p id="SpecialTransportText">@item.SpecialTransport</p>
+                        </div>
                     </div>
-                    <div id="propeople">
-                        <h5 id="provpeoplefed"> @Html.DisplayNameFor(model => model.PeopleFed)</h5>
-                        <p>@item.PeopleFed</p>
-                    </div>
-                    <div id="proallergens">
-                        <h5 id="provallergens"> @Html.DisplayNameFor(model => model.PotentialAllergens) </h5>
-                        <p>@item.PotentialAllergens</p>
-                    </div>
-                    <div id="proexpiry">
-                        <h5 id="provexpiration"> @Html.DisplayNameFor(model => model.ExpirationDate) </h5>
-                        <p>@item.ExpirationDate</p>
-                    </div>
-                    <div id="protransport">
-                        <h5 id="providertransport"> @Html.DisplayNameFor(model => model.SpecialTransport) </h5>
-                        <p>@item.SpecialTransport</p>
-                    </div>
-                    <div id="procomm">
-                        <h5 id="procomments"> @Html.DisplayNameFor(model => model.Comments) </h5>
-                        <p>@item.Comments</p>
+                    <div id="Timestamp">
+                        <p id="TimestampLabel"><strong>@Html.DisplayNameFor(model => model.TimeStamp)</strong><span class="ProviderPostText">@item.TimeStamp</span></p>
                     </div>
 
-                    @*@Html.ActionLink("Edit", "Edit", new { id = item.ProviderPosts })*@
+
                     @using (Html.BeginForm("Delete", "ProviderPosts", new { id = item.ProviderPosts }))
                     {
                         <input type="submit" id="profileDelete" value="Delete" onclick="return confirm('Are sure you want to delete this post?')" />
                     }
-                    @*@Html.ActionLink("Delete", "Delete", new { id = item.ProviderPosts })*@
+
+                    @*<div id="Timestamp">
+                            <p id="ProviderPostLabel">@Html.DisplayNameFor(modelitem => item.TimeStamp)<span class="ProviderPostText">@item.TimeStamp</span></p>
+                        </div>*@
 
                 </div>
             </div>
+        }
+        else
+        {
+            <p>"There currently are no posts."</p>;
+                }
+            }
+
+</div>
+
+
+
+
+            
 
         }
     }
-</div>
+
 
 
 @*@Html.DisplayFor(modelItem => item.Provider.OrgName)*@
