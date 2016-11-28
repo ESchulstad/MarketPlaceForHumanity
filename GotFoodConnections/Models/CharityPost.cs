@@ -15,7 +15,7 @@ namespace GotFoodConnections.Models
         [ForeignKey("CharityProfile")]
         public int CharityID { get; set; }
         public virtual CharityProfile CharityProfile { get; set; }
-        [Display(Name = "Date Posted")]
+        [Display(Name = "Date Posted: ")]
         public DateTime TimeStamp { get; set; }
         [Required]
         [Display(Name = "What type of food is needed?")]
@@ -27,7 +27,7 @@ namespace GotFoodConnections.Models
         [Required]
         [Display(Name = "When is the food needed?")]
         public DateTime DateRequested { get; set; }
-        [Display(Name = "Additional Comments")]
+        [Display(Name = "Additional Comments:")]
         public string Comments { get; set; }
 
         public ICollection<MainFeed> CharityPosts { get; set; }

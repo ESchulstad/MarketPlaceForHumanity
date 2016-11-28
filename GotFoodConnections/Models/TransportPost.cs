@@ -15,18 +15,18 @@ namespace GotFoodConnections.Models
         [ForeignKey("Transport")]
         public int TransportID { get; set; }
         public virtual Transport Transport { get; set; }
-        [Display(Name = "Date Posted")]
+        [Display(Name = "Date Posted: ")]
         public DateTime TimeStamp { get; set; }
         [Required]
         [Display(Name = "How are you able to help?")]
         public string Message { get; set; }
         [Required]
-        [Display(Name = "Availability: Start Time")]
+        [Display(Name = "Availability: Start Time:")]
         public DateTime StartTimeAvailable { get; set; }
         [Required]
-        [Display(Name = "Availability: End Time")]
+        [Display(Name = "Availability: End Time:")]
         public DateTime EndTimeAvailable { get; set; }
-        [Display(Name = "Additional Comments")]
+        [Display(Name = "Additional Comments:")]
         public string Comments { get; set; }
 
         public ICollection<MainFeed> TransportPosts { get; set; }
