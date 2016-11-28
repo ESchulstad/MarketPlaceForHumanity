@@ -142,9 +142,9 @@ namespace GotFoodConnections.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id)
         {
-            ProviderPost providerPost = db.ProviderPosts.Find(id);
-            db.ProviderPosts.Remove(providerPost);
-            db.SaveChanges();
+            //ProviderPost providerPost = db.ProviderPosts.Find(id);
+            //db.ProviderPosts.Remove(providerPost);
+            //db.SaveChanges();
 
             return RedirectToAction("Index");
         }
