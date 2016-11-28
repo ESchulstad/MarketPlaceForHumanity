@@ -4,12 +4,13 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2 id="title">Details</h2>
 
 <div>
-    <h4>Provider</h4>
+    <h4 id="secondTitle">Provider</h4>
     <hr />
-    <dl class="dl-horizontal">
+    <img src="~/Images/Food_Donor_Image.png" id="provider" />
+    <dl class="dl-horizontal" id="providerProfile">
         <dt>
             @Html.DisplayNameFor(model => model.ProviderType.Type)
         </dt>
