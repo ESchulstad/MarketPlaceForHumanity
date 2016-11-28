@@ -661,3 +661,71 @@ img#levelImages{
     height:50px;
     margin-bottom:10px;
 }
+/*Start of general profile styling*/
+.table, .dl-horizontal{
+    position:relative;
+    left:700px;
+    width:35%;
+}
+
+#login{
+    margin-top:55px;
+    margin-left:17px;
+}
+#title{
+    margin-top:70px;
+    margin-left:700px;
+}
+#secondTitle{
+    margin-left:700px;
+    margin-top:30px;
+}
+
+.table{
+    border:solid;
+    border-radius:5px;
+}
+
+#item a{
+    color:#38353D;
+}
+
+/*End of general profile styling*/
+
+/*Start of Transport Profile styling*/
+#transport{
+   height:400px;
+   width:auto;
+}
+
+#transportList, #transportProfile{
+    margin-top:-400px;
+}
+/*End of Transport Profile styling*/
+
+
+/*Start of Charity Profile styling*/
+#charity {
+    height:400px;
+    width:auto;
+}
+ 
+#charityList{
+    margin-top:-400px;
+}
+#charityProfile{
+    margin-top:-400px;
+}
+/*End Charity profile styling*/
+
+/*Start of Provider profile styling*/
+#provider{
+    height:400px;
+    width:auto;
+}
+
+#providerList, #providerProfile{
+    margin-top:-400px;
+}
+/*End of Provider profile styling*/
+

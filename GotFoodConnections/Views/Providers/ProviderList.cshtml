@@ -5,21 +5,21 @@
     ViewBag.Title = "ProviderList";
 }
 
-<h2>Food Provider Listing</h2>
-<table class="table">
+<h2 id="title">Food Provider Listing</h2>
+<img src="~/Images/Food_Donor_Image.png" id="provider" />
+<table class="table" id="providerList">
     <tr>
 
         <th>
             @Html.DisplayNameFor(model => model.OrgName)
         </th>
-        <th></th>
     </tr>
 
     @foreach (var item in Model)
     {
         <tr>
 
-            <td>
+            <td id="item">
                 @*@Html.DisplayFor(modelItem => item.OrgName)*@
                 @Html.ActionLink(item.OrgName, "Details", new { id = item.ProviderID })
             </td>
