@@ -25,14 +25,17 @@
             }
 
 <ul class="nav nav-tabs">
-    <li class="active"><a data-toggle="tab" href="#home">Food Available</a></li>
-    <li><a data-toggle="tab" href="#menu1">Food Needed</a></li>
-    <li><a data-toggle="tab" href="#menu2">Food Transportation</a></li>
+    <li class="active"><a data-toggle="tab" href="#home" id="FoodAvailable">Food Available</a></li>
+    <li><a data-toggle="tab" href="#menu1" id="FoodNeeded">Food Needed</a></li>
+    <li><a data-toggle="tab" href="#menu2" id="FoodTransport">Food Transportation</a></li>
 </ul>
 
 <div class="tab-content">
     <div id="home" class="tab-pane fade in active">
         <div id="ProviderImage">
+            <img src="~/Images/Food-Table-Image.jpeg" />
+        </div>
+        <div id="ProviderOverlay">
         </div>
         <h3 id="tabTitle">Food Available</h3>
 
@@ -113,14 +116,19 @@
     </div>
 
     <div id="menu1" class="tab-pane fade">
-        <h3>Food Needed</h3>
+        <div id="CharityImage">
+            <img src="~/Images/Charity-Food-Image.jpg" />
+        </div>
+        <div id="CharityOverlay">
+        </div>
+        <h3 id="tabTitle">Food Needed</h3>
 
         <div class="row">
             @foreach (CharityPost item in Model.CharityPosts)
             {
                 if (item != null)
                 {
-                    <div class="col-xs-12 col-md-8 col-md-offset-2 chat">
+                    <div class="col-xs-12 col-md-8 col-md-offset-2 chat" id="CharPost">
                         <div class="container" id="post">
                             <h2>@item.CharityProfile.CharityName<!-- Trigger the modal with a button --><a href="" class="open" data-toggle="modal" data-target="#charityModal"><i class="ionicons ion-ios-information"></i></a></h2>
                             <!-- Modal -->
@@ -149,17 +157,17 @@
                         </div>
                         <div id="CharityPost">
                             <div id="FoodRequested">
-                                <h5 id="FoodRequestedLabel">@Html.DisplayNameFor(modelitem => item.FoodRequested)</h5>
-                                <p id="FoodRequested">@item.FoodRequested</p>
+                                <h4 id="FoodRequestedLabel">@Html.DisplayNameFor(modelitem => item.FoodRequested)</h4>
+                                <p id="FoodRequestedText">@item.FoodRequested</p>
                             </div>
                             <div id="row2">
-                                <div id="WeightRequested">
-                                    <h5 id="WeightRequestedLabel">@Html.DisplayNameFor(modelitem => item.WeightRequested)</h5>
-                                    <p id="WeightRequestedText">@item.WeightRequested</p>
-                                </div>
                                 <div id="PeopleToFeed">
                                     <h5 id="PeopleToFeedLabel">@Html.DisplayNameFor(modelitem => item.PeopleToFeed)</h5>
                                     <p id="PeopleToFeedText">@item.PeopleToFeed</p>
+                                </div>
+                                <div id="DateRequested">
+                                    <h5 id="DateRequestedLabel">@Html.DisplayNameFor(modelitem => item.DateRequested)</h5>
+                                    <p id="DateRequestedText">@item.DateRequested</p>
                                 </div>
                             </div>
                             <div id="row2">
@@ -167,9 +175,9 @@
                                     <h5 id="CommentsLabel">@Html.DisplayNameFor(modelitem => item.Comments)</h5>
                                     <p id="CommentsText">@item.Comments</p>
                                 </div>
-                                <div id="DateRequested">
-                                    <h5 id="DateRequestedLabel">@Html.DisplayNameFor(modelitem => item.DateRequested)</h5>
-                                    <p id="DateRequestedText">@item.DateRequested</p>
+                                <div id="WeightRequested">
+                                    <h5 id="WeightRequestedLabel">@Html.DisplayNameFor(modelitem => item.WeightRequested)</h5>
+                                    <p id="WeightRequestedText">@item.WeightRequested</p>
                                 </div>
                             </div>
                             <div id="Timestamp">
@@ -185,42 +193,24 @@
             }
 
         </div>
-
-
-        @*<table class="table">
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.CharityPost.FoodRequested)
-                    </th>
-                    <th></th>
-                </tr>
-
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CharityPost.FoodRequested)
-                        </td>
-                    </tr>
-                }
-
-            </table>*@
-
     </div>
+
     <div id="menu2" class="tab-pane fade">
-        <h3>Food Transportation</h3>
+        <div id="TransportImage">
+            <img src="~/Images/Food-Transport-Image.jpg" />
+        </div>
+        <div id="TransportOverlay">
+        </div>
+        <h3 id="tabTitle">Food Transportation</h3>
 
         <div class="row">
             @foreach (TransportPost item in Model.TransportPosts)
             {
                 if (item != null /*&& item.Transport != null*/)
                 {
-                    <div class="col-xs-12 col-md-8 col-md-offset-2 chat">
-                        @*<span class="ProviderName">@item.ProviderPost.Provider.OrgName</span>*@
+                    <div class="col-xs-12 col-md-8 col-md-offset-2 chat" id="TransPost">
                         <div class="container" id="post">
-                            <h2>@item.Transport.OrganizationName<i class="fa fa-truck" aria-hidden="true"></i></h2>
-                            <!-- Trigger the modal with a button -->
-                            <a href="" class="open" data-toggle="modal" data-target="#transModal"><i class="ionicons ion-ios-information"></i></a>
+                            <h2>@item.Transport.OrganizationName<!-- Trigger the modal with a button --><a href="" class="open" data-toggle="modal" data-target="#transModal"><i class="ionicons ion-ios-information"></i></a></h2>
                             <!-- Modal -->
                             <div class="modal fade" id="transModal" role="dialog">
                                 <div class="modal-dialog">
@@ -231,7 +221,11 @@
                                             <h4 class="modal-title">@item.Transport.OrganizationName</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <p><a href="mailto:@item.Transport.ContactEmail" target="_blank">@item.Transport.ContactEmail</a></p>
+                                            <p><strong>@Html.DisplayNameFor(modelitem => item.Transport.ContactName):</strong> @item.Transport.ContactName</p>
+                                            <p><strong>@Html.DisplayNameFor(modelitem => item.Transport.ContactPhone):</strong> @item.Transport.ContactPhone</p>
+                                            <p><strong>@Html.DisplayNameFor(modelitem => item.Transport.ContactEmail): </strong><a href="mailto:@item.Transport.ContactEmail" target="_blank">@item.Transport.ContactEmail</a></p>
+                                            <p><strong>@Html.DisplayNameFor(modelitem => item.Transport.Website): </strong><a href="http://@item.Transport.Website" target="_blank">@item.Transport.Website</a></p>
+                                            <p><strong>Full Profile for: </strong>@Html.ActionLink(item.Transport.OrganizationName, "Details", "CharityProfiles", new { id = item.TransportID }, new { target = "_blank" })</p>
                                             @* More text could go here in a similar format *@
                                         </div>
                                         <div class="modal-footer">
@@ -241,17 +235,31 @@
                                 </div>
                             </div>
                         </div>
-
-                        <h5 id="MessageLabel">@Html.DisplayNameFor(modelitem => item.Message)</h5>
-                        <span id="Message">@item.Message</span>
-                        <h5 id="CommentsLabel">@Html.DisplayNameFor(modelitem => item.StartTimeAvailable)</h5>
-                        <span id="PeopleFed">@item.StartTimeAvailable</span>
-                        <h5 id="CommentsLabel">@Html.DisplayNameFor(modelitem => item.EndTimeAvailable)</h5>
-                        <span id="Allergens">@item.EndTimeAvailable</span>
-                        <h5 id="CommentsLabel">@Html.DisplayNameFor(modelitem => item.Comments)</h5>
-                        <span id="Comments">@item.Comments</span>
-                        <h5 id="TimeStampLabel">@Html.DisplayNameFor(modelitem => item.TimeStamp)</h5>
-                        <span class="TimeStamp">@item.TimeStamp</span><br />
+                        <div id="TransportPost">
+                            <div id="Message">
+                                <h4 id="MessageLabel">@Html.DisplayNameFor(modelitem => item.Message)</h4>
+                                <p id="MessageText">@item.Message</p>
+                            </div>
+                            <div id="row2">
+                                <div id="StartTime">
+                                    <h5 id="StartTimeLabel">@Html.DisplayNameFor(modelitem => item.StartTimeAvailable)</h5>
+                                    <p id="StartTimeText">@item.StartTimeAvailable</p>
+                                </div>
+                                <div id="EndTime">
+                                    <h5 id="EndTimeLabel">@Html.DisplayNameFor(modelitem => item.EndTimeAvailable)</h5>
+                                    <p id="EndTimeText">@item.EndTimeAvailable</p>
+                                </div>
+                            </div>
+                            <div id="row1">
+                                <div id="TransportComments">
+                                    <h5 id="CommentsLabel">@Html.DisplayNameFor(modelitem => item.Comments)</h5>
+                                    <p id="CommentsText">@item.Comments</p>
+                                </div>
+                            </div>
+                            <div id="Timestamp">
+                                <p id="TimestampLabel"><strong>@Html.DisplayNameFor(modelitem => item.TimeStamp)</strong><span class="CharityPostText">@item.TimeStamp</span></p>
+                            </div>
+                        </div>
                     </div>
                 }
                 else
@@ -261,26 +269,5 @@
             }
 
         </div>
-
-
-        @*<table class="table">
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.TransportPost.Message)
-                    </th>
-                    <th></th>
-                </tr>
-
-                @foreach (var item in Model)
-                {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.TransportPost.Message)
-                        </td>
-                    </tr>
-                }
-
-            </table>*@
-
     </div>
 </div>
