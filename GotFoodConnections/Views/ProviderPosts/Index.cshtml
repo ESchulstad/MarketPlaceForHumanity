@@ -4,75 +4,133 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+@*<h2>Index</h2>*@
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Provider.OrgName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TimeStamp)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FoodType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PeopleFed)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PotentialAllergens)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ExpirationDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SpecialTransport)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Comments)
-        </th>
-        <th></th>
-    </tr>
+<div id="ProviderImage">
+    <img src="~/Images/Food-Table-Image.jpeg" />
+</div>
+<div id="ProviderOverlay">
+</div>
+<h3 id="tabTitle">Your Posts</h3>
 
+@if (Request.IsAuthenticated)
+            {
+
+                if (User.IsInRole("Food Donor"))
+                {
+        @Html.ActionLink("Create Post", "Create", "ProviderPosts", null, new { id = "CreatePost" });
+                }
+                else if (User.IsInRole("Charity"))
+                {
+        @Html.ActionLink("Create Post", "Create", "CharityPosts", null, new { id = "CreatePost" });
+                }
+                else if (User.IsInRole("Transportation Assistance"))
+                {
+        @Html.ActionLink("Create Post", "Create", "TransportPosts", null, new { id = "CreatePost" });
+                }
+
+            }
+
+<div class="row">
     @foreach (var item in Model)
-    {
-        using (Html.BeginForm("Delete", "ProviderPosts", new { id = item.ProviderPostID }))
+            {
+                if (item != null)
+                {
+            <div class="col-xs-12 col-md-8 col-md-offset-2 chat" id="ProvPost">
+                <div class="container" id="post">
+                    <h2>@item.Provider.OrgName<a href="" class="open" data-toggle="modal" data-target="#providerModal"></a></h2>
+                </div>
+                <div id="ProviderPost">
+                    <div id="FoodType">
+                        <h4 id="FoodTypeLabel">@Html.DisplayNameFor(model => model.FoodType)</h4>
+                        <p id="FoodTypeText">@item.FoodType</p>
+                    </div>
+                    <div id="row3">
+                        <div id="PeopleFed">
+                            <h5 id="PeopleFedLabel">@Html.DisplayNameFor(model => model.PeopleFed)</h5>
+                            <p id="PeopleFedText">@item.PeopleFed</p>
+                        </div>
+                        <div id="Allergens">
+                            <h5 id="AllergensLabel">@Html.DisplayNameFor(model => model.PotentialAllergens)</h5>
+                            <p id="AllergensText">@item.PotentialAllergens</p>
+                        </div>
+                        <div id="ExpirationDate">
+                            <h5 id="ExpirationLabel">@Html.DisplayNameFor(model => model.ExpirationDate)</h5>
+                            <p id="ExpirationText">@item.ExpirationDate</p>
+                        </div>
+                    </div>
+                    <div id="row2">
+                        <div id="Comments">
+                            <h5 id="CommentsLabel">@Html.DisplayNameFor(model => model.Comments)</h5>
+                            <p id="CommentsText">@item.Comments</p>
+                        </div>
+                        <div id="SpecialTransport">
+                            <h5 id="SpecialTransportLabel">@Html.DisplayNameFor(model => model.SpecialTransport)</h5>
+                            <p id="SpecialTransportText">@item.SpecialTransport</p>
+                        </div>
+                    </div>
+                    <div id="Timestamp">
+                        <p id="TimestampLabel"><strong>@Html.DisplayNameFor(model => model.TimeStamp)</strong><span class="ProviderPostText">@item.TimeStamp</span></p>
+                    </div>
+
+
+                    @using (Html.BeginForm("Delete", "ProviderPosts", new { id = item.ProviderPosts }))
+                    {
+                        <input type="submit" id="profileDelete" value="Delete" onclick="return confirm('Are sure you want to delete this post?')" />
+                    }
+
+                    @*<div id="Timestamp">
+                            <p id="ProviderPostLabel">@Html.DisplayNameFor(modelitem => item.TimeStamp)<span class="ProviderPostText">@item.TimeStamp</span></p>
+                        </div>*@
+
+                </div>
+            </div>
+        }
+        else
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Provider.OrgName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TimeStamp)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FoodType)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PeopleFed)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PotentialAllergens)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ExpirationDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SpecialTransport)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Comments)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.ProviderPostID }) |
-                    <input type="submit" value="Delete" onclick="return confirm('Are sure you want to delete this post?')" />
-                </td>
-            </tr>
+            <p>"There currently are no posts."</p>;
+                }
+            }
+
+</div>
+
+
+
+
+            
+
         }
     }
 
-</table>
+
+
+@*@Html.DisplayFor(modelItem => item.Provider.OrgName)*@
+
+@*@Html.DisplayFor(modelItem => item.TimeStamp)
+
+    @Html.DisplayFor(modelItem => item.FoodType)
+
+    @Html.DisplayFor(modelItem => item.PeopleFed)*@
+
+@*@Html.DisplayFor(modelItem => item.PotentialAllergens)*@
+
+@*@Html.DisplayFor(modelItem => item.ExpirationDate)
+
+    @Html.DisplayFor(modelItem => item.SpecialTransport)
+
+    @Html.DisplayFor(modelItem => item.Comments)*@
+
+
+@*@Html.DisplayNameFor(model => model.TimeStamp)
+
+    @Html.DisplayNameFor(model => model.FoodType)
+
+    @Html.DisplayNameFor(model => model.PeopleFed)
+
+    @Html.DisplayNameFor(model => model.PotentialAllergens)
+
+    @Html.DisplayNameFor(model => model.ExpirationDate)
+
+    @Html.DisplayNameFor(model => model.SpecialTransport)
+
+    @Html.DisplayNameFor(model => model.Comments)*@
