@@ -40,7 +40,7 @@
 
     @foreach (var item in Model)
     {
-        using (Html.BeginForm("Delete", "CharityPosts", new { id = item.ProviderPostID }))
+        using (Html.BeginForm("Delete", "ProviderPosts", new { id = item.ProviderPostID }))
         {
             <tr>
                 <td>

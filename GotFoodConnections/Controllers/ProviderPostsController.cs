@@ -84,7 +84,7 @@ namespace GotFoodConnections.Controllers
             {
                 db.ProviderPosts.Add(providerPost);
                 db.SaveChanges();
-                return RedirectToAction("Details");
+                return RedirectToAction("Index");
             }
 
             ViewBag.ProviderID = new SelectList(db.Providers, "ProviderID", "OrgName", providerPost.ProviderID);
@@ -139,7 +139,7 @@ namespace GotFoodConnections.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        
         public ActionResult Delete(int id)
         {
             ProviderPost providerPost = db.ProviderPosts.Find(id);

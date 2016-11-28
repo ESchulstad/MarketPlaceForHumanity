@@ -477,23 +477,34 @@ ul.overlay-content > li {
 .scoreBody{
     background-color: #E7F2F2;
 }
+.scorePosition{
+    position:fixed;
+    width: 100%;
+    z-index:1;
+    background-color:#E7F2F2;
+    
+}
 #scoreHead{
+   
     font-family:'Sriracha', cursive;
     text-align:center;
     color:#FF9B3B;
     font-size:45px;
     padding-top:30px;
+    
 }
 div.scoreNames{
     position:initial;
     border-top: solid 1px white;
     border-bottom: solid 1px white;
     margin-bottom:15px;
+    margin-top:155px;
 }
 #scoreLevelOne{
     font-family:'Sriracha',cursive;
     color:#D6A7A0;
-    font-size:25px;
+    font-size:15px;
+    text-align:center;
 }
 #scoreLevelTwo{
     font-family:'Sriracha',cursive;
@@ -530,6 +541,7 @@ div.scoreCards.row{
     font-family:'Sriracha', cursive;
     font-size:35px;
     color:#Ff9B3b;
+    
 }
 #scoreNum{
     font-family:'Scada',sans-serif;
@@ -548,4 +560,8 @@ div.scoreCards.row{
 }
 #scoreProviders{
     text-align:center;
+}
+img#levelImages{
+    height:50px;
+    margin-bottom:10px;
 }

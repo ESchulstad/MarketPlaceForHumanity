@@ -5,9 +5,54 @@
 }
 
 <body class="scoreBody">
-    <h2 id="scoreHead">TOP FOOD DONORS</h2>
-    
+    <div class="scorePosition">
+        <h2 id="scoreHead">TOP FOOD DONORS</h2>
+    </div>
     <div class="scoreNames row">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+
+            <h3 id="scoreLevelOne">
+                <img id="levelImages" src="~/Content/Images/food-salad-dinner-eating.jpg" /> All Star: 50+ Donations
+                
+            </h3>
+
+            </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <h3 id="scoreLevelOne">
+                <img id="levelImages" src="~/Content/Images/berries-1022839_640.jpg" /> Leader: 36 to 50 Donations
+               
+            </h3>
+            </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <h3 id="scoreLevelOne">
+                <img id="levelImages" src="~/Content/Images/cucumbers-1588945_640.jpg" /> Innovator: 25 to 35 Donations
+               
+            </h3>
+            </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <h3 id="scoreLevelOne">
+                <img id="levelImages" src="~/Content/Images/cabbage-1498842_640.jpg" /> Reformer: 13 to 24 Donations
+            </h3>
+            </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <h3 id="scoreLevelOne">
+                <img id="levelImages" src="~/Content/Images/hands-1838658_640 (1).jpg" /> Supporter: 6 to 12 Donations
+               
+            </h3>
+            </div>
+
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <h3 id="scoreLevelOne">
+                <img id="levelImages" src="~/Content/Images/people-1285348_640.jpg" /> Beginner: 1 to 5 Donations 
+                
+            </h3>
+
+        </div>
+    </div>
+    @*<div class="scoreNames row">
       
 
         @foreach (var item in Model)
@@ -44,15 +89,8 @@
             </div>
         }
         
-    </div>
+    </div>*@
   
-    @*@Html.DisplayNameFor(model => model.OrgName)
-
-        Level
-
-        @Html.DisplayNameFor(model => model.NumOfDonation)
-
-        @Html.DisplayNameFor(model => model.StarRating)*@
 
     <div class="scoreCards row">
 
@@ -136,7 +174,7 @@
                     <p id="scoreNum">@Html.DisplayFor(modelItem => item.OrgName) has been recommended @Html.DisplayFor(modelItem => item.StarRating) times</p>
 
 
-                    <p>
+                    @*<p>
                         @if (User.IsInRole("Food Donor"))
                     {
                         @Html.ActionLink("Donate", "Donate", new { id = item.ProviderID })
@@ -148,7 +186,7 @@
                 {
                     @Html.ActionLink("Recommend this Provider", "Recommend", new { id = item.ProviderID })
                 }
-            </p>
+            </p>*@
 
         </div>
     </div>
