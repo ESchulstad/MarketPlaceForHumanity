@@ -118,6 +118,7 @@
 
         <dd>
             @Html.DisplayFor(model => model.ProvideTransport)
+           
         </dd>
 
         @*<dt>
@@ -139,17 +140,17 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProviderID }) |
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.ProviderID }) |*@
     @*@Html.ActionLink("Back to List", "Index") |*@
-    @if (User.IsInRole("Food Donor"))
-    {
-        @Html.ActionLink("Donate", "Donate", new { id = Model.ProviderID }) 
-    }
-    |
-    @Html.ActionLink("Create A Post", "Index","ProviderPosts")  |
+   
+    @if (Model.User.UserName == User.Identity.Name)
+     {
+        @Html.ActionLink("Donate", "Donate", new { id = Model.ProviderID })
+     }
+
     @if (User.IsInRole("Charity") || User.IsInRole("Transportation Assistance"))
     {
         @Html.ActionLink("Recommend this Provider", "Recommend", new { id = Model.ProviderID }) 
     }
-    @Html.ActionLink("Back to List","ProviderList")
+    @Html.ActionLink("Back to List Of Food Donors","ProviderList")
 </p>

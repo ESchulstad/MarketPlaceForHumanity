@@ -142,7 +142,7 @@ namespace GotFoodConnections.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+       
         public ActionResult Delete(int id)
         {
             CharityPost charityPost = db.CharityPosts.Find(id);

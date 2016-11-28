@@ -139,7 +139,7 @@ namespace GotFoodConnections.Controllers
         }
 
         [HttpPost]
-        //[ValidateAntiForgeryToken]
+        
         public ActionResult Delete(int id)
         {
             ProviderPost providerPost = db.ProviderPosts.Find(id);
