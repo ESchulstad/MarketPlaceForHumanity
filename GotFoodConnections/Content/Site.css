@@ -473,3 +473,79 @@ ul.overlay-content > li {
     transform: scale(1.05);
     cursor: pointer;
 }
+
+.scoreBody{
+    background-color: #E7F2F2;
+}
+#scoreHead{
+    font-family:'Sriracha', cursive;
+    text-align:center;
+    color:#FF9B3B;
+    font-size:45px;
+    padding-top:30px;
+}
+div.scoreNames{
+    position:initial;
+    border-top: solid 1px white;
+    border-bottom: solid 1px white;
+    margin-bottom:15px;
+}
+#scoreLevelOne{
+    font-family:'Sriracha',cursive;
+    color:#D6A7A0;
+    font-size:25px;
+}
+#scoreLevelTwo{
+    font-family:'Sriracha',cursive;
+    color:#CE958C;
+    font-size:30px;
+}
+#scoreLevelThree{
+    font-family:'Sriracha',cursive;
+    color:#c58278;
+    font-size:35px;
+}
+#scoreLevelFour{
+    font-family:'Sriracha',cursive;
+    color:#BD7064;
+    font-size:40px;
+}
+#scoreLevelFive{
+    font-family:'Sriracha',cursive;
+    color:#b45d51;
+    font-size:45px;
+}
+#scoreLevelSix{
+    font-family:'Sriracha',cursive;
+    color:#a35145;
+    font-size:50px;
+}
+#scoreInfo{
+    text-align:center;
+}
+div.scoreCards.row{
+    position:initial;
+}
+#scoreTitle{
+    font-family:'Sriracha', cursive;
+    font-size:35px;
+    color:#Ff9B3b;
+}
+#scoreNum{
+    font-family:'Scada',sans-serif;
+    color:#b9675b;
+    font-size: 16px;
+
+}
+#scoreInfo.thumbnail{
+    border:  solid #b9675b 1px;
+    border-radius: 15px;
+    min-height: 520px;
+}
+#scoreInfo.thumbnail img{
+    border-radius:15px;
+    height: 215px;
+}
+#scoreProviders{
+    text-align:center;
+}

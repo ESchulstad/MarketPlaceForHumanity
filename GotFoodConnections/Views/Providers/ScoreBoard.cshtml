@@ -4,67 +4,69 @@
     ViewBag.Title = "ScoreBoard";
 }
 
-<h2>TOP FOOD DONORS</h2>
-<hr/>
-<div class="row">
+<body class="scoreBody">
+    <h2 id="scoreHead">TOP FOOD DONORS</h2>
+    
+    <div class="scoreNames row">
+      
+
+        @foreach (var item in Model)
+        {
+            <div id="scoreProviders" class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
+                @if (item.NumOfDonation >= 0 && item.NumOfDonation <= 5)
+                {
+                    <h3 id="scoreLevelOne">@Html.DisplayFor(modelItem => item.OrgName)</h3>
+                }
+                else if (item.NumOfDonation > 5 && item.NumOfDonation <= 12)
+                {
+                    <h3 id="scoreLevelTwo">@Html.DisplayFor(modelItem => item.OrgName)</h3>
+                }
+                else if (item.NumOfDonation > 12 && item.NumOfDonation <= 24)
+                {
+                    <h2 id="scoreLevelThree">@Html.DisplayFor(modelItem => item.OrgName)</h2>
+                }
+                else if (item.NumOfDonation > 24 && item.NumOfDonation <= 35)
+                {
+                    <h2 id="scoreLevelFour">@Html.DisplayFor(modelItem => item.OrgName)</h2>
+                }
+                else if (item.NumOfDonation > 35 && item.NumOfDonation <= 50)
+                {
+                    <h1 id="scoreLevelFive">@Html.DisplayFor(modelItem => item.OrgName)</h1>
+                }
+                else if (item.NumOfDonation > 50)
+                {
+                    <h1 id="scoreLevelSix">@Html.DisplayFor(modelItem => item.OrgName)</h1>
+                }
+                else
+                {
+                    <h3></h3>
+                }
+            </div>
+        }
+        
+    </div>
+  
+    @*@Html.DisplayNameFor(model => model.OrgName)
+
+        Level
+
+        @Html.DisplayNameFor(model => model.NumOfDonation)
+
+        @Html.DisplayNameFor(model => model.StarRating)*@
+
+    <div class="scoreCards row">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-6 col-md-4">
+                <div id="scoreInfo" class="thumbnail">
+
+                    <h3 id="scoreTitle">@Html.DisplayFor(modelItem => item.OrgName)</h3>
 
 
-    @foreach (var item in Model)
-    {
-        <div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-            @if (item.NumOfDonation >= 0 && item.NumOfDonation <= 5)
-            {
-                <h3>@Html.DisplayFor(modelItem => item.OrgName)</h3>
-            }
-            else if (item.NumOfDonation > 5 && item.NumOfDonation <= 12)
-            {
-                <h3>@Html.DisplayFor(modelItem => item.OrgName)</h3>
-            }
-            else if (item.NumOfDonation > 12 && item.NumOfDonation <= 24)
-            {
-                <h2>@Html.DisplayFor(modelItem => item.OrgName)</h2>
-            }
-            else if (item.NumOfDonation > 24 && item.NumOfDonation <= 35)
-            {
-                <h2>@Html.DisplayFor(modelItem => item.OrgName)</h2>
-            }
-            else if (item.NumOfDonation > 35 && item.NumOfDonation <= 50)
-            {
-                <h1>@Html.DisplayFor(modelItem => item.OrgName)</h1>
-            }
-            else if (item.NumOfDonation > 50)
-            {
-                <h1>@Html.DisplayFor(modelItem => item.OrgName)</h1>
-            }
-            else
-            {
-                <h3></h3>
-            }
-        </div>
-    }
-</div>
-<hr/>
-            @*@Html.DisplayNameFor(model => model.OrgName)
-        
-            Level
-        
-            @Html.DisplayNameFor(model => model.NumOfDonation)
-        
-            @Html.DisplayNameFor(model => model.StarRating)*@
-        
-<div class="row">
-
-    @foreach (var item in Model)
-    {
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail">
-               
-                <h3>@Html.DisplayFor(modelItem => item.OrgName)</h3>
-                
-                    
                     @if (item.NumOfDonation >= 0 && item.NumOfDonation <= 5)
                     {
-                       <img src="~/Content/Images/people-1285348_640.jpg" />
+                        <img src="~/Content/Images/people-1285348_640.jpg" />
                     }
                     else if (item.NumOfDonation > 5 && item.NumOfDonation <= 12)
                     {
@@ -90,63 +92,70 @@
                     {
 
                     }
-                    
-                @*<img src="..." alt="...">*@
-                <div class="caption">
-                    
-                    <h3>@{
-                        string gameLevel;
-                       
-                        if (item.NumOfDonation >= 0 && item.NumOfDonation <= 5)
-                        {
-                            gameLevel = "Beginner";
-                        }
-                        else if (item.NumOfDonation > 5 && item.NumOfDonation <= 12)
-                        {
-                            gameLevel = "Supporter";
-                        }
-                        else if (item.NumOfDonation > 12 && item.NumOfDonation <= 24)
-                        {
-                            gameLevel = "Reformer";
-                        }
-                        else if (item.NumOfDonation > 24 && item.NumOfDonation <= 35)
-                        {
-                            gameLevel = "Innovator";
-                        }
-                        else if (item.NumOfDonation > 35 && item.NumOfDonation <= 50)
-                        {
-                            gameLevel = "Leader";
-                        }
-                        else if (item.NumOfDonation > 50)
-                        {
-                            gameLevel = "All Star";
-                        }
-                        else
-                        {
-                            gameLevel = "This is not a valid level.";
-                        }
-                        @gameLevel
-                    }</h3>
 
-                    <p>Number of Donations: @Html.DisplayFor(modelItem => item.NumOfDonation)</p>
-                    <p>@Html.DisplayFor(modelItem => item.OrgName) has been recommended @Html.DisplayFor(modelItem => item.StarRating) times.</p>
+                    @*<img src="..." alt="...">*@
+                    <div class="caption">
+
+                        <h3 id="scoreTitle">
+                            @{
+                            string gameLevel;
+
+                            if (item.NumOfDonation >= 0 && item.NumOfDonation <= 5)
+                            {
+                                gameLevel = "Beginner";
+                            }
+                            else if (item.NumOfDonation > 5 && item.NumOfDonation <= 12)
+                            {
+                                gameLevel = "Supporter";
+                            }
+                            else if (item.NumOfDonation > 12 && item.NumOfDonation <= 24)
+                            {
+                                gameLevel = "Reformer";
+                            }
+                            else if (item.NumOfDonation > 24 && item.NumOfDonation <= 35)
+                            {
+                                gameLevel = "Innovator";
+                            }
+                            else if (item.NumOfDonation > 35 && item.NumOfDonation <= 50)
+                            {
+                                gameLevel = "Leader";
+                            }
+                            else if (item.NumOfDonation > 50)
+                            {
+                                gameLevel = "All Star";
+                            }
+                            else
+                            {
+                                gameLevel = "This is not a valid level.";
+                            }
+                            @gameLevel
+                        }
+                    </h3>
+
+                    <p id="scoreNum">Number of Donations: @Html.DisplayFor(modelItem => item.NumOfDonation)</p>
+                    <p id="scoreNum">@Html.DisplayFor(modelItem => item.OrgName) has been recommended @Html.DisplayFor(modelItem => item.StarRating) times</p>
 
 
-                    <p>@if (User.IsInRole("Food Donor"))
+                    <p>
+                        @if (User.IsInRole("Food Donor"))
                     {
                         @Html.ActionLink("Donate", "Donate", new { id = item.ProviderID })
 
-                    }</p>
-                    <p>@if (User.IsInRole("Charity") || User.IsInRole("Transportation Assistance"))
-                    {
-                        @Html.ActionLink("Recommend this Provider", "Recommend", new { id = item.ProviderID })
-                    }</p>
-                    
-                </div>
-            </div>
+                    }
+                </p>
+                <p>
+                    @if (User.IsInRole("Charity") || User.IsInRole("Transportation Assistance"))
+                {
+                    @Html.ActionLink("Recommend this Provider", "Recommend", new { id = item.ProviderID })
+                }
+            </p>
+
         </div>
-
-   }
     </div>
-      
+</div>
 
+                            }
+    </div>
+
+
+</body>
