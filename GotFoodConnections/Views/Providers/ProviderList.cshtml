@@ -5,25 +5,27 @@
     ViewBag.Title = "ProviderList";
 }
 
-<h2 id="title">Food Provider Listing</h2>
-<img src="~/Images/Food_Donor_Image.png" id="provider" />
-<table class="table" id="providerList">
-    <tr>
 
-        <th>
-            @Html.DisplayNameFor(model => model.OrgName)
-        </th>
-    </tr>
+@*<img src="~/Images/Food_Donor_Image.png" id="provider" />*@
 
-    @foreach (var item in Model)
-    {
-        <tr>
 
-            <td id="item">
-                @*@Html.DisplayFor(modelItem => item.OrgName)*@
-                @Html.ActionLink(item.OrgName, "Details", new { id = item.ProviderID })
-            </td>
-        </tr>
-    }
+            @*@Html.DisplayNameFor(model => model.OrgName)*@
+<div id="ProviderImage">
+    <img src="~/Images/Food-Table-Image.jpeg" />
+</div>
+<div id="ProviderOverlay">
+</div>
+    <div class="row">
+        <div class="col-xs-12 col-md-4 col-md-offset-5">
 
-</table>
+            <dl class="dl-horizontal listy">
+                <dt id="listTitle">FOOD DONORS</dt>
+                @foreach (var item in Model)
+            {
+                    <dd id="namesList">
+                        <h3>@Html.ActionLink(item.OrgName, "Details", new { id = item.ProviderID })</h3>
+                    </dd>
+                }
+            </dl>
+        </div>
+    </div>

@@ -607,7 +607,7 @@ ul.overlay-content > li {
     transform: scale(1.05);
     cursor: pointer;
 }
-
+/*ScoreBoard*/
 .scoreBody{
     background-color: #E7F2F2;
 }
@@ -699,12 +699,13 @@ img#levelImages{
     height:50px;
     margin-bottom:10px;
 }
+/*End of ScoreBoard*/
 /*Start of general profile styling*/
-.table, .dl-horizontal{
+/*.table, .dl-horizontal{
     position:relative;
     left:700px;
     width:35%;
-}
+}*/
 
 #login{
     margin-top:55px;
@@ -886,4 +887,220 @@ select#CharityID.form-control.valid, select#CharityID.form-control, select#Trans
 
 #backToIndex > a:hover{
     text-decoration:none;
+}
+/*Provider List*/
+dl.dl-horizontal.listy{
+     background-color: rgba(231, 242, 242, .85);
+     margin:25px;
+     margin-right:60px;
+     border-radius:25px;
+     padding-bottom:20px;
+     /*border:solid 2px rgba(56, 53, 61, 0.85);*/
+}
+dt#listTitle{
+    font-size:25px;
+    margin:5px;
+    margin-bottom: 20px;
+    text-align:left;
+    padding-left:20px;
+    font-family:'Sriracha', cursive;
+    color:#38353d;
+    background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    border-top-left-radius:25px;
+    border-top-right-radius:25px;
+    border-bottom:solid 2px rgba(56, 53, 61, 0.85);
+    width:98%;
+    padding-bottom:10px;
+    padding-top:10px;
+}
+dd#namesList{
+    margin-left:55px;
+     font-family:'Scada',sans-serif;
+     color:black;
+}
+dd#namesList h3 a{
+    color:#38353d;
+}
+dd#namesList h3 a:hover{
+    color:white;
+}
+/*End of Profile List*/
+/*Profile Page*/
+div.row.profilePage{
+    position:initial;
+    margin-top:75px;
+    margin-bottom:25px;
+}
+.profileInfo{
+    background-color: rgba(231, 242, 242, .85);
+    padding:20px;
+    border-radius:25px;
+}
+#provName{
+    text-align:center;
+    padding-bottom:15px;
+    font-family:'Sriracha', cursive;
+    font-size:50px;
+     color:#FF9B3B;
+}
+dt#provType{
+    text-align:left;
+    margin:5px;
+    width:100%;
+    padding-left:20px;
+    font-family:'Sriracha', cursive;
+    font-size:20px;
+    color:#38353d;
+
+}
+dd#provAns{
+    margin-left:25px;
+    padding:3px;
+    color:#38353d;
+      font-family:'Scada',sans-serif;
+      font-size:15px;
+}
+.donateBtn{
+     padding: 10px;
+    position: fixed;
+    top: 93px;
+    left: 95px;
+    background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    border: 1px solid #38353D;
+    border-radius: 8px;
+    color: #38353D;
+    font-family: 'Scada', sans-serif;
+    font-size:20px;
+    font-weight: 700;
+    z-index: 3;
+}
+.donateBtn:hover{
+    background-color: #FF9B3B;
+        text-decoration: none;
+        color:white;
+}
+div#backBtn a{
+    background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    border: 1px solid #38353D;
+    border-radius: 8px;
+    color: #38353D;
+    font-family: 'Scada', sans-serif;
+    font-size:20px;
+    font-weight: 700;
+    padding:10px;
+    
+}
+div#backBtn a:hover{
+     background-color: #FF9B3B;
+        text-decoration: none;
+        color:white;
+}
+div#backBtn{
+    text-align:center;
+}
+/*End of Profile Page*/
+/*Profile Index Page*/
+#editBtn a{
+    padding-left:16px;
+    padding-right:16px;
+}
+#creating{
+    text-align:center;
+    margin-top:25px;
+}
+#creating a{
+     background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    border: 1px solid #38353D;
+    border-radius: 8px;
+    color: #38353D;
+    font-family: 'Scada', sans-serif;
+    font-size:20px;
+    font-weight: 700;
+    padding:10px;
+    
+    /*margin-left:20px;*/
+}
+#creating a:hover{
+    background-color: #FF9B3B;
+        text-decoration: none;
+        color:white;
+}
+.aBtn{
+        background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    border: 1px solid #38353D;
+    border-radius: 8px;
+    color: #38353D;
+    font-family: 'Scada', sans-serif;
+    font-size:15px;
+    font-weight: 700;
+    padding:10px;
+    
+    
+}
+.aBtn:hover{
+    background-color: #FF9B3B;
+        text-decoration: none;
+        color:white;
+}
+div.row.orgRow{
+    top:190px;
+}
+.orgThumb{
+    border:solid 2px #bd675b;
+    border-radius:25px;
+}
+#orgName{
+    color:#bd675b;
+    font-family:'Sriracha', cursive;
+    font-size:35px;
+    text-align:center;
+    border-bottom:solid;
+    padding-bottom:5px;
+}
+#orgInfo{
+     color:#38353d;
+     font-family: 'Scada', sans-serif;
+     font-size:18px;
+     margin-bottom:15px;
+}
+#createPro{
+    margin-top:70px;
+    font-family:'Sriracha', cursive;
+    font-size:18px;
+    margin-bottom:50px;
+}
+input#backBtn.btn.btn-default{
+            background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    border: 1px solid #38353D;
+    border-radius: 8px;
+    color: #38353D;
+    font-family: 'Scada', sans-serif;
+    font-size:16px;
+    font-weight: 700;
+    padding:10px;
+}
+input#backBtn.btn.btn-default:hover{
+      background-color: #FF9B3B;
+        text-decoration: none;
+        color:white;
+}
+#backListBtn a{
+     background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    border: 1px solid #38353D;
+    border-radius: 8px;
+    color: #38353D;
+    font-family: 'Scada', sans-serif;
+    font-size:16px;
+    font-weight: 700;
+    padding:10px;
+    
+}
+#backListBtn a:hover{
+     background-color: #FF9B3B;
+        text-decoration: none;
+        color:white;
+}
+div#backListBtn{
+    text-align:center;
+    margin-top:25px;
 }
