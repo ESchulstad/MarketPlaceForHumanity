@@ -1163,3 +1163,16 @@ input#profileDelete{
     margin-top:70px;
 }
 
+p#names{
+    font-family:'Sriracha',cursive;
+    color:#b45d51;
+    font-size:15px;
+}
+div#Collab.container-fluid{
+    background:#BEBBBB;
+}
+img{
+    height: 200px;
+    width:150px;
+    border-radius:25px;
+}
