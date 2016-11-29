@@ -1063,6 +1063,8 @@ div.row.orgRow{
      font-size:18px;
      margin-bottom:15px;
 }
+/*End Profile Index*/
+/*Profile Create*/
 #createPro{
     margin-top:70px;
     font-family:'Sriracha', cursive;
@@ -1104,6 +1106,8 @@ div#backListBtn{
     text-align:center;
     margin-top:25px;
 }
+/*End Create*/
+/*Charity Profile Btn*/
 div#backBtnAgain a{
     background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
     border: 1px solid #38353D;
@@ -1124,3 +1128,4 @@ div#backBtnAgain{
     text-align:center;
     margin-top:95px;
 }
+/*End Charity Profile Btn*/
