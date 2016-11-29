@@ -1129,3 +1129,16 @@ div#backBtnAgain{
     margin-top:95px;
 }
 /*End Charity Profile Btn*/
+/*Delete button on provider post*/
+input#profileDelete{
+    background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    border: 1px solid #38353D;
+    border-radius: 8px;
+    color: #38353D;
+    font-family: 'Scada', sans-serif;
+    font-size:15px;
+    font-weight: 700;
+    padding:10px;
+    margin-left:15px;
+    margin-bottom:5px;
+}
