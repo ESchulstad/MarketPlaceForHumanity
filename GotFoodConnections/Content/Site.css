@@ -983,3 +983,23 @@ div#backListBtn{
     text-align:center;
     margin-top:25px;
 }
+div#backBtnAgain a{
+    background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    border: 1px solid #38353D;
+    border-radius: 8px;
+    color: #38353D;
+    font-family: 'Scada', sans-serif;
+    font-size:20px;
+    font-weight: 700;
+    padding:10px;
+    
+}
+div#backBtnAgain a:hover{
+     background-color: #FF9B3B;
+        text-decoration: none;
+        color:white;
+}
+div#backBtnAgain{
+    text-align:center;
+    margin-top:95px;
+}

@@ -5,24 +5,29 @@
     ViewBag.Title = "TransportList";
 }
 
-<h2 id="title">Transport List</h2>
-<img src="~/Images/bus-1448914.jpg" id="transport"/>
-<table class="table" id="transportList">
-<tr>
-    <th>
-        @Html.DisplayNameFor(model => model.OrganizationName)
-    </th>
-</tr>
-@foreach (var item in Model)
-{
-    <tr>
-        <td id="item">
-            @*@Html.DisplayFor(modelItem => item.OrganizationName)*@
-            @Html.ActionLink(item.OrganizationName, "Details", new { id = item.TransportID })
-        </td>
-    </tr>
-}
+<div id="TransportImage">
+    <img src="~/Images/Food-Transport-Image.jpg" />
+</div>
+<div id="PostHeader">
+</div>
+<div id="TransportOverlay">
+</div>
 
-</table>
+<div class="row">
+    <div class="col-xs-12 col-md-4 col-md-offset-5">
+
+        <dl class="dl-horizontal listy">
+            <dt id="listTitle">TRANSPORT ASSISTANCE</dt>
+            @foreach (var item in Model)
+            {
+                <dd id="namesList">
+                    <h3>@Html.ActionLink(item.OrganizationName, "Details", new { id = item.TransportID })</h3>
+                </dd>
+            }
+        </dl>
+    </div>
+</div>
+
+
 
 
