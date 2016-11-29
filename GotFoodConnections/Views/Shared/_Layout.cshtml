@@ -42,6 +42,24 @@
             {
                 <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
             }
+            @if(Request.IsAuthenticated)
+            {
+                if (User.IsInRole("Food Donor"))
+                {
+                    <li>@Html.ActionLink("Your Organizations", "Index", "Providers")</li>
+                    <li>@Html.ActionLink("Your Posts", "Index", "ProviderPosts")</li>
+                }
+                else if (User.IsInRole("Charity"))
+                {
+                    <li>@Html.ActionLink("Your Charities", "Index", "CharityProfiles")</li>
+                    <li>@Html.ActionLink("Your Posts", "Index", "CharityPosts")</li>
+                }
+                else if (User.IsInRole("Transportation Assistance"))
+                {
+                    <li>@Html.ActionLink("Your Organizations", "Index", "Transports")</li>
+                    <li>@Html.ActionLink("Your Posts", "Index", "Transports")</li>
+                }
+            }
         </ul>
     </div>
     <!-- Use any element to open/show the overlay navigation menu -->

@@ -9,6 +9,7 @@
 <div id="ProviderImage">
     <img src="~/Images/Food-Table-Image.jpeg" />
 </div>
+<div id="PostHeader"></div>
 <div id="ProviderOverlay">
 </div>
 <h3 id="tabTitle">Your Posts</h3>
@@ -33,9 +34,9 @@
 
 <div class="row">
     @foreach (var item in Model)
-            {
-                if (item != null)
-                {
+    {
+        if (item != null)
+        {
             <div class="col-xs-12 col-md-8 col-md-offset-2 chat" id="ProvPost">
                 <div class="container" id="post">
                     <h2>@item.Provider.OrgName<a href="" class="open" data-toggle="modal" data-target="#providerModal"></a></h2>
@@ -73,12 +74,13 @@
                         <p id="TimestampLabel"><strong>@Html.DisplayNameFor(model => model.TimeStamp)</strong><span class="ProviderPostText">@item.TimeStamp</span></p>
                     </div>
 
-
-                    @using (Html.BeginForm("Delete", "ProviderPosts", new { id = item.ProviderPosts }))
-                    {
-                        <input type="submit" id="profileDelete" value="Delete" onclick="return confirm('Are sure you want to delete this post?')" />
-                    }
-
+                    <div>
+                        @*@using(Html.BeginForm("Delete","ProviderPosts", new { id = item.ProviderPosts }))*@
+                        @using (Html.BeginForm("Delete","ProviderPosts", new { id = item.ProviderPostID }))
+                        {
+                            <input id="profileDelete" type="submit" value="Delete" onclick="return confirm('Are sure you want to delete this post?')" />
+                        }
+                    </div>
                     @*<div id="Timestamp">
                             <p id="ProviderPostLabel">@Html.DisplayNameFor(modelitem => item.TimeStamp)<span class="ProviderPostText">@item.TimeStamp</span></p>
                         </div>*@

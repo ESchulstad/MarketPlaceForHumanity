@@ -1,7 +1,4 @@
 ﻿body {
-    /*padding-top: 50px;*/
-    /*padding-bottom: 20px;*/
-    /*background-color:#DA6321;*/
     width: 100%;
 }
 
@@ -20,8 +17,7 @@
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
-select,
-textarea {
+select{
     max-width: 280px;
 }
 
@@ -59,6 +55,7 @@ textarea {
     margin: 0;
     padding: 0;
     width: 100%;
+    height:65px;
 }
 
 h3#tabTitle {
@@ -107,7 +104,7 @@ hr {
 
 footer {
     position: fixed;
-    width: 50%;
+    width: 30%;
     bottom: 0;
     padding-left: 10px;
     font-family: 'Scada', sans-serif;
@@ -227,6 +224,7 @@ div#CharityOverlay {
     position:fixed;
     height:100%;
     width:100%;
+    margin-top:65px;
 }
 
 div#TransportOverlay {
@@ -234,6 +232,14 @@ div#TransportOverlay {
     position:fixed;
     height:100%;
     width:100%;
+}
+
+div#PostHeader{
+    position:fixed;
+    height:65px;
+    width:100%;
+    background-color: #E7F2F2;
+    z-index:1;
 }
 
 div#ProviderImage > img, div#CharityImage > img, div#TransportImage > img {
@@ -320,18 +326,18 @@ div#PeopleFed, div#Allergens, div#ExpirationDate {
     min-height: 60px;
 }
 
-div#PeopleFed {
+div#PeopleFed, div#PeopleFedCreate {
     padding: 5px 5px 5px 10px;
     border-right: 1px solid rgba(56, 53, 61, 0.5);
     float: left;
 }
 
-div#Allergens {
+div#Allergens, div#AllergensCreate {
     padding: 5px 5px 5px 5px;
     border-right: 1px solid rgba(56, 53, 61, 0.5);
 }
 
-div#ExpirationDate {
+div#ExpirationDate, div#ExpirationDateCreate {
     padding: 5px 10px 5px 5px;
     float: right;
 }
@@ -402,16 +408,48 @@ div#TransportComments{
 
 div#Timestamp {
     display: inline;
-    width: 50%;
+}
+
+div#CharityTimestamp, div#TransportTimestamp{
+    height:35px;
 }
 
 #TimestampLabel {
-    text-align: right;
+    text-align:right;
     margin-right: 15px;
     margin-bottom: 5px;
     margin-top: 5px;
     font-size: 12px;
     font-family: 'Scada', sans-serif;
+}
+
+p#CharityTimestampLabel, p#TransportTimestampLabel {
+    display:inline;
+    float:right;
+    text-align:right;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    margin-top: 8px;
+    font-size: 12px;
+    font-family: 'Scada', sans-serif;
+    width:195px;
+}
+
+input#delete{
+    padding: 3px;
+    margin:5px 0 5px 20px;
+    background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    border: 1px solid #38353D;
+    border-radius: 8px;
+    color: #38353D;
+    font-family: 'Scada', sans-serif;
+    font-size:12px;
+    font-weight: 700;
+}
+
+form{
+    display:inline;
+    width:100%;
 }
 /*End of Provider Posts on Main Feed*/
 
@@ -569,7 +607,7 @@ ul.overlay-content > li {
     transform: scale(1.05);
     cursor: pointer;
 }
-
+/*ScoreBoard*/
 .scoreBody{
     background-color: #E7F2F2;
 }
@@ -661,12 +699,13 @@ img#levelImages{
     height:50px;
     margin-bottom:10px;
 }
+/*End of ScoreBoard*/
 /*Start of general profile styling*/
-.table, .dl-horizontal{
+/*.table, .dl-horizontal{
     position:relative;
     left:700px;
     width:35%;
-}
+}*/
 
 #login{
     margin-top:55px;
@@ -729,9 +768,377 @@ img#levelImages{
 }
 /*End of Provider profile styling*/
 
-#aboutHead, #contactHead{
-    margin-top:70px;
+textarea#FoodRequested, textarea#Message, textarea#FoodType{
+    width:100%;
+    resize:none;
+    border-radius:5px;
+    font-family: 'Scada', sans-serif;
+    font-size:20px;
 }
 
+div#PeopleFedCreate, div#AllergensCreate, div#ExpirationDateCreate{
+    width:33.33%;
+    display: inline-block;
+    min-height: 50px;
+}
 
+div#PeopleToFeedCreate, div#DateRequestedCreate{
+    width: 50%;
+    display: inline-block;
+    min-height:84px;
+}
 
+div#CommentsCreate, div#WeightRequestedCreate, div#SpecialTransportCreate{
+    width: 50%;
+    display: inline-block;
+    min-height: 121px;
+}
+
+div#StartTimeCreate, div#EndTimeCreate{
+    width: 50%;
+    display: inline-block;
+    min-height: 65px;
+}
+
+div#PeopleToFeedCreate, div#CommentsCreate, div#StartTimeCreate{
+    float: left;
+    padding: 5px 5px 5px 10px;
+    border-right: 1px solid rgba(56, 53, 61, 0.5);
+    height: 100%;
+}
+
+div#DateRequestedCreate, div#WeightRequestedCreate, div#EndTimeCreate, div#SpecialTransportCreate{
+    padding: 5px 10px 5px 10px;
+    height: 100%;
+}
+
+div#TransportCommentsCreate{
+    width: 100%;
+    display: inline-block;
+    padding: 5px 5px 5px 10px;
+    min-height:50px;
+}
+
+textarea#Comments, textarea#SpecialTransport{
+    width:100%;
+    resize:none;
+    border-radius:5px;
+    font-family: 'Scada', sans-serif;
+    font-size:14px;
+}
+
+div#CreateCharityTimestamp, div#CreateTransportTimestamp, div#CreateProviderTimestamp{
+    float:right;
+    width:35%;
+    padding:5px 0;
+}
+
+label#CreateTimestampLabel{
+    height:35px;
+    display:inline;
+    font-family: 'Scada', sans-serif;
+    font-size:13px;
+    color:#38353D;
+}
+
+div#CharityTimestampCreate, div#TransportTimestampCreate, div#ProviderTimestampCreate{
+    display:inline;
+}
+
+input#TimeStamp.text-box.single-line {
+    font-family: 'Scada', sans-serif;
+    font-size:13px;
+    color:#38353D;
+    border-radius:5px;
+}
+
+input#timeSelector{
+    font-family: 'Scada', sans-serif;
+    font-size:14px;
+    color:#38353D;
+    border-radius:5px;
+}
+
+select#CharityID.form-control.valid, select#CharityID.form-control, select#TransportID.form-control.valid, select#TransportID.form-control, select#ProviderID.form-control.valid, select#ProviderID.form-control{
+    margin-top: 10px;
+    color: #38353D;
+    font-family: 'Sriracha', cursive;
+    font-size: 24px;
+    height:45px;
+}
+
+#backToIndex{
+    padding: 10px;
+    position: fixed;
+    top: 150px;
+    left: 25px;
+    background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    border: 1px solid #38353D;
+    border-radius: 8px;
+    color: #38353D;
+    font-family: 'Scada', sans-serif;
+    font-weight: 700;
+    z-index: 3;
+}
+
+#backToIndex > a{
+    color:#38353D;
+}
+
+#backToIndex > a:hover{
+    text-decoration:none;
+}
+/*Provider List*/
+dl.dl-horizontal.listy{
+     background-color: rgba(231, 242, 242, .85);
+     margin:25px;
+     margin-right:60px;
+     border-radius:25px;
+     padding-bottom:20px;
+     /*border:solid 2px rgba(56, 53, 61, 0.85);*/
+}
+dt#listTitle{
+    font-size:25px;
+    margin:5px;
+    margin-bottom: 20px;
+    text-align:left;
+    padding-left:20px;
+    font-family:'Sriracha', cursive;
+    color:#38353d;
+    background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    border-top-left-radius:25px;
+    border-top-right-radius:25px;
+    border-bottom:solid 2px rgba(56, 53, 61, 0.85);
+    width:98%;
+    padding-bottom:10px;
+    padding-top:10px;
+}
+dd#namesList{
+    margin-left:55px;
+     font-family:'Scada',sans-serif;
+     color:black;
+}
+dd#namesList h3 a{
+    color:#38353d;
+}
+dd#namesList h3 a:hover{
+    color:white;
+}
+/*End of Profile List*/
+/*Profile Page*/
+div.row.profilePage{
+    position:initial;
+    margin-top:75px;
+    margin-bottom:25px;
+}
+.profileInfo{
+    background-color: rgba(231, 242, 242, .85);
+    padding:20px;
+    border-radius:25px;
+}
+#provName{
+    text-align:center;
+    padding-bottom:15px;
+    font-family:'Sriracha', cursive;
+    font-size:50px;
+     color:#FF9B3B;
+}
+dt#provType{
+    text-align:left;
+    margin:5px;
+    width:100%;
+    padding-left:20px;
+    font-family:'Sriracha', cursive;
+    font-size:20px;
+    color:#38353d;
+
+}
+dd#provAns{
+    margin-left:25px;
+    padding:3px;
+    color:#38353d;
+      font-family:'Scada',sans-serif;
+      font-size:15px;
+}
+.donateBtn{
+     padding: 10px;
+    position: fixed;
+    top: 93px;
+    left: 95px;
+    background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    border: 1px solid #38353D;
+    border-radius: 8px;
+    color: #38353D;
+    font-family: 'Scada', sans-serif;
+    font-size:20px;
+    font-weight: 700;
+    z-index: 3;
+}
+.donateBtn:hover{
+    background-color: #FF9B3B;
+        text-decoration: none;
+        color:white;
+}
+div#backBtn a{
+    background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    border: 1px solid #38353D;
+    border-radius: 8px;
+    color: #38353D;
+    font-family: 'Scada', sans-serif;
+    font-size:20px;
+    font-weight: 700;
+    padding:10px;
+    
+}
+div#backBtn a:hover{
+     background-color: #FF9B3B;
+        text-decoration: none;
+        color:white;
+}
+div#backBtn{
+    text-align:center;
+}
+/*End of Profile Page*/
+/*Profile Index Page*/
+#editBtn a{
+    padding-left:16px;
+    padding-right:16px;
+}
+#creating{
+    text-align:center;
+    margin-top:25px;
+}
+#creating a{
+     background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    border: 1px solid #38353D;
+    border-radius: 8px;
+    color: #38353D;
+    font-family: 'Scada', sans-serif;
+    font-size:20px;
+    font-weight: 700;
+    padding:10px;
+    
+    /*margin-left:20px;*/
+}
+#creating a:hover{
+    background-color: #FF9B3B;
+        text-decoration: none;
+        color:white;
+}
+.aBtn{
+        background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    border: 1px solid #38353D;
+    border-radius: 8px;
+    color: #38353D;
+    font-family: 'Scada', sans-serif;
+    font-size:15px;
+    font-weight: 700;
+    padding:10px;
+    
+    
+}
+.aBtn:hover{
+    background-color: #FF9B3B;
+        text-decoration: none;
+        color:white;
+}
+div.row.orgRow{
+    top:190px;
+}
+.orgThumb{
+    border:solid 2px #bd675b;
+    border-radius:25px;
+}
+#orgName{
+    color:#bd675b;
+    font-family:'Sriracha', cursive;
+    font-size:35px;
+    text-align:center;
+    border-bottom:solid;
+    padding-bottom:5px;
+}
+#orgInfo{
+     color:#38353d;
+     font-family: 'Scada', sans-serif;
+     font-size:18px;
+     margin-bottom:15px;
+}
+/*End Profile Index*/
+/*Profile Create*/
+#createPro{
+    margin-top:70px;
+    font-family:'Sriracha', cursive;
+    font-size:18px;
+    margin-bottom:50px;
+}
+input#backBtn.btn.btn-default{
+            background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    border: 1px solid #38353D;
+    border-radius: 8px;
+    color: #38353D;
+    font-family: 'Scada', sans-serif;
+    font-size:16px;
+    font-weight: 700;
+    padding:10px;
+}
+input#backBtn.btn.btn-default:hover{
+      background-color: #FF9B3B;
+        text-decoration: none;
+        color:white;
+}
+#backListBtn a{
+     background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    border: 1px solid #38353D;
+    border-radius: 8px;
+    color: #38353D;
+    font-family: 'Scada', sans-serif;
+    font-size:16px;
+    font-weight: 700;
+    padding:10px;
+    
+}
+#backListBtn a:hover{
+     background-color: #FF9B3B;
+        text-decoration: none;
+        color:white;
+}
+div#backListBtn{
+    text-align:center;
+    margin-top:25px;
+}
+/*End Create*/
+/*Charity Profile Btn*/
+div#backBtnAgain a{
+    background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    border: 1px solid #38353D;
+    border-radius: 8px;
+    color: #38353D;
+    font-family: 'Scada', sans-serif;
+    font-size:20px;
+    font-weight: 700;
+    padding:10px;
+    
+}
+div#backBtnAgain a:hover{
+     background-color: #FF9B3B;
+        text-decoration: none;
+        color:white;
+}
+div#backBtnAgain{
+    text-align:center;
+    margin-top:95px;
+}
+/*End Charity Profile Btn*/
+/*Delete button on provider post*/
+input#profileDelete{
+    background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    border: 1px solid #38353D;
+    border-radius: 8px;
+    color: #38353D;
+    font-family: 'Scada', sans-serif;
+    font-size:15px;
+    font-weight: 700;
+    padding:10px;
+    margin-left:15px;
+    margin-bottom:5px;
+}
