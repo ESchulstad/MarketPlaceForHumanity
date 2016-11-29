@@ -1127,3 +1127,17 @@ input#profileDelete {
     font-family: 'Scada', sans-serif;
     font-weight:700;
 }
+
+p#names{
+    font-family:'Sriracha',cursive;
+    color:#b45d51;
+    font-size:15px;
+}
+div#Collab.container-fluid{
+    background:#BEBBBB;
+}
+img{
+    height: 200px;
+    width:150px;
+    border-radius:25px;
+}
