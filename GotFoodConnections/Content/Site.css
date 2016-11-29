@@ -942,6 +942,9 @@ div.row.profilePage{
     font-family:'Sriracha', cursive;
     font-size:50px;
      color:#FF9B3B;
+     background-color:#b9675b;
+     border-radius:25px;
+     padding-top:15px;
 }
 dt#provType{
     text-align:left;
@@ -959,6 +962,19 @@ dd#provAns{
     color:#38353d;
       font-family:'Scada',sans-serif;
       font-size:15px;
+}
+dd#provAns a{
+    color:#b9675b;
+}
+button.btn.btn-info.btn-lg{
+    background-color:#b9675b;
+     border: 1px solid #38353D;
+    border-radius: 8px;
+}
+button.btn.btn-info.btn-lg:hover{
+     background-color: #FF9B3B;
+     text-decoration: none;
+     color:white;
 }
 .donateBtn{
      padding: 10px;
