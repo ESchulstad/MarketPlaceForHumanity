@@ -767,6 +767,127 @@ img#levelImages{
     margin-top:-400px;
 }
 /*End of Provider profile styling*/
+
+textarea#FoodRequested, textarea#Message, textarea#FoodType{
+    width:100%;
+    resize:none;
+    border-radius:5px;
+    font-family: 'Scada', sans-serif;
+    font-size:20px;
+}
+
+div#PeopleFedCreate, div#AllergensCreate, div#ExpirationDateCreate{
+    width:33.33%;
+    display: inline-block;
+    min-height: 50px;
+}
+
+div#PeopleToFeedCreate, div#DateRequestedCreate{
+    width: 50%;
+    display: inline-block;
+    min-height:84px;
+}
+
+div#CommentsCreate, div#WeightRequestedCreate, div#SpecialTransportCreate{
+    width: 50%;
+    display: inline-block;
+    min-height: 121px;
+}
+
+div#StartTimeCreate, div#EndTimeCreate{
+    width: 50%;
+    display: inline-block;
+    min-height: 65px;
+}
+
+div#PeopleToFeedCreate, div#CommentsCreate, div#StartTimeCreate{
+    float: left;
+    padding: 5px 5px 5px 10px;
+    border-right: 1px solid rgba(56, 53, 61, 0.5);
+    height: 100%;
+}
+
+div#DateRequestedCreate, div#WeightRequestedCreate, div#EndTimeCreate, div#SpecialTransportCreate{
+    padding: 5px 10px 5px 10px;
+    height: 100%;
+}
+
+div#TransportCommentsCreate{
+    width: 100%;
+    display: inline-block;
+    padding: 5px 5px 5px 10px;
+    min-height:50px;
+}
+
+textarea#Comments, textarea#SpecialTransport{
+    width:100%;
+    resize:none;
+    border-radius:5px;
+    font-family: 'Scada', sans-serif;
+    font-size:14px;
+}
+
+div#CreateCharityTimestamp, div#CreateTransportTimestamp, div#CreateProviderTimestamp{
+    float:right;
+    width:35%;
+    padding:5px 0;
+}
+
+label#CreateTimestampLabel{
+    height:35px;
+    display:inline;
+    font-family: 'Scada', sans-serif;
+    font-size:13px;
+    color:#38353D;
+}
+
+div#CharityTimestampCreate, div#TransportTimestampCreate, div#ProviderTimestampCreate{
+    display:inline;
+}
+
+input#TimeStamp.text-box.single-line {
+    font-family: 'Scada', sans-serif;
+    font-size:13px;
+    color:#38353D;
+    border-radius:5px;
+}
+
+input#timeSelector{
+    font-family: 'Scada', sans-serif;
+    font-size:14px;
+    color:#38353D;
+    border-radius:5px;
+}
+
+select#CharityID.form-control.valid, select#CharityID.form-control, select#TransportID.form-control.valid, select#TransportID.form-control, select#ProviderID.form-control.valid, select#ProviderID.form-control{
+    margin-top: 10px;
+    color: #38353D;
+    font-family: 'Sriracha', cursive;
+    font-size: 24px;
+    height:45px;
+}
+
+#backToIndex{
+    padding: 10px;
+    position: fixed;
+    top: 150px;
+    left: 25px;
+    background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    border: 1px solid #38353D;
+    border-radius: 8px;
+    color: #38353D;
+    font-family: 'Scada', sans-serif;
+    font-weight: 700;
+    z-index: 3;
+}
+
+#backToIndex > a{
+    color:#38353D;
+}
+
+#backToIndex > a:hover{
+    text-decoration:none;
+}
 /*Provider List*/
 dl.dl-horizontal.listy{
      background-color: rgba(231, 242, 242, .85);
