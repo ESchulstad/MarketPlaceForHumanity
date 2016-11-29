@@ -4,63 +4,78 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Transport.OrganizationName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TimeStamp)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Message)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StartTimeAvailable)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EndTimeAvailable)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Comments)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        using (Html.BeginForm("Delete", "CharityPosts", new { id = item.TransportPostID }))
+@if (Request.IsAuthenticated)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Transport.OrganizationName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TimeStamp)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Message)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StartTimeAvailable)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.EndTimeAvailable)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Comments)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.TransportPostID }) |
-                    <input type="submit" value="Delete" onclick="return confirm('Are sure you want to delete this post?')" />
-                </td>
-            </tr>
-        }
-    }
 
-</table>
+            if (User.IsInRole("Food Donor"))
+            {
+        @Html.ActionLink("Create Post", "Create", "ProviderPosts", null, new { id = "CreatePost" });
+            }
+            else if (User.IsInRole("Charity"))
+            {
+        @Html.ActionLink("Create Post", "Create", "CharityPosts", null, new { id = "CreatePost" });
+            }
+            else if (User.IsInRole("Transportation Assistance"))
+            {
+        @Html.ActionLink("Create Post", "Create", "TransportPosts", null, new { id = "CreatePost" });
+            }
+
+        }
+
+<div id="TransportImage">
+    <img src="~/Images/Food-Transport-Image.jpg" />
+</div>
+<div id="PostHeader">
+</div>
+<div id="TransportOverlay">
+</div>
+
+<div class="row">
+    @foreach (var item in Model)
+            {
+                if (item != null /*&& item.Transport != null*/)
+                {
+                    <div class="col-xs-12 col-md-8 col-md-offset-2 chat" id="TransPost">
+                        <div class="container" id="post">
+                            <h2>@item.Transport.OrganizationName</h2>
+
+                        </div>
+                        <div id="TransportPost">
+                            <div id="Message">
+                                <h4 id="MessageLabel">@Html.DisplayNameFor(model => model.Message)</h4>
+                                <p id="MessageText">@item.Message</p>
+                            </div>
+                            <div id="row2">
+                                <div id="StartTime">
+                                    <h5 id="StartTimeLabel">@Html.DisplayNameFor(model => model.StartTimeAvailable)</h5>
+                                    <p id="StartTimeText">@item.StartTimeAvailable</p>
+                                </div>
+                                <div id="EndTime">
+                                    <h5 id="EndTimeLabel">@Html.DisplayNameFor(model => model.EndTimeAvailable)</h5>
+                                    <p id="EndTimeText">@item.EndTimeAvailable</p>
+                                </div>
+                            </div>
+                            <div id="row1">
+                                <div id="TransportComments">
+                                    <h5 id="CommentsLabel">@Html.DisplayNameFor(model => model.Comments)</h5>
+                                    <p id="CommentsText">@item.Comments</p>
+                                </div>
+                            </div>
+                            <div id="TransportTimestamp">
+                                @using (Html.BeginForm("Delete", "CharityPosts", new { id = item.TransportPostID }))
+                                {
+                                    <input id="delete" type="submit" value="Delete" onclick="return confirm('Are sure you want to delete this post?')" />
+                                }
+                                <p id="TransportTimestampLabel"><strong>@Html.DisplayNameFor(model => model.TimeStamp)</strong><span class="CharityPostText">@item.TimeStamp</span></p>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <p>"There currently are no posts."</p>;
+                }
+            }
+
+</div>
+
