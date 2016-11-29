@@ -569,7 +569,7 @@ ul.overlay-content > li {
     transform: scale(1.05);
     cursor: pointer;
 }
-
+/*ScoreBoard*/
 .scoreBody{
     background-color: #E7F2F2;
 }
@@ -661,12 +661,13 @@ img#levelImages{
     height:50px;
     margin-bottom:10px;
 }
+/*End of ScoreBoard*/
 /*Start of general profile styling*/
-.table, .dl-horizontal{
+/*.table, .dl-horizontal{
     position:relative;
     left:700px;
     width:35%;
-}
+}*/
 
 #login{
     margin-top:55px;
@@ -728,4 +729,39 @@ img#levelImages{
     margin-top:-400px;
 }
 /*End of Provider profile styling*/
-
+/*Provider List*/
+dl.dl-horizontal.listy{
+     background-color: rgba(231, 242, 242, .85);
+     margin:25px;
+     margin-right:60px;
+     border-radius:25px;
+     padding-bottom:20px;
+     /*border:solid 2px rgba(56, 53, 61, 0.85);*/
+}
+dt#listTitle{
+    font-size:25px;
+    margin:5px;
+    margin-bottom: 20px;
+    text-align:left;
+    padding-left:20px;
+    font-family:'Sriracha', cursive;
+    color:#38353d;
+    background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    border-top-left-radius:25px;
+    border-top-right-radius:25px;
+    border-bottom:solid 2px rgba(56, 53, 61, 0.85);
+    width:98%;
+    padding-bottom:10px;
+    padding-top:10px;
+}
+dd#namesList{
+    margin-left:55px;
+     font-family:'Scada',sans-serif;
+     color:black;
+}
+dd#namesList h3 a{
+    color:#38353d;
+}
+dd#namesList h3 a:hover{
+    color:white;
+}
