@@ -32,7 +32,7 @@
                         <p id="orgInfo"> @Html.DisplayNameFor(model => model.Foods) @Html.DisplayFor(modelItem => item.Foods)</p>
                         <p id="orgInfo">@Html.DisplayNameFor(model => model.ProvideTransport): @Html.DisplayFor(modelItem => item.ProvideTransport)</p>
                         <p>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.ProviderID }, new { @class = "aBtn" })
+                            <span id="editBtn">@Html.ActionLink("Edit", "Edit", new { id = item.ProviderID }, new { @class = "aBtn" })</span>
 
                         @Html.ActionLink("Delete", "Delete", new { id = item.ProviderID }, new { @class = "aBtn" })
 

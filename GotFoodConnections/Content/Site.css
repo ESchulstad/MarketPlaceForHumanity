@@ -879,6 +879,14 @@ div#backBtn{
 }
 /*End of Profile Page*/
 /*Profile Index Page*/
+#editBtn a{
+    padding-left:16px;
+    padding-right:16px;
+}
+#creating{
+    text-align:center;
+    margin-top:25px;
+}
 #creating a{
      background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
     border: 1px solid #38353D;
@@ -888,7 +896,8 @@ div#backBtn{
     font-size:20px;
     font-weight: 700;
     padding:10px;
-    margin-left:20px;
+    
+    /*margin-left:20px;*/
 }
 #creating a:hover{
     background-color: #FF9B3B;
