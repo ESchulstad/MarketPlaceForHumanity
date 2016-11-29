@@ -142,7 +142,6 @@ namespace GotFoodConnections.Controllers
         }
 
         [HttpPost]
-       
         public ActionResult Delete(int id)
         {
             CharityPost charityPost = db.CharityPosts.Find(id);

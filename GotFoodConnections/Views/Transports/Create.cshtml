@@ -4,14 +4,14 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2 id="title">Create</h2>
 
-
+<img src="~/Images/bus-1448914.jpg" id="transport" />
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
+    <div class="form-horizontal" id="transportProfile">
         <h4>Transport</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })

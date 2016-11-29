@@ -4,119 +4,54 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<body class="scoreBody">
+    <h2 id="scoreHead">Your Organizations</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ProviderType.Type)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OrgName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ContactName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ContactEmail)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ContactPhone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StreetNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StreetName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.City)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.State)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ZipCode)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Website)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Foods)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProvideTransport)
-        </th>
-        @*<th>
-            @Html.DisplayNameFor(model => model.NumOfDonation)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StarRating)
-        </th>*@
-        <th></th>
-    </tr>
+    <p id="creating">
+        @Html.ActionLink("Create A Profile", "Create")
+    </p>
+    <div class="row orgRow">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProviderType.Type)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.OrgName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContactName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContactEmail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ContactPhone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StreetNumber)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StreetName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.City)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.State)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ZipCode)
-        </td>
-        <td>
-            <a href="http://@item.Website" target="_blank">@item.Website</a>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Foods)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProvideTransport)
-        </td>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.NumOfDonation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.StarRating)
-        </td>*@
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProviderID }) |
-             @Html.ActionLink("Delete", "Delete", new { id = item.ProviderID })
-        
-            @Html.ActionLink("Details", "Details", new { id=item.ProviderID }) |
-            @if (item.User.UserName == User.Identity.Name)
-            {
-                @Html.ActionLink("Donate", "Donate", new { id = item.ProviderID })
-            }
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <div class="col-xs-12 col-md-6">
+                <div class="thumbnail orgThumb">
+                    <div class="caption">
+                        <h3 id="orgName">@Html.DisplayFor(modelItem => item.OrgName)</h3>
+                        <p id="orgInfo">@Html.DisplayNameFor(model => model.ProviderType.Type): @Html.DisplayFor(modelItem => item.ProviderType.Type)</p>
+                        <p id="orgInfo">@Html.DisplayNameFor(model => model.ContactName): @Html.DisplayFor(modelItem => item.ContactName)</p>
+                        <p id="orgInfo">@Html.DisplayNameFor(model => model.ContactEmail): @Html.DisplayFor(modelItem => item.ContactEmail)</p>
+                        <p id="orgInfo">@Html.DisplayNameFor(model => model.ContactPhone): @Html.DisplayFor(modelItem => item.ContactPhone)</p>
+                        <p id="orgInfo">
+                            Address: <br />
+                            @Html.DisplayFor(modelItem => item.StreetNumber) @Html.DisplayFor(modelItem => item.StreetName) <br />
+                            @Html.DisplayFor(modelItem => item.City), @Html.DisplayFor(modelItem => item.State) <br />
+                            @Html.DisplayFor(modelItem => item.ZipCode)
+                        </p>
+                        <p id="orgInfo">@Html.DisplayNameFor(model => model.Website): <a href="http://@item.Website" target="_blank">@item.Website</a></p>
+                        <p id="orgInfo"> @Html.DisplayNameFor(model => model.Foods) @Html.DisplayFor(modelItem => item.Foods)</p>
+                        <p id="orgInfo">@Html.DisplayNameFor(model => model.ProvideTransport): @Html.DisplayFor(modelItem => item.ProvideTransport)</p>
+                        <p>
+                            <span id="editBtn">@Html.ActionLink("Edit", "Edit", new { id = item.ProviderID }, new { @class = "aBtn" })</span>
 
-</table>
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ProviderID }, new { @class = "aBtn" })
+
+                        @Html.ActionLink("Profile", "Details", new { id = item.ProviderID }, new { @class = "aBtn" })
+
+                        @if (item.User.UserName == User.Identity.Name)
+                        {
+                            @Html.ActionLink("Donate", "Donate", new { id = item.ProviderID }, new { @class = "aBtn" })
+                        }
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        }
+    </div>
+
+
+</body>

@@ -141,7 +141,6 @@ namespace GotFoodConnections.Controllers
         }
 
         [HttpPost]
-       
         public ActionResult Delete(int id)
         {
             TransportPost transportPost = db.TransportPosts.Find(id);
