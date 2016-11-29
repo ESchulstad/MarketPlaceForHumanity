@@ -1162,4 +1162,26 @@ input#profileDelete{
 #aboutHead, #contactHead{
     margin-top:70px;
 }
-
+#aboutHead{
+    text-align:center;
+    font-family:'Sriracha', cursive;
+    color:#FF9B3B;
+    font-size:45px;
+    margin-top:95px;
+}
+#freqQues{
+    font-family: 'Scada', sans-serif;
+}
+div#accordion.panel-group{
+    margin-bottom:90px;
+}
+.panel-default > .panel-heading{
+    background-color: #E7F2F2;
+}
+div.panel-body{
+    background-color:white;
+}
+#aboutBody{
+   /*background:#BEBBBB;*/
+   background:#e0e0d2;
+}
