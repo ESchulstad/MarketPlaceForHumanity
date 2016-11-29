@@ -139,7 +139,6 @@ namespace GotFoodConnections.Controllers
         }
 
         [HttpPost]
-        
         public ActionResult Delete(int id)
         {
             ProviderPost providerPost = db.ProviderPosts.Find(id);

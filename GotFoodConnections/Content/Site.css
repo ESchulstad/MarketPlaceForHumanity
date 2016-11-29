@@ -1,7 +1,4 @@
 ﻿body {
-    /*padding-top: 50px;*/
-    /*padding-bottom: 20px;*/
-    /*background-color:#DA6321;*/
     width: 100%;
 }
 
@@ -20,8 +17,7 @@
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
-select,
-textarea {
+select{
     max-width: 280px;
 }
 
@@ -59,6 +55,7 @@ textarea {
     margin: 0;
     padding: 0;
     width: 100%;
+    height:65px;
 }
 
 h3#tabTitle {
@@ -107,7 +104,7 @@ hr {
 
 footer {
     position: fixed;
-    width: 50%;
+    width: 30%;
     bottom: 0;
     padding-left: 10px;
     font-family: 'Scada', sans-serif;
@@ -227,6 +224,7 @@ div#CharityOverlay {
     position:fixed;
     height:100%;
     width:100%;
+    margin-top:65px;
 }
 
 div#TransportOverlay {
@@ -234,6 +232,14 @@ div#TransportOverlay {
     position:fixed;
     height:100%;
     width:100%;
+}
+
+div#PostHeader{
+    position:fixed;
+    height:65px;
+    width:100%;
+    background-color: #E7F2F2;
+    z-index:1;
 }
 
 div#ProviderImage > img, div#CharityImage > img, div#TransportImage > img {
@@ -320,18 +326,18 @@ div#PeopleFed, div#Allergens, div#ExpirationDate {
     min-height: 60px;
 }
 
-div#PeopleFed {
+div#PeopleFed, div#PeopleFedCreate {
     padding: 5px 5px 5px 10px;
     border-right: 1px solid rgba(56, 53, 61, 0.5);
     float: left;
 }
 
-div#Allergens {
+div#Allergens, div#AllergensCreate {
     padding: 5px 5px 5px 5px;
     border-right: 1px solid rgba(56, 53, 61, 0.5);
 }
 
-div#ExpirationDate {
+div#ExpirationDate, div#ExpirationDateCreate {
     padding: 5px 10px 5px 5px;
     float: right;
 }
@@ -402,16 +408,48 @@ div#TransportComments{
 
 div#Timestamp {
     display: inline;
-    width: 50%;
+}
+
+div#CharityTimestamp, div#TransportTimestamp{
+    height:35px;
 }
 
 #TimestampLabel {
-    text-align: right;
+    text-align:right;
     margin-right: 15px;
     margin-bottom: 5px;
     margin-top: 5px;
     font-size: 12px;
     font-family: 'Scada', sans-serif;
+}
+
+p#CharityTimestampLabel, p#TransportTimestampLabel {
+    display:inline;
+    float:right;
+    text-align:right;
+    margin-right: 20px;
+    margin-bottom: 5px;
+    margin-top: 8px;
+    font-size: 12px;
+    font-family: 'Scada', sans-serif;
+    width:195px;
+}
+
+input#delete{
+    padding: 3px;
+    margin:5px 0 5px 20px;
+    background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    border: 1px solid #38353D;
+    border-radius: 8px;
+    color: #38353D;
+    font-family: 'Scada', sans-serif;
+    font-size:12px;
+    font-weight: 700;
+}
+
+form{
+    display:inline;
+    width:100%;
 }
 /*End of Provider Posts on Main Feed*/
 
