@@ -1142,3 +1142,8 @@ input#profileDelete{
     margin-left:15px;
     margin-bottom:5px;
 }
+
+#aboutHead, #contactHead{
+    margin-top:70px;
+}
+
