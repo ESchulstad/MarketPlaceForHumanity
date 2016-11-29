@@ -570,3 +570,26 @@ ul.overlay-content > li {
     transform: scale(1.05);
     cursor: pointer;
 }
+
+div#ProviderImage {
+    height: 65px;
+}
+
+.container{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height:65px;
+    background-color: #E7F2F2;
+}
+
+
+input#profileDelete {
+    left: 25px;
+    background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    border: 1px solid #38353D;
+    border-radius: 8px;
+    color: #38353D;
+    font-family: 'Scada', sans-serif;
+    font-weight:700;
+}
