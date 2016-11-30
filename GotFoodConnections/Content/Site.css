@@ -1186,16 +1186,26 @@ div.panel-body{
    background:#e0e0d2;
 }
 
+#contactHead{
+    text-align:center;
+    font-family:'Sriracha', cursive;
+    color:#b45d51;
+    font-size:45px;
+    margin-top:95px;
+}
 p#names{
     font-family:'Sriracha',cursive;
     color:#b45d51;
-    font-size:15px;
+    font-size:18px;
+    margin-left:135px;
 }
 div#Collab.container-fluid{
     background:#BEBBBB;
+    padding-bottom:75px;
 }
-img{
-    height: 200px;
-    width:150px;
+img#selfPhoto{
+    height: 300px;
+    width:200px;
     border-radius:25px;
+    margin-left:100px;
 }
