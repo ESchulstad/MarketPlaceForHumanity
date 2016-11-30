@@ -543,7 +543,7 @@ div.modal-header {
 /* The navigation links inside the overlay */
 .sidenav a {
     padding: 8px;
-    font-family: 'Chelsea Market', cursive;
+    font-family:'Sriracha',cursive;
     text-decoration: none;
     font-size: 25px;
     color: #38353D;
@@ -598,12 +598,15 @@ ul.overlay-content > li {
     }
 
 .navbar-brand {
-    font-family: 'Chelsea Market', cursive;
     display: inline-block; /* change the default display type to inline-block */
     overflow: hidden; /* hide the overflow */
+    height:100%;
+    padding:0;
+    margin-left:7px;
+    margin-top:2px;
 }
 
-#slide p:hover {
+#slide img:hover {
     transform: scale(1.05);
     cursor: pointer;
 }
@@ -767,3 +770,240 @@ img#levelImages{
 }
 /*End of Provider profile styling*/
 
+#MainPage {
+    background-image: url('../Images/Main-Page-Image.jpg');
+    background-size:cover;
+    height:100vh;
+    width:auto;
+    background-repeat:no-repeat;
+    background-position:bottom;
+}
+
+#MainFeedBtn, #loginLink, #registerLink{
+    padding: 10px;
+    position: fixed;
+    background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
+    border: 1px solid #38353D;
+    border-radius: 8px;
+    color: #38353D;
+    font-family: 'Scada', sans-serif;
+    font-size:18px;
+    font-weight: 700;
+    z-index: 3;
+}
+
+#MainFeedBtn:hover, #loginLink:hover, #registerLink:hover{
+    background-color: #FF9B3B;
+    text-decoration: none;
+}
+
+a#MainFeedBtn{
+    top:380px;
+    left:690px;
+    font-size:22px;
+    padding:10px 30px;
+    box-shadow:rgba(56,53,61,.4) 8px 8px 20px;
+}
+
+a#loginLink{
+    top:315px;
+    left:803px;
+    width:150px;
+    padding:10px 0;
+    text-align:center;
+    box-shadow:rgba(56,53,61,.4) 8px 8px 20px;
+}
+
+a#registerLink{
+    top:315px;
+    left:628px;
+    width:150px;
+    padding:10px 0;
+    text-align:center;
+    box-shadow:rgba(56,53,61,.4) 8px 8px 20px;
+}
+
+#warped {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+
+#warped > span[class^=w]:nth-of-type(n+0) {
+                display: block;
+                position: absolute;
+                -moz-transform-origin: 50% 100%;
+                -webkit-transform-origin: 50% 100%;
+                -o-transform-origin: 50% 100%;
+                -ms-transform-origin: 50% 100%;
+                transform-origin: 50% 100%;
+            }
+
+            #warped span {
+                font-family: 'Quando';
+                font-size: 38px;
+                font-weight: 600;
+                font-style: normal;
+                line-height: 0.6;
+                white-space: pre;
+                overflow: visible;
+                padding: 0px;
+                color:#FF9B3B;
+                text-shadow:2px 2px 0 #38353D;
+            }
+
+            #warped .w0 {
+                -moz-transform: rotate(-0.68rad);
+                -webkit-transform: rotate(-0.68rad);
+                -o-transform: rotate(-0.68rad);
+                -ms-transform: rotate(-0.68rad);
+                transform: rotate(-0.68rad);
+                width: 36px;
+                height: 22px;
+                left: 631.35px;
+                top: 195.89px;
+            }
+
+            #warped .w1 {
+                -moz-transform: rotate(-0.52rad);
+                -webkit-transform: rotate(-0.52rad);
+                -o-transform: rotate(-0.52rad);
+                -ms-transform: rotate(-0.52rad);
+                transform: rotate(-0.52rad);
+                width: 27px;
+                height: 22px;
+                left: 665.99px;
+                top: 175.37px;
+            }
+
+            #warped .w2 {
+                -moz-transform: rotate(-0.39rad);
+                -webkit-transform: rotate(-0.39rad);
+                -o-transform: rotate(-0.39rad);
+                -ms-transform: rotate(-0.39rad);
+                transform: rotate(-0.39rad);
+                width: 27px;
+                height: 22px;
+                left: 694.79px;
+                top: 161.48px;
+            }
+
+            #warped .w3 {
+                -moz-transform: rotate(-0.24rad);
+                -webkit-transform: rotate(-0.24rad);
+                -o-transform: rotate(-0.24rad);
+                -ms-transform: rotate(-0.24rad);
+                transform: rotate(-0.24rad);
+                width: 30px;
+                height: 22px;
+                left: 725.19px;
+                top: 151.35px;
+            }
+
+            #warped .w4 {
+                -moz-transform: rotate(-0.1rad);
+                -webkit-transform: rotate(-0.1rad);
+                -o-transform: rotate(-0.1rad);
+                -ms-transform: rotate(-0.1rad);
+                transform: rotate(-0.1rad);
+                width: 25px;
+                height: 22px;
+                left: 759.72px;
+                top: 146.02px;
+            }
+
+            #warped .w5 {
+                -moz-transform: rotate(0.03rad);
+                -webkit-transform: rotate(0.03rad);
+                -o-transform: rotate(0.03rad);
+                -ms-transform: rotate(0.03rad);
+                transform: rotate(0.03rad);
+                width: 25px;
+                height: 22px;
+                left: 789.69px;
+                top: 145.14px;
+            }
+
+            #warped .w6 {
+                -moz-transform: rotate(0.16rad);
+                -webkit-transform: rotate(0.16rad);
+                -o-transform: rotate(0.16rad);
+                -ms-transform: rotate(0.16rad);
+                transform: rotate(0.16rad);
+                width: 23px;
+                height: 22px;
+                left: 819.53px;
+                top: 147.98px;
+            }
+
+            #warped .w7 {
+                -moz-transform: rotate(0.28rad);
+                -webkit-transform: rotate(0.28rad);
+                -o-transform: rotate(0.28rad);
+                -ms-transform: rotate(0.28rad);
+                transform: rotate(0.28rad);
+                width: 25px;
+                height: 22px;
+                left: 846.79px;
+                top: 154.41px;
+            }
+
+            #warped .w8 {
+                -moz-transform: rotate(0.42rad);
+                -webkit-transform: rotate(0.42rad);
+                -o-transform: rotate(0.42rad);
+                -ms-transform: rotate(0.42rad);
+                transform: rotate(0.42rad);
+                width: 27px;
+                height: 22px;
+                left: 874.85px;
+                top: 165.14px;
+            }
+
+            #warped .w9 {
+                -moz-transform: rotate(0.55rad);
+                -webkit-transform: rotate(0.55rad);
+                -o-transform: rotate(0.55rad);
+                -ms-transform: rotate(0.55rad);
+                transform: rotate(0.55rad);
+                width: 27px;
+                height: 22px;
+                left: 903.06px;
+                top: 180.19px;
+            }
+
+            #warped .w10 {
+                -moz-transform: rotate(0.69rad);
+                -webkit-transform: rotate(0.69rad);
+                -o-transform: rotate(0.69rad);
+                -ms-transform: rotate(0.69rad);
+                transform: rotate(0.69rad);
+                width: 25px;
+                height: 22px;
+                left: 929.15px;
+                top: 198.35px;
+            }
+
+#for{
+    font-family: 'Quando';
+    font-size: 28px;
+    font-weight: 600;
+    color:#FF9B3B;
+    text-shadow:2px 2px 0 #38353D;
+    position:absolute;
+    left:769px;
+    top:200px;
+}
+
+#humanity{
+    font-family: 'Quando';
+    font-size: 55px;
+    font-weight: 600;
+    color:#FF9B3B;
+    text-shadow:2px 2px 0 #38353D;
+    position:absolute;
+    left:617px;
+    top:235px;
+}

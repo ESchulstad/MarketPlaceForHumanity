@@ -298,6 +298,8 @@
     <Content Include="Images\Charity-Food-Image.jpg" />
     <Content Include="Images\Food-Table-Image.jpeg" />
     <Content Include="Images\Food-Transport-Image.jpg" />
+    <Content Include="Images\Logo.png" />
+    <Content Include="Images\Main-Page-Image.jpg" />
     <Content Include="Images\Transport-Image.jpg" />
     <Content Include="Images\Food_Donor_Image.png" />
     <Content Include="Images\help-1300942_960_720.png" />
