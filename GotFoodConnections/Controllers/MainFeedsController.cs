@@ -20,6 +20,7 @@ namespace GotFoodConnections.Controllers
         {
             //var mainFeeds = db.MainFeeds.Include(m => m.CharityPost).Include(m => m.ProviderPost).Include(m => m.TransportPost);
             //return View(mainFeeds.ToList());
+
             dynamic mymodel = new ExpandoObject();
             mymodel.ProviderPosts = db.ProviderPosts;
             mymodel.CharityPosts = db.CharityPosts;
