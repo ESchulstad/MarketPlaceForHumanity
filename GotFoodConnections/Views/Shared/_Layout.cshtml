@@ -10,7 +10,7 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link href="https://fonts.googleapis.com/css?family=Chelsea+Market" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Scada:400|Sriracha" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Scada:400|Sriracha|Quando" rel="stylesheet">
     <link href="~/Content/Site.css" rel="stylesheet" />
     <script src="~/Scripts/navigation.js"></script>
 </head>
@@ -64,7 +64,8 @@
     </div>
     <!-- Use any element to open/show the overlay navigation menu -->
     <div class="navbar-brand" onclick="openNav()" id="slide">
-        <p>Got Food Connections</p>
+        @*<p>Got Food Connections</p>*@
+        <img src="~/Images/Logo.png" />
         @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
     </div>
     @*<div>
