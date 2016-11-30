@@ -1196,21 +1196,35 @@ div.panel-body{
     font-size:45px;
     margin-top:95px;
 }
+#contactItem{
+    display:inline-block;
+    margin:0 60px;
+}
 p#names{
     font-family:'Sriracha',cursive;
     color:#b45d51;
     font-size:18px;
-    margin-left:135px;
+    margin:auto;
+    width:auto;
+    text-align:center;
 }
 div#Collab.container-fluid{
     background:#BEBBBB;
     padding-bottom:75px;
+    height:100vh;
+}
+div#contacts{
+    position:inherit;
+    height:auto;
+    width:100%;
+    margin:30px 0;
 }
 img#selfPhoto{
-    height: 300px;
-    width:200px;
+    /*height: 300px;
+    width:200px;*/
     border-radius:25px;
-    margin-left:100px;
+    margin:auto;
+    display:inline-block;
 }
 #MainPage {
     background-image: url('../Images/Main-Page-Image.jpg');
@@ -1221,7 +1235,7 @@ img#selfPhoto{
     background-position:bottom;
 }
 
-#MainFeedBtn, #loginLink, #registerLink{
+#MainFeedBtn, #loginBtn, #registerBtn{
     padding: 10px;
     position: fixed;
     background: linear-gradient(to bottom, rgba(255,159,107,1) 0%, rgba(218,98,33,1) 30%, rgba(218,98,33,1) 50%, rgba(255,134,74,1) 100%);
@@ -1234,7 +1248,7 @@ img#selfPhoto{
     z-index: 3;
 }
 
-#MainFeedBtn:hover, #loginLink:hover, #registerLink:hover{
+#MainFeedBtn:hover, #loginBtn:hover, #registerBtn:hover{
     background-color: #FF9B3B;
     text-decoration: none;
 }
@@ -1247,7 +1261,7 @@ a#MainFeedBtn{
     box-shadow:rgba(56,53,61,.4) 8px 8px 20px;
 }
 
-a#loginLink{
+a#loginBtn{
     top:315px;
     left:803px;
     width:150px;
@@ -1256,7 +1270,7 @@ a#loginLink{
     box-shadow:rgba(56,53,61,.4) 8px 8px 20px;
 }
 
-a#registerLink{
+a#registerBtn{
     top:315px;
     left:628px;
     width:150px;
